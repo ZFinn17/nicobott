@@ -5,24 +5,143 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="./src/style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
     <title>client</title>
   </head>
   <body>
-    <nav class="flex flex-col md:flex-row justify-around border-b border-gray-300 p-3 md:items-center">
+    <nav
+      class="fixed top-0 z-50 w-full py-3 bg-white flex flex-col md:flex-row justify-around border-b border-gray-300 p-3 items-center"
+    >
       <h1 class="font-bold">SMK ICB Cinta Niaga</h1>
       <ul class="flex gap-3">
-        <li><a href="index.html">Home</a> </li>
-        <li class="underline underline-offset-5"><a href="#">Profile</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li class="underline underline-offset-5 font-bold">
+          <a href="#">Profile</a>
+        </li>
         <li><a href="major.html">Major</a></li>
         <li><a href="about.html">About</a></li>
       </ul>
-      <button class="bg-blue-950 text-white px-2.5 py-1.5 rounded-lg text-xs mt-2 md:mt-0 md:px-4.5 md:py-2">
+      <button
+        class="bg-blue-950 text-white w-1/2 md:w-fit px-2.5 py-1.5 rounded-lg text-xs mt-2 md:mt-0 md:px-4.5 md:py-2"
+      >
         Chat With Us
       </button>
     </nav>
 
-    <script>
-      
-    </script>
+    <main>
+      <section
+        class="min-h-screen bg-[#f5f5f7] flex items-center justify-center px-6"
+      >
+        <div class="max-w-3xl flex flex-col items-center text-center gap-8">
+          <!-- logo -->
+          <div class="bg-white p-4 rounded-md shadow-lg border border-gray-200">
+            <img
+              src="./src/assets/image.png"
+              alt="school"
+              class="w-24 h-24 object-fit"
+            />
+          </div>
+          <div class="flex flex-col gap-5">
+            <h1
+              class="text-4xl md:text-6xl font-bold leading-tight text-gray-900"
+            >
+              Mengenal Lebih Dekat <br />
+              <span class="text-blue-950 text-shadow-lg">
+                SMK ICB Cinta Niaga
+              </span>
+            </h1>
+            <h2
+              class="text-sm text-gray-600 md:text-lg max-w-2xl leading-relaxed"
+            >
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Perspiciatis adipisci nesciunt quasi odit laudantium saepe,
+              consequatur pariatur corrupti consectetur architecto!
+            </h2>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-[#dfdfdf] py-20 px-6 md:px-16">
+        <div
+          class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center"
+        >
+          <!-- Left Content -->
+          <div class="flex flex-col gap-6">
+            <p class="text-yellow-800 font-semibold text-lg gap-2">
+              <i class="fa-regular fa-note-sticky"></i> Jejak Langkah
+            </p>
+            <h1
+              class="font-bold text-4xl md:text-5xl text-blue-950 leading-tight"
+            >
+              Sejarah Sekolah
+            </h1>
+            <p class="text-gray-700 leading-relaxed text-sm md:text-base">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Obcaecati ratione nobis, cumque maxime, voluptates voluptas magni
+              illo ipsa vitae sunt blanditiis pariatur fugiat sit unde eos eaque
+              quasi expedita officia!
+            </p>
+            <p class="text-gray-700 leading-relaxed text-sm md:text-base">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Cupiditate quae tempora tenetur, commodi numquam nulla fugiat
+              accusamus sunt error aliquid iusto exercitationem nemo consectetur
+              corrupti, qui ea ab ad atque!
+            </p>
+          </div>
+
+          <!-- Right Grid -->
+          <div class="grid grid-cols-2 gap-4 h-125">
+            <!-- Big Card -->
+            <div
+              class="relative rounded-2xl overflow-hidden shadow-lg col-span-1 row-span-2"
+            >
+              <img
+                src="./src/assets/image.png"
+                alt=""
+                class="w-full h-full object-cover"
+              />
+
+              <div
+                class="absolute inset-0 bg-linear-to-t from-black/70 to-transparent"
+              ></div>
+
+              <div class="absolute bottom-0 p-6 text-white">
+                <h2 class="text-2xl font-bold">Fasilitas Modern</h2>
+                <p class="text-sm text-gray-200">
+                  Mendukung pembelajaran interaktif.
+                </p>
+              </div>
+            </div>
+
+            <!-- Small Top -->
+            <div class="rounded-2xl relative overflow-hidden shadow-lg">
+              <img
+                src="src/assets/image.png"
+                alt="picture"
+                class="w-full h-full object-cover"
+              />
+
+              <div
+                class="absolute inset-0 bg-linear-to-t from-black/70 to-transparent"
+              ></div>
+            </div>
+
+            <!-- Third Card -->
+            <div
+              class="bg-blue-950 rounded-2xl shadow-lg flex flex-col items-center justify-center text-center p-6"
+            >
+              <i class="fa-solid fa-award text-yellow-400 text-2xl"></i>
+              <h2 class="text-white text-2xl font-bold">Terakreditasi</h2>
+
+              <p class="text-gray-300 text-sm">Standar Mutu A</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
