@@ -54,14 +54,14 @@ const templates = [
       <p class="font-semibold mb-3">Jam Operasional</p>
       <p class="text-xs uppercase tracking-wide opacity-60 mb-1">Jam Sekolah Siswa</p>
       <div class="info-grid mb-3">
-        <div class="info-row"><span class="info-label">Senin – Selasa</span><span>06.30 – 14.20 WIB</span></div>
-        <div class="info-row"><span class="info-label">Rabu – Kamis</span><span>06.30 – 15.20 WIB</span></div>
-        <div class="info-row"><span class="info-label">Jumat</span><span>06.30 – 11.00 WIB</span></div>
+        <div class="info-row"><span class="info-label">Senin Selasa</span><span>06.30 14.20 WIB</span></div>
+        <div class="info-row"><span class="info-label">Rabu Kamis</span><span>06.30 15.20 WIB</span></div>
+        <div class="info-row"><span class="info-label">Jumat</span><span>06.30 11.00 WIB</span></div>
       </div>
       <p class="text-xs uppercase tracking-wide opacity-60 mb-1">Jam Kunjungan Tamu</p>
       <div class="info-grid">
-        <div class="info-row"><span class="info-label">Senin – Kamis</span><span>08.00 – 15.00 WIB</span></div>
-        <div class="info-row"><span class="info-label">Jumat</span><span>08.00 – 11.00 WIB</span></div>
+        <div class="info-row"><span class="info-label">Senin Kamis</span><span>08.00 15.00 WIB</span></div>
+        <div class="info-row"><span class="info-label">Jumat</span><span>08.00 11.00 WIB</span></div>
       </div>`
   },
 
