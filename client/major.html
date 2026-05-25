@@ -1,33 +1,497 @@
 <!doctype html>
-<html lang="en">
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="./src/style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Fontawesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
-    <title>client</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <title>Jurusan – SMK ICB Cinta Niaga</title>
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: 'Poppins', sans-serif; background: #f4f5f9; color: #1a1a2e; }
+
+      /* PAGE HEADER */
+      .page-header { text-align: center; padding: 52px 24px 44px; }
+      .eyebrow {
+        display: inline-flex; align-items: center; gap: 8px;
+        font-size: 11.5px; font-weight: 600; letter-spacing: .13em;
+        text-transform: uppercase; color: #96700a;
+        background: #fffbeb; border: 1px solid #fde68a;
+        padding: 5px 18px; border-radius: 999px; margin-bottom: 20px;
+      }
+      .page-header h1 {
+        font-size: clamp(28px, 4vw, 44px); font-weight: 800;
+        line-height: 1.15; color: #0d0d1a; margin-bottom: 14px;
+      }
+      .page-header h1 em { font-style: normal; color: #b8860b; }
+      .page-header p { max-width: 500px; margin: 0 auto; font-size: 13.5px; color: #6b7280; line-height: 1.8; }
+
+      /* ZIG-ZAG GRID */
+      .zigzag { max-width: 1080px; margin: 0 auto; padding: 0 28px 88px; display: flex; flex-direction: column; gap: 24px; }
+      .row { display: flex; gap: 24px; align-items: stretch; }
+      .row-1 .card-big   { flex: 0 0 64%; }
+      .row-1 .card-small { flex: 1; }
+      .row-2 .card-small { flex: 0 0 36%; }
+      .row-2 .card-big   { flex: 1; }
+
+      /* CARD */
+      .jurusan-card {
+        background: #fff; border-radius: 22px; border: 1px solid #e4e6ef;
+        box-shadow: 0 3px 14px rgba(0,0,0,.07);
+        overflow: hidden; display: flex; flex-direction: column;
+        transition: transform .28s ease, box-shadow .28s ease;
+      }
+      .jurusan-card:hover { transform: translateY(-7px); box-shadow: 0 20px 48px rgba(0,0,0,.13); }
+
+      /* ═══ SLIDER ═══ */
+      .slider-wrap {
+        position: relative;
+        overflow: hidden;
+        flex-shrink: 0;
+        background: #dde1ea;
+      }
+      .card-big   .slider-wrap { height: 230px; }
+      .card-small .slider-wrap { height: 175px; }
+
+      /* strip yang bergeser */
+      .slider-track {
+        display: flex;
+        width: 300%;           /* 3 slide × 100% */
+        height: 100%;
+        transition: transform .55s cubic-bezier(.4,0,.2,1);
+      }
+
+      /* tiap slide */
+      .slide {
+        flex: 0 0 33.3333%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+      }
+      .slide img {
+        width: 100%; height: 100%;
+        object-fit: cover; display: block;
+        transition: transform .4s ease;
+      }
+      .jurusan-card:hover .slide img { transform: scale(1.05); }
+
+      /* placeholder slide */
+      .slide-ph {
+        position: absolute; inset: 0;
+        display: flex; flex-direction: column;
+        align-items: center; justify-content: center;
+        gap: 7px; color: #a0aab8; pointer-events: none;
+      }
+      .slide-ph i { font-size: 26px; }
+      .slide-ph span { font-size: 11px; font-weight: 500; }
+      .slide-ph.hide { display: none; }
+
+      /* overlay gradient */
+      .slider-wrap::after {
+        content: '';
+        position: absolute; inset: 0;
+        background: linear-gradient(to top, rgba(0,0,0,.38) 0%, transparent 52%);
+        pointer-events: none; z-index: 2;
+      }
+
+      /* dots */
+      .slider-dots {
+        position: absolute; bottom: 11px; left: 50%; transform: translateX(-50%);
+        display: flex; gap: 6px; z-index: 5;
+      }
+      .sdot {
+        width: 7px; height: 7px; border-radius: 50%;
+        background: rgba(255,255,255,.45);
+        border: none; cursor: pointer; padding: 0;
+        transition: background .2s, transform .2s;
+      }
+      .sdot.active { background: #fff; transform: scale(1.3); }
+
+      /* badge tipe */
+      .badge-tipe {
+        position: absolute; bottom: 12px; left: 12px;
+        background: rgba(10,10,22,.55); backdrop-filter: blur(6px);
+        color: #fff; font-size: 10.5px; font-weight: 600;
+        padding: 4px 13px; border-radius: 999px;
+        display: flex; align-items: center; gap: 6px;
+        z-index: 4; letter-spacing: .02em;
+      }
+      .dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+
+      /* tombol upload – kanan atas, muncul saat hover */
+      .btn-cam {
+        position: absolute; top: 10px; right: 10px;
+        background: rgba(255,255,255,.93); border: none; border-radius: 999px;
+        padding: 5px 13px; font-size: 10.5px; font-weight: 600;
+        font-family: 'Poppins', sans-serif; color: #1a1a2e;
+        cursor: pointer; display: flex; align-items: center; gap: 5px;
+        opacity: 0; transition: opacity .2s;
+        box-shadow: 0 2px 8px rgba(0,0,0,.2); z-index: 5; white-space: nowrap;
+      }
+      .slider-wrap:hover .btn-cam { opacity: 1; }
+
+      /* prev / next */
+      .slider-prev, .slider-next {
+        position: absolute; top: 50%; transform: translateY(-50%);
+        background: rgba(255,255,255,.82); border: none; border-radius: 50%;
+        width: 30px; height: 30px;
+        display: flex; align-items: center; justify-content: center;
+        cursor: pointer; font-size: 12px; color: #1a1a2e;
+        box-shadow: 0 2px 8px rgba(0,0,0,.18);
+        z-index: 5; opacity: 0; transition: opacity .2s;
+      }
+      .slider-prev { left: 9px; }
+      .slider-next { right: 9px; }
+      .slider-wrap:hover .slider-prev,
+      .slider-wrap:hover .slider-next { opacity: 1; }
+
+      /* CARD BODY */
+      .card-body { padding: 22px 24px 26px; display: flex; flex-direction: column; gap: 9px; flex: 1; }
+      .card-title { font-size: 17px; font-weight: 700; color: #0d0d1a; line-height: 1.3; }
+      .card-small .card-title { font-size: 15.5px; }
+      .card-desc { font-size: 12.5px; color: #6b7280; line-height: 1.75; }
+      .card-small .card-desc { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+      .divider { height: 1px; background: #f0f1f6; margin: 2px 0; }
+      .prospek-label { font-size: 9.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #9ca3af; margin-bottom: 7px; }
+      .badges-row { display: flex; flex-wrap: wrap; gap: 6px; }
+      .badge-karir {
+        display: inline-flex; align-items: center; gap: 5px;
+        background: #fffbeb; border: 1px solid #f0c030;
+        color: #6b4e00; font-size: 11px; font-weight: 600;
+        font-family: 'Poppins', sans-serif;
+        padding: 4px 12px; border-radius: 999px;
+        transition: background .18s, border-color .18s;
+      }
+      .badge-karir:hover { background: #fef3c7; border-color: #d4a017; }
+      .badge-karir i { font-size: 9px; }
+
+      .hidden-input { display: none; }
+
+      /* RESPONSIVE */
+      @media (max-width: 680px) {
+        .row { flex-direction: column; }
+        .row-1 .card-big, .row-1 .card-small,
+        .row-2 .card-small, .row-2 .card-big { flex: unset; width: 100%; }
+        .card-big .slider-wrap, .card-small .slider-wrap { height: 200px; }
+        .zigzag { padding: 0 16px 64px; }
+      }
+    </style>
   </head>
   <body>
-    <nav
-      class="fixed top-0 z-50 w-full bg-white flex flex-col md:flex-row justify-around border-b border-gray-300 p-3 items-center"
-    >
-      <h1 class="font-bold">SMK ICB Cinta Niaga</h1>
-      <ul class="flex gap-3">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="profile.html">Profile</a></li>
-        <li  class="underline underline-offset-5 font-bold"><a href="#">Major</a></li>
-        <li><a href="about.html">About</a></li>
+
+    <!-- NAVBAR -->
+    <nav style="position:fixed;top:0;z-index:50;width:100%;background:#fff;display:flex;flex-wrap:wrap;justify-content:space-around;align-items:center;border-bottom:1px solid #e5e7eb;padding:12px 20px;font-family:'Poppins',sans-serif;gap:10px;">
+      <span style="font-weight:700;font-size:15px;color:#0d0d1a;">SMK ICB Cinta Niaga</span>
+      <ul style="display:flex;gap:20px;list-style:none;font-size:13px;">
+        <li><a href="index.html" style="color:#4b5563;text-decoration:none;">Home</a></li>
+        <li><a href="profile.html" style="color:#4b5563;text-decoration:none;">Profil</a></li>
+        <li><a href="#" style="color:#0d0d1a;font-weight:700;text-decoration:underline;text-underline-offset:4px;">Jurusan</a></li>
+        <li><a href="about.html" style="color:#4b5563;text-decoration:none;">About</a></li>
       </ul>
-      <button
-        class="bg-blue-950 text-white w-1/2 md:w-fit px-2.5 py-1.5 rounded-lg text-xs mt-2 md:mt-0 md:px-4.5 md:py-2"
-      >
-        Chat With Us
-      </button>
+      <button style="background:#0d1f3c;color:#fff;padding:8px 22px;border-radius:9px;border:none;font-size:12px;font-weight:600;font-family:'Poppins',sans-serif;cursor:pointer;">Chat with Us</button>
     </nav>
+
+    <main style="padding-top:74px;">
+      <div class="page-header">
+        <div class="eyebrow"><i class="fa-solid fa-graduation-cap"></i> Program Unggulan</div>
+        <h1>Program <em>Keahlian</em></h1>
+        <p>Mempersiapkan generasi unggul dari keterampilan praktis dan teoritis yang relevan dengan kebutuhan industri masa kini.</p>
+      </div>
+
+      <div class="zigzag">
+
+        <!-- ══ BARIS 1: BESAR ← KECIL ══ -->
+        <div class="row row-1">
+
+          <!-- Card Besar: RPL -->
+          <div class="jurusan-card card-big">
+            <div class="slider-wrap" data-id="rpl">
+              <div class="slider-track">
+                <!-- slide 1 -->
+                <div class="slide" onclick="uploadSlide('rpl',0)">
+                  <div class="slide-ph" id="ph-rpl-0"><i class="fa-solid fa-image"></i><span>Foto 1 — klik upload</span></div>
+                  <img id="img-rpl-0" src="/images/jurusan-rpl-1.jpg" alt="" onload="showImg('rpl',0,this)" onerror="this.style.display='none'" style="opacity:0"/>
+                </div>
+                <!-- slide 2 -->
+                <div class="slide" onclick="uploadSlide('rpl',1)">
+                  <div class="slide-ph" id="ph-rpl-1"><i class="fa-solid fa-image"></i><span>Foto 2 — klik upload</span></div>
+                  <img id="img-rpl-1" src="/images/jurusan-rpl-2.jpg" alt="" onload="showImg('rpl',1,this)" onerror="this.style.display='none'" style="opacity:0"/>
+                </div>
+                <!-- slide 3 -->
+                <div class="slide" onclick="uploadSlide('rpl',2)">
+                  <div class="slide-ph" id="ph-rpl-2"><i class="fa-solid fa-image"></i><span>Foto 3 — klik upload</span></div>
+                  <img id="img-rpl-2" src="/images/jurusan-rpl-3.jpg" alt="" onload="showImg('rpl',2,this)" onerror="this.style.display='none'" style="opacity:0"/>
+                </div>
+              </div>
+              <!-- dots -->
+              <div class="slider-dots">
+                <button class="sdot active" onclick="goSlide('rpl',0)"></button>
+                <button class="sdot"        onclick="goSlide('rpl',1)"></button>
+                <button class="sdot"        onclick="goSlide('rpl',2)"></button>
+              </div>
+              <!-- prev / next -->
+              <button class="slider-prev" onclick="prevSlide('rpl')"><i class="fa-solid fa-chevron-left"></i></button>
+              <button class="slider-next" onclick="nextSlide('rpl')"><i class="fa-solid fa-chevron-right"></i></button>
+              <!-- badge & upload -->
+              <div class="badge-tipe"><span class="dot" style="background:#fbbf24"></span> IT Teknologi</div>
+              <button class="btn-cam" onclick="event.stopPropagation();uploadSlide('rpl', getActive('rpl'))">
+                <i class="fa-solid fa-camera"></i> Ganti Foto
+              </button>
+              <!-- hidden inputs -->
+              <input type="file" id="file-rpl-0" accept="image/*" class="hidden-input" onchange="setSlideImg('rpl',0,this)"/>
+              <input type="file" id="file-rpl-1" accept="image/*" class="hidden-input" onchange="setSlideImg('rpl',1,this)"/>
+              <input type="file" id="file-rpl-2" accept="image/*" class="hidden-input" onchange="setSlideImg('rpl',2,this)"/>
+            </div>
+            <div class="card-body">
+              <div class="card-title">Rekayasa Perangkat Lunak</div>
+              <div class="card-desc">Mempelajari pengembangan perangkat lunak, pemrograman web, mobile, dan desktop dengan kurikulum yang selalu disesuaikan dengan perkembangan teknologi terkini.</div>
+              <div class="divider"></div>
+              <div class="prospek-label">Prospek Karir</div>
+              <div class="badges-row">
+                <span class="badge-karir"><i class="fa-solid fa-code"></i> Web Developer</span>
+                <span class="badge-karir"><i class="fa-solid fa-mobile-screen"></i> Mobile Developer</span>
+                <span class="badge-karir"><i class="fa-solid fa-diagram-project"></i> System Analist</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Kecil: Bisnis Ritel -->
+          <div class="jurusan-card card-small">
+            <div class="slider-wrap" data-id="bisnis">
+              <div class="slider-track">
+                <div class="slide" onclick="uploadSlide('bisnis',0)">
+                  <div class="slide-ph" id="ph-bisnis-0"><i class="fa-solid fa-image"></i><span>Foto 1 — klik upload</span></div>
+                  <img id="img-bisnis-0" src="/images/jurusan-bisnis-1.jpg" alt="" onload="showImg('bisnis',0,this)" onerror="this.style.display='none'" style="opacity:0"/>
+                </div>
+                <div class="slide" onclick="uploadSlide('bisnis',1)">
+                  <div class="slide-ph" id="ph-bisnis-1"><i class="fa-solid fa-image"></i><span>Foto 2 — klik upload</span></div>
+                  <img id="img-bisnis-1" src="/images/jurusan-bisnis-2.jpg" alt="" onload="showImg('bisnis',1,this)" onerror="this.style.display='none'" style="opacity:0"/>
+                </div>
+                <div class="slide" onclick="uploadSlide('bisnis',2)">
+                  <div class="slide-ph" id="ph-bisnis-2"><i class="fa-solid fa-image"></i><span>Foto 3 — klik upload</span></div>
+                  <img id="img-bisnis-2" src="/images/jurusan-bisnis-3.jpg" alt="" onload="showImg('bisnis',2,this)" onerror="this.style.display='none'" style="opacity:0"/>
+                </div>
+              </div>
+              <div class="slider-dots">
+                <button class="sdot active" onclick="goSlide('bisnis',0)"></button>
+                <button class="sdot"        onclick="goSlide('bisnis',1)"></button>
+                <button class="sdot"        onclick="goSlide('bisnis',2)"></button>
+              </div>
+              <button class="slider-prev" onclick="prevSlide('bisnis')"><i class="fa-solid fa-chevron-left"></i></button>
+              <button class="slider-next" onclick="nextSlide('bisnis')"><i class="fa-solid fa-chevron-right"></i></button>
+              <div class="badge-tipe"><span class="dot" style="background:#4ade80"></span> Bisnis</div>
+              <button class="btn-cam" onclick="event.stopPropagation();uploadSlide('bisnis', getActive('bisnis'))">
+                <i class="fa-solid fa-camera"></i> Ganti Foto
+              </button>
+              <input type="file" id="file-bisnis-0" accept="image/*" class="hidden-input" onchange="setSlideImg('bisnis',0,this)"/>
+              <input type="file" id="file-bisnis-1" accept="image/*" class="hidden-input" onchange="setSlideImg('bisnis',1,this)"/>
+              <input type="file" id="file-bisnis-2" accept="image/*" class="hidden-input" onchange="setSlideImg('bisnis',2,this)"/>
+            </div>
+            <div class="card-body">
+              <div class="card-title">Bisnis Ritel</div>
+              <div class="card-desc">Membekali siswa dengan kompetensi dalam pengelolaan bisnis ritel, manajemen toko, pemasaran digital, dan pelayanan prima kepada pelanggan.</div>
+              <div class="divider"></div>
+              <div class="prospek-label">Prospek Karir</div>
+              <div class="badges-row">
+                <span class="badge-karir"><i class="fa-solid fa-store"></i> Pramuniaga</span>
+                <span class="badge-karir"><i class="fa-solid fa-user-tie"></i> Store Manager</span>
+                <span class="badge-karir"><i class="fa-solid fa-lightbulb"></i> Entrepreneur</span>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- end row-1 -->
+
+        <!-- ══ BARIS 2: KECIL → BESAR ══ -->
+        <div class="row row-2">
+
+          <!-- Card Kecil: Akuntansi -->
+          <div class="jurusan-card card-small">
+            <div class="slider-wrap" data-id="akuntansi">
+              <div class="slider-track">
+                <div class="slide" onclick="uploadSlide('akuntansi',0)">
+                  <div class="slide-ph" id="ph-akuntansi-0"><i class="fa-solid fa-image"></i><span>Foto 1 — klik upload</span></div>
+                  <img id="img-akuntansi-0" src="/images/jurusan-akuntansi-1.jpg" alt="" onload="showImg('akuntansi',0,this)" onerror="this.style.display='none'" style="opacity:0"/>
+                </div>
+                <div class="slide" onclick="uploadSlide('akuntansi',1)">
+                  <div class="slide-ph" id="ph-akuntansi-1"><i class="fa-solid fa-image"></i><span>Foto 2 — klik upload</span></div>
+                  <img id="img-akuntansi-1" src="/images/jurusan-akuntansi-2.jpg" alt="" onload="showImg('akuntansi',1,this)" onerror="this.style.display='none'" style="opacity:0"/>
+                </div>
+                <div class="slide" onclick="uploadSlide('akuntansi',2)">
+                  <div class="slide-ph" id="ph-akuntansi-2"><i class="fa-solid fa-image"></i><span>Foto 3 — klik upload</span></div>
+                  <img id="img-akuntansi-2" src="/images/jurusan-akuntansi-3.jpg" alt="" onload="showImg('akuntansi',2,this)" onerror="this.style.display='none'" style="opacity:0"/>
+                </div>
+              </div>
+              <div class="slider-dots">
+                <button class="sdot active" onclick="goSlide('akuntansi',0)"></button>
+                <button class="sdot"        onclick="goSlide('akuntansi',1)"></button>
+                <button class="sdot"        onclick="goSlide('akuntansi',2)"></button>
+              </div>
+              <button class="slider-prev" onclick="prevSlide('akuntansi')"><i class="fa-solid fa-chevron-left"></i></button>
+              <button class="slider-next" onclick="nextSlide('akuntansi')"><i class="fa-solid fa-chevron-right"></i></button>
+              <div class="badge-tipe"><span class="dot" style="background:#a78bfa"></span> Keuangan</div>
+              <button class="btn-cam" onclick="event.stopPropagation();uploadSlide('akuntansi', getActive('akuntansi'))">
+                <i class="fa-solid fa-camera"></i> Ganti Foto
+              </button>
+              <input type="file" id="file-akuntansi-0" accept="image/*" class="hidden-input" onchange="setSlideImg('akuntansi',0,this)"/>
+              <input type="file" id="file-akuntansi-1" accept="image/*" class="hidden-input" onchange="setSlideImg('akuntansi',1,this)"/>
+              <input type="file" id="file-akuntansi-2" accept="image/*" class="hidden-input" onchange="setSlideImg('akuntansi',2,this)"/>
+            </div>
+            <div class="card-body">
+              <div class="card-title">Akuntansi</div>
+              <div class="card-desc">Fokus pada pencatatan, pengklasifikasian, dan pelaporan keuangan perusahaan jasa, dagang, dan manufaktur menggunakan software akuntansi modern.</div>
+              <div class="divider"></div>
+              <div class="prospek-label">Prospek Karir</div>
+              <div class="badges-row">
+                <span class="badge-karir"><i class="fa-solid fa-coins"></i> Staf Keuangan</span>
+                <span class="badge-karir"><i class="fa-solid fa-cash-register"></i> Kasir</span>
+                <span class="badge-karir"><i class="fa-solid fa-file-invoice"></i> Tax Admin</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Besar: Manajemen Perkantoran -->
+          <div class="jurusan-card card-big">
+            <div class="slider-wrap" data-id="mp">
+              <div class="slider-track">
+                <div class="slide" onclick="uploadSlide('mp',0)">
+                  <div class="slide-ph" id="ph-mp-0"><i class="fa-solid fa-image"></i><span>Foto 1 — klik upload</span></div>
+                  <img id="img-mp-0" src="/images/jurusan-mp-1.jpg" alt="" onload="showImg('mp',0,this)" onerror="this.style.display='none'" style="opacity:0"/>
+                </div>
+                <div class="slide" onclick="uploadSlide('mp',1)">
+                  <div class="slide-ph" id="ph-mp-1"><i class="fa-solid fa-image"></i><span>Foto 2 — klik upload</span></div>
+                  <img id="img-mp-1" src="/images/jurusan-mp-2.jpg" alt="" onload="showImg('mp',1,this)" onerror="this.style.display='none'" style="opacity:0"/>
+                </div>
+                <div class="slide" onclick="uploadSlide('mp',2)">
+                  <div class="slide-ph" id="ph-mp-2"><i class="fa-solid fa-image"></i><span>Foto 3 — klik upload</span></div>
+                  <img id="img-mp-2" src="/images/jurusan-mp-3.jpg" alt="" onload="showImg('mp',2,this)" onerror="this.style.display='none'" style="opacity:0"/>
+                </div>
+              </div>
+              <div class="slider-dots">
+                <button class="sdot active" onclick="goSlide('mp',0)"></button>
+                <button class="sdot"        onclick="goSlide('mp',1)"></button>
+                <button class="sdot"        onclick="goSlide('mp',2)"></button>
+              </div>
+              <button class="slider-prev" onclick="prevSlide('mp')"><i class="fa-solid fa-chevron-left"></i></button>
+              <button class="slider-next" onclick="nextSlide('mp')"><i class="fa-solid fa-chevron-right"></i></button>
+              <div class="badge-tipe"><span class="dot" style="background:#60a5fa"></span> TK Administrasi</div>
+              <button class="btn-cam" onclick="event.stopPropagation();uploadSlide('mp', getActive('mp'))">
+                <i class="fa-solid fa-camera"></i> Ganti Foto
+              </button>
+              <input type="file" id="file-mp-0" accept="image/*" class="hidden-input" onchange="setSlideImg('mp',0,this)"/>
+              <input type="file" id="file-mp-1" accept="image/*" class="hidden-input" onchange="setSlideImg('mp',1,this)"/>
+              <input type="file" id="file-mp-2" accept="image/*" class="hidden-input" onchange="setSlideImg('mp',2,this)"/>
+            </div>
+            <div class="card-body">
+              <div class="card-title">Manajemen Perkantoran</div>
+              <div class="card-desc">Menyiapkan tenaga terampil dalam mengelola administrasi kantor, kecakapan digital, korespondensi bisnis, dan public relations yang profesional.</div>
+              <div class="divider"></div>
+              <div class="prospek-label">Prospek Karir</div>
+              <div class="badges-row">
+                <span class="badge-karir"><i class="fa-solid fa-id-badge"></i> Sekretaris</span>
+                <span class="badge-karir"><i class="fa-solid fa-clipboard-list"></i> Staf Administrasi</span>
+                <span class="badge-karir"><i class="fa-solid fa-concierge-bell"></i> Resepsionis</span>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- end row-2 -->
+      </div><!-- end zigzag -->
+    </main>
+
+    <!-- FOOTER -->
+    <footer style="background:#0d1f3c;color:#fff;padding:32px 48px;font-family:'Poppins',sans-serif;">
+      <div style="max-width:1080px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;">
+        <p style="font-weight:700;font-size:14px;">SMK ICB Cinta Niaga</p>
+        <ul style="display:flex;gap:20px;list-style:none;font-size:13px;color:#93a8cc;flex-wrap:wrap;">
+          <li><a href="index.html" style="color:inherit;text-decoration:none;">Home</a></li>
+          <li><a href="profile.html" style="color:inherit;text-decoration:none;">Profil</a></li>
+          <li><a href="#" style="color:#fff;font-weight:600;text-decoration:none;">Jurusan</a></li>
+          <li><a href="about.html" style="color:inherit;text-decoration:none;">About</a></li>
+          <li><a href="#" style="color:inherit;text-decoration:none;">Privacy Policy</a></li>
+          <li><a href="#" style="color:inherit;text-decoration:none;">Contact</a></li>
+        </ul>
+        <p style="font-size:12px;color:#5a7aaa;">© 2024 SMK ICB Cinta Niaga. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      // ── State: index aktif per jurusan ──
+      const state   = { rpl:0, bisnis:0, akuntansi:0, mp:0 };
+      const timers  = {};
+      const TOTAL   = 3;
+      const DELAY   = 3500; // ms auto-slide
+
+      // ── Inisialisasi semua slider ──
+      document.querySelectorAll('.slider-wrap').forEach(wrap => {
+        const id = wrap.dataset.id;
+        startAuto(id);
+        // pause saat hover
+        wrap.addEventListener('mouseenter', () => clearInterval(timers[id]));
+        wrap.addEventListener('mouseleave', () => startAuto(id));
+      });
+
+      function startAuto(id) {
+        clearInterval(timers[id]);
+        timers[id] = setInterval(() => goSlide(id, (state[id] + 1) % TOTAL), DELAY);
+      }
+
+      // ── Geser ke slide n ──
+      function goSlide(id, n) {
+        state[id] = n;
+        // geser track
+        const wrap  = document.querySelector(`.slider-wrap[data-id="${id}"]`);
+        const track = wrap.querySelector('.slider-track');
+        track.style.transform = `translateX(-${n * 33.3333}%)`;
+        // update dots
+        wrap.querySelectorAll('.sdot').forEach((d, i) => d.classList.toggle('active', i === n));
+      }
+
+      function prevSlide(id) {
+        goSlide(id, (state[id] - 1 + TOTAL) % TOTAL);
+        restartAuto(id);
+      }
+      function nextSlide(id) {
+        goSlide(id, (state[id] + 1) % TOTAL);
+        restartAuto(id);
+      }
+      function restartAuto(id) {
+        clearInterval(timers[id]);
+        startAuto(id);
+      }
+      function getActive(id) { return state[id]; }
+
+      // ── Upload foto ──
+      function uploadSlide(id, idx) {
+        document.getElementById(`file-${id}-${idx}`).click();
+      }
+
+      function setSlideImg(id, idx, input) {
+        if (!input.files || !input.files[0]) return;
+        const reader = new FileReader();
+        reader.onload = e => {
+          const img = document.getElementById(`img-${id}-${idx}`);
+          const ph  = document.getElementById(`ph-${id}-${idx}`);
+          img.src = e.target.result;
+          img.style.display = 'block';
+          img.style.opacity = '1';
+          if (ph) ph.classList.add('hide');
+          goSlide(id, idx);
+        };
+        reader.readAsDataURL(input.files[0]);
+      }
+
+      function showImg(id, idx, img) {
+        img.style.opacity = '1';
+        const ph = document.getElementById(`ph-${id}-${idx}`);
+        if (ph) ph.classList.add('hide');
+      }
+    </script>
+
   </body>
 </html>
