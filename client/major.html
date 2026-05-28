@@ -5,344 +5,887 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="./src/style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    <title>Major Of SMK ICB Cinta Niaga</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <title>Major — SMK ICB Cinta Niaga</title>
 
     <style>
-      /* ── SLIDER ── */
-      .slider-wrap { position: relative; overflow: hidden; }
+      /*
+        Native CSS MINIMAL — hanya untuk hal yang benar-benar
+        tidak bisa ditangani Tailwind utility class:
+        1. Slider track transform (JS-driven dynamic value)
+        2. Slider prev/next opacity on parent hover (Tailwind group-hover
+           tidak bisa menarget sibling dari parent berbeda)
+        3. Image fade-in via JS (opacity diset dari JS, bukan class)
+        Semua styling lain sudah full Tailwind di bawah.
+      */
+
+      /* Slider core — transform dikontrol JS */
       .slider-track {
         display: flex;
         width: 300%;
         height: 100%;
-        transition: transform .55s cubic-bezier(.4,0,.2,1);
+        transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
       }
-      .slide { flex: 0 0 33.3333%; height: 100%; position: relative; }
-      .slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-      /* placeholder icon tengah slide */
-      .slide-ph {
-        position: absolute; inset: 0;
-        display: flex; align-items: center; justify-content: center;
-        background: #e5e7eb; pointer-events: none;
+      .slide {
+        flex: 0 0 33.3333%;
+        height: 100%;
+        position: relative;
       }
-      .slide-ph.hide { display: none; }
-
-      /* gradient gelap bawah foto */
-      .slider-wrap::after {
-        content: ''; position: absolute; inset: 0;
-        background: linear-gradient(to top, rgba(0,0,0,.45) 0%, transparent 55%);
-        pointer-events: none; z-index: 2;
+      .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        opacity: 0;
+        transition: opacity 0.35s;
       }
 
-      /* dots */
-      .sdot-wrap {
-        position: absolute; bottom: 10px; left: 50%;
-        transform: translateX(-50%);
-        display: flex; gap: 5px; z-index: 5;
-      }
-      .sdot {
-        width: 7px; height: 7px; border-radius: 50%;
-        background: rgba(255,255,255,.45); border: none; cursor: pointer; padding: 0;
-        transition: background .2s, transform .2s;
-      }
-      .sdot.on { background: #fff; transform: scale(1.35); }
-
-      /* badge kiri bawah foto */
-      .foto-badge {
-        position: absolute; bottom: 12px; left: 12px; z-index: 4;
-        background: rgba(10,10,22,.6); backdrop-filter: blur(5px);
-        color: #fff; font-size: 11px; font-weight: 600;
-        padding: 4px 13px; border-radius: 999px;
-        display: flex; align-items: center; gap: 6px;
-      }
-      .bdot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
-
-      /* prev / next — muncul saat hover */
-      .sprev, .snext {
-        position: absolute; top: 50%; transform: translateY(-50%);
-        background: rgba(255,255,255,.82); border: none; border-radius: 50%;
-        width: 28px; height: 28px;
-        display: flex; align-items: center; justify-content: center;
-        cursor: pointer; font-size: 11px; color: #1a1a2e;
-        box-shadow: 0 2px 8px rgba(0,0,0,.18);
-        z-index: 5; opacity: 0; transition: opacity .2s;
-      }
-      .sprev { left: 8px; }
-      .snext { right: 8px; }
+      /* Prev/next muncul saat hover parent */
       .slider-wrap:hover .sprev,
-      .slider-wrap:hover .snext { opacity: 1; }
-
-      /* hover card naik */
-      .jurusan-card { transition: transform .25s ease, box-shadow .25s ease; }
-      .jurusan-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,0,0,.12); }
-
-      /* badge karir pill */
-      .karir-badge {
-        display: inline-flex; align-items: center; gap: 5px;
-        border: 1px solid #e6c22a; background: #fffbeb; color: #6b4e00;
-        font-size: 11.5px; font-weight: 600;
-        padding: 4px 12px; border-radius: 999px;
-        transition: background .15s;
+      .slider-wrap:hover .snext {
+        opacity: 1;
       }
-      .karir-badge:hover { background: #fef3c7; }
-      .karir-badge i { font-size: 9px; }
     </style>
   </head>
 
-  <body class="text-gray-800 bg-gray-50">
-
-    <!-- ===== NAVBAR (identik dengan about.html) ===== -->
-    <nav class="fixed top-0 z-50 w-full bg-white flex flex-col md:flex-row justify-around border-b border-gray-300 p-3 items-center">
+  <body class="bg-[#f5f5f7] text-blue-950">
+    <!-- ===== NAVBAR ===== -->
+    <nav
+      class="fixed top-0 z-50 w-full bg-white flex flex-col md:flex-row justify-around border-b border-gray-300 p-3 items-center"
+    >
       <h1 class="font-bold">SMK ICB Cinta Niaga</h1>
       <ul class="flex gap-3">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="profile.html">Profile</a></li>
-        <li class="underline underline-offset-4 font-bold"><a href="#">Major</a></li>
-        <li><a href="about.html">About</a></li>
+        <li>
+          <a href="index.html">Home</a>
+        </li>
+        <li>
+          <a href="profile.html">Profile</a>
+        </li>
+        <li class="underline underline-offset-5 font-bold">
+          <a href="#">Major</a>
+        </li>
+        <li>
+          <a href="about.html">About</a>
+        </li>
       </ul>
-      <button class="bg-blue-950 text-white w-1/2 md:w-fit px-2.5 py-1.5 rounded-lg text-xs mt-2 md:mt-0 md:px-4.5 md:py-2">
+      <a
+        href="nicobot.html"
+        class="bg-blue-950 hover:bg-blue-900 text-white w-full md:w-fit px-4 py-2 rounded-lg text-xs text-center font-semibold transition-colors duration-200"
+      >
         Chat With Us
-      </button>
+      </a>
     </nav>
 
-    <main class="pt-16">
-
+    <main class="pt-14">
       <!-- ===== HEADER SECTION ===== -->
-      <section class="bg-white py-14 px-6 text-center border-b border-gray-100">
-        <span class="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-amber-700 bg-amber-50 border border-amber-200 px-4 py-1.5 rounded-full mb-4">
-          <i class="fa-solid fa-graduation-cap"></i> Program Unggulan
-        </span>
-        <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Program <span class="text-amber-600">Keahlian</span></h1>
-        <p class="text-sm text-gray-500 max-w-md mx-auto leading-relaxed">
-          Mempersiapkan generasi unggul dari keterampilan praktis dan teoritis yang relevan dengan kebutuhan industri masa kini.
-        </p>
+      <section class="bg-white pt-16 pb-14 px-6 border-b border-slate-100">
+        <div
+          class="max-w-4xl mx-auto flex flex-col items-center text-center gap-5"
+        >
+          <!-- Label badge -->
+          <span
+            class="inline-flex items-center gap-2 bg-amber-50 border border-amber-200 text-amber-700 text-[11px] font-bold tracking-widest uppercase px-4 py-1.5 rounded-full"
+          >
+            <i class="fa-solid fa-graduation-cap"></i>
+            Program Unggulan
+          </span>
+
+          <!-- Headline -->
+          <h1
+            class="text-3xl md:text-5xl font-bold text-blue-950 leading-tight"
+          >
+            Program
+            <span class="relative inline-block">
+              <span class="text-amber-400">Keahlian</span>
+              <!-- garis dekoratif bawah -->
+              <span
+                class="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-amber-400 to-transparent rounded-full"
+              ></span>
+            </span>
+          </h1>
+
+          <p
+            class="text-slate-500 text-sm md:text-base max-w-lg leading-relaxed"
+          >
+            Mempersiapkan generasi unggul melalui keterampilan praktis dan
+            teoritis yang relevan dengan kebutuhan industri masa kini.
+          </p>
+
+          <!-- Stat pills -->
+          <div class="flex flex-wrap justify-center gap-3 mt-2">
+            <span
+              class="inline-flex items-center gap-2 bg-[#f5f5f7] border border-slate-200 text-blue-950 text-xs font-semibold px-4 py-2 rounded-full"
+            >
+              <i class="fa-solid fa-layer-group text-amber-500 text-xs"></i>
+              4 Program Keahlian
+            </span>
+            <span
+              class="inline-flex items-center gap-2 bg-[#f5f5f7] border border-slate-200 text-blue-950 text-xs font-semibold px-4 py-2 rounded-full"
+            >
+              <i class="fa-solid fa-briefcase text-amber-500 text-xs"></i>
+              Link & Match Industri
+            </span>
+          </div>
+        </div>
       </section>
 
       <!-- ===== GRID JURUSAN ===== -->
-      <section class="py-12 px-6 md:px-14">
-        <div class="max-w-6xl mx-auto">
-
-          <!-- BARIS 1 — RPL (lebar) + Bisnis Ritel (kecil) -->
-          <div class="flex flex-col md:flex-row gap-6 mb-6">
-
-            <!-- Card RPL — 64% -->
-            <div class="jurusan-card bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden flex flex-col md:w-[64%]">
-              <!-- SLIDER -->
-              <div class="slider-wrap h-56" data-id="rpl">
+      <section class="py-14 px-5 md:px-14">
+        <div class="max-w-6xl mx-auto flex flex-col gap-5">
+          <!-- ── BARIS 1: RPL (lebar) + Bisnis Ritel (kecil) ── -->
+          <div class="flex flex-col md:flex-row gap-5">
+            <!-- Card RPL — 62% -->
+            <div
+              class="jurusan-card group bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden flex flex-col hover:-translate-y-1.5 hover:shadow-xl hover:shadow-blue-950/8 transition-all duration-300 md:w-[62%]"
+            >
+              <!-- Slider -->
+              <div
+                class="slider-wrap relative overflow-hidden h-56"
+                data-id="rpl"
+              >
+                <!-- Track -->
                 <div class="slider-track">
                   <div class="slide">
-                    <div class="slide-ph" id="ph-rpl-0"><i class="fa-regular fa-image text-4xl text-gray-400"></i></div>
-                    <img id="img-rpl-0" src="/images/jurusan-rpl-1.jpg" alt="RPL 1" onload="showImg('rpl',0,this)" onerror="this.style.display='none'" style="opacity:0;transition:opacity .3s"/>
+                    <div
+                      class="slide-ph absolute inset-0 flex items-center justify-center bg-slate-100"
+                      id="ph-rpl-0"
+                    >
+                      <i
+                        class="fa-regular fa-image text-4xl text-slate-300"
+                      ></i>
+                    </div>
+                    <img
+                      id="img-rpl-0"
+                      src="/images/jurusan-rpl-1.jpg"
+                      alt="RPL 1"
+                      onload="showImg('rpl', 0, this)"
+                      onerror="this.style.display = 'none'"
+                    />
                   </div>
                   <div class="slide">
-                    <div class="slide-ph" id="ph-rpl-1"><i class="fa-regular fa-image text-4xl text-gray-400"></i></div>
-                    <img id="img-rpl-1" src="/images/jurusan-rpl-2.jpg" alt="RPL 2" onload="showImg('rpl',1,this)" onerror="this.style.display='none'" style="opacity:0;transition:opacity .3s"/>
+                    <div
+                      class="slide-ph absolute inset-0 flex items-center justify-center bg-slate-100"
+                      id="ph-rpl-1"
+                    >
+                      <i
+                        class="fa-regular fa-image text-4xl text-slate-300"
+                      ></i>
+                    </div>
+                    <img
+                      id="img-rpl-1"
+                      src="/images/jurusan-rpl-2.jpg"
+                      alt="RPL 2"
+                      onload="showImg('rpl', 1, this)"
+                      onerror="this.style.display = 'none'"
+                    />
                   </div>
                   <div class="slide">
-                    <div class="slide-ph" id="ph-rpl-2"><i class="fa-regular fa-image text-4xl text-gray-400"></i></div>
-                    <img id="img-rpl-2" src="/images/jurusan-rpl-3.jpg" alt="RPL 3" onload="showImg('rpl',2,this)" onerror="this.style.display='none'" style="opacity:0;transition:opacity .3s"/>
+                    <div
+                      class="slide-ph absolute inset-0 flex items-center justify-center bg-slate-100"
+                      id="ph-rpl-2"
+                    >
+                      <i
+                        class="fa-regular fa-image text-4xl text-slate-300"
+                      ></i>
+                    </div>
+                    <img
+                      id="img-rpl-2"
+                      src="/images/jurusan-rpl-3.jpg"
+                      alt="RPL 3"
+                      onload="showImg('rpl', 2, this)"
+                      onerror="this.style.display = 'none'"
+                    />
                   </div>
                 </div>
-                <div class="sdot-wrap">
-                  <button class="sdot on" onclick="goSlide('rpl',0)"></button>
-                  <button class="sdot"    onclick="goSlide('rpl',1)"></button>
-                  <button class="sdot"    onclick="goSlide('rpl',2)"></button>
+
+                <!-- Gradient overlay bawah -->
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none z-[2]"
+                ></div>
+
+                <!-- Badge kategori -->
+                <div
+                  class="foto-badge absolute bottom-3 left-3 z-[4] flex items-center gap-1.5 bg-black/50 backdrop-blur-sm text-white text-[11px] font-semibold px-3 py-1 rounded-full"
+                >
+                  <span
+                    class="w-1.5 h-1.5 rounded-full bg-amber-400 flex-shrink-0"
+                  ></span>
+                  IT Teknologi
                 </div>
-                <button class="sprev" onclick="prevSlide('rpl')"><i class="fa-solid fa-chevron-left"></i></button>
-                <button class="snext" onclick="nextSlide('rpl')"><i class="fa-solid fa-chevron-right"></i></button>
-                <div class="foto-badge"><span class="bdot" style="background:#fbbf24"></span> IT Teknologi</div>
+
+                <!-- Dots -->
+                <div
+                  class="sdot-wrap absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-[5]"
+                >
+                  <button
+                    class="sdot on w-2 h-2 rounded-full border-none cursor-pointer p-0 bg-white/50 transition-all duration-200 scale-100"
+                    onclick="goSlide('rpl', 0)"
+                  ></button>
+                  <button
+                    class="sdot w-2 h-2 rounded-full border-none cursor-pointer p-0 bg-white/40 transition-all duration-200"
+                    onclick="goSlide('rpl', 1)"
+                  ></button>
+                  <button
+                    class="sdot w-2 h-2 rounded-full border-none cursor-pointer p-0 bg-white/40 transition-all duration-200"
+                    onclick="goSlide('rpl', 2)"
+                  ></button>
+                </div>
+
+                <!-- Prev / Next -->
+                <button
+                  class="sprev absolute left-2 top-1/2 -translate-y-1/2 z-[5] w-8 h-8 rounded-full bg-white/85 border-none flex items-center justify-center text-blue-950 text-xs shadow-md cursor-pointer opacity-0 transition-opacity duration-200"
+                  onclick="prevSlide('rpl')"
+                >
+                  <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button
+                  class="snext absolute right-2 top-1/2 -translate-y-1/2 z-[5] w-8 h-8 rounded-full bg-white/85 border-none flex items-center justify-center text-blue-950 text-xs shadow-md cursor-pointer opacity-0 transition-opacity duration-200"
+                  onclick="nextSlide('rpl')"
+                >
+                  <i class="fa-solid fa-chevron-right"></i>
+                </button>
               </div>
-              <!-- Info -->
-              <div class="p-6 flex flex-col gap-3 flex-1">
-                <h2 class="text-lg font-bold text-gray-900">Rekayasa Perangkat Lunak</h2>
-                <p class="text-sm text-gray-500 leading-relaxed">Mempelajari pengembangan perangkat lunak, pemrograman web, mobile, dan desktop dengan kurikulum yang selalu disesuaikan dengan perkembangan teknologi terkini.</p>
-                <hr class="border-gray-100 my-1"/>
-                <p class="text-[10px] font-bold tracking-widest uppercase text-gray-400">Prospek Karir</p>
-                <div class="flex flex-wrap gap-2">
-                  <span class="karir-badge"><i class="fa-solid fa-code"></i> Web Developer</span>
-                  <span class="karir-badge"><i class="fa-solid fa-mobile-screen"></i> Mobile Developer</span>
-                  <span class="karir-badge"><i class="fa-solid fa-diagram-project"></i> System Analist</span>
+
+              <!-- Info card -->
+              <div class="p-6 flex flex-col gap-4 flex-1">
+                <!-- Accent line + judul -->
+                <div class="flex items-start gap-3">
+                  <div
+                    class="w-1 h-10 rounded-full bg-amber-400 flex-shrink-0 mt-0.5"
+                  ></div>
+                  <div>
+                    <h2 class="text-lg font-bold text-blue-950 leading-snug">
+                      Rekayasa Perangkat Lunak
+                    </h2>
+                    <p
+                      class="text-amber-600 text-[11px] font-semibold tracking-wide uppercase mt-0.5"
+                    >
+                      RPL
+                    </p>
+                  </div>
+                </div>
+
+                <p class="text-sm text-slate-500 leading-relaxed">
+                  Mempelajari pengembangan perangkat lunak, pemrograman web,
+                  mobile, dan desktop dengan kurikulum yang selalu disesuaikan
+                  dengan perkembangan teknologi terkini.
+                </p>
+
+                <div class="h-px bg-slate-100"></div>
+
+                <!-- Prospek Karir -->
+                <div class="flex flex-col gap-2.5">
+                  <p
+                    class="text-[10px] font-bold tracking-widest uppercase text-slate-400"
+                  >
+                    Prospek Karir
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span
+                      class="karir-badge inline-flex items-center gap-1.5 border border-amber-300 bg-amber-50 text-amber-800 text-[11.5px] font-semibold px-3 py-1 rounded-full hover:bg-amber-100 transition-colors duration-150"
+                    >
+                      <i class="fa-solid fa-code text-[9px]"></i> Web Developer
+                    </span>
+                    <span
+                      class="karir-badge inline-flex items-center gap-1.5 border border-amber-300 bg-amber-50 text-amber-800 text-[11.5px] font-semibold px-3 py-1 rounded-full hover:bg-amber-100 transition-colors duration-150"
+                    >
+                      <i class="fa-solid fa-mobile-screen text-[9px]"></i>
+                      Mobile Developer
+                    </span>
+                    <span
+                      class="karir-badge inline-flex items-center gap-1.5 border border-amber-300 bg-amber-50 text-amber-800 text-[11.5px] font-semibold px-3 py-1 rounded-full hover:bg-amber-100 transition-colors duration-150"
+                    >
+                      <i class="fa-solid fa-diagram-project text-[9px]"></i>
+                      System Analist
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
 
             <!-- Card Bisnis Ritel — flex-1 -->
-            <div class="jurusan-card bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden flex flex-col flex-1">
-              <div class="slider-wrap h-44" data-id="bisnis">
+            <div
+              class="jurusan-card group bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden flex flex-col flex-1 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-blue-950/8 transition-all duration-300"
+            >
+              <div
+                class="slider-wrap relative overflow-hidden h-44"
+                data-id="bisnis"
+              >
                 <div class="slider-track">
                   <div class="slide">
-                    <div class="slide-ph" id="ph-bisnis-0"><i class="fa-regular fa-image text-4xl text-gray-400"></i></div>
-                    <img id="img-bisnis-0" src="/images/jurusan-bisnis-1.jpg" alt="" onload="showImg('bisnis',0,this)" onerror="this.style.display='none'" style="opacity:0;transition:opacity .3s"/>
+                    <div
+                      class="slide-ph absolute inset-0 flex items-center justify-center bg-slate-100"
+                      id="ph-bisnis-0"
+                    >
+                      <i
+                        class="fa-regular fa-image text-4xl text-slate-300"
+                      ></i>
+                    </div>
+                    <img
+                      id="img-bisnis-0"
+                      src="/images/jurusan-bisnis-1.jpg"
+                      alt=""
+                      onload="showImg('bisnis', 0, this)"
+                      onerror="this.style.display = 'none'"
+                    />
                   </div>
                   <div class="slide">
-                    <div class="slide-ph" id="ph-bisnis-1"><i class="fa-regular fa-image text-4xl text-gray-400"></i></div>
-                    <img id="img-bisnis-1" src="/images/jurusan-bisnis-2.jpg" alt="" onload="showImg('bisnis',1,this)" onerror="this.style.display='none'" style="opacity:0;transition:opacity .3s"/>
+                    <div
+                      class="slide-ph absolute inset-0 flex items-center justify-center bg-slate-100"
+                      id="ph-bisnis-1"
+                    >
+                      <i
+                        class="fa-regular fa-image text-4xl text-slate-300"
+                      ></i>
+                    </div>
+                    <img
+                      id="img-bisnis-1"
+                      src="/images/jurusan-bisnis-2.jpg"
+                      alt=""
+                      onload="showImg('bisnis', 1, this)"
+                      onerror="this.style.display = 'none'"
+                    />
                   </div>
                   <div class="slide">
-                    <div class="slide-ph" id="ph-bisnis-2"><i class="fa-regular fa-image text-4xl text-gray-400"></i></div>
-                    <img id="img-bisnis-2" src="/images/jurusan-bisnis-3.jpg" alt="" onload="showImg('bisnis',2,this)" onerror="this.style.display='none'" style="opacity:0;transition:opacity .3s"/>
+                    <div
+                      class="slide-ph absolute inset-0 flex items-center justify-center bg-slate-100"
+                      id="ph-bisnis-2"
+                    >
+                      <i
+                        class="fa-regular fa-image text-4xl text-slate-300"
+                      ></i>
+                    </div>
+                    <img
+                      id="img-bisnis-2"
+                      src="/images/jurusan-bisnis-3.jpg"
+                      alt=""
+                      onload="showImg('bisnis', 2, this)"
+                      onerror="this.style.display = 'none'"
+                    />
                   </div>
                 </div>
-                <div class="sdot-wrap">
-                  <button class="sdot on" onclick="goSlide('bisnis',0)"></button>
-                  <button class="sdot"    onclick="goSlide('bisnis',1)"></button>
-                  <button class="sdot"    onclick="goSlide('bisnis',2)"></button>
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none z-[2]"
+                ></div>
+                <div
+                  class="foto-badge absolute bottom-3 left-3 z-[4] flex items-center gap-1.5 bg-black/50 backdrop-blur-sm text-white text-[11px] font-semibold px-3 py-1 rounded-full"
+                >
+                  <span
+                    class="w-1.5 h-1.5 rounded-full bg-green-400 flex-shrink-0"
+                  ></span>
+                  Bisnis
                 </div>
-                <button class="sprev" onclick="prevSlide('bisnis')"><i class="fa-solid fa-chevron-left"></i></button>
-                <button class="snext" onclick="nextSlide('bisnis')"><i class="fa-solid fa-chevron-right"></i></button>
-                <div class="foto-badge"><span class="bdot" style="background:#4ade80"></span> Bisnis</div>
+                <div
+                  class="sdot-wrap absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-[5]"
+                >
+                  <button
+                    class="sdot on w-2 h-2 rounded-full border-none cursor-pointer p-0 bg-white/50 transition-all duration-200"
+                    onclick="goSlide('bisnis', 0)"
+                  ></button>
+                  <button
+                    class="sdot w-2 h-2 rounded-full border-none cursor-pointer p-0 bg-white/40 transition-all duration-200"
+                    onclick="goSlide('bisnis', 1)"
+                  ></button>
+                  <button
+                    class="sdot w-2 h-2 rounded-full border-none cursor-pointer p-0 bg-white/40 transition-all duration-200"
+                    onclick="goSlide('bisnis', 2)"
+                  ></button>
+                </div>
+                <button
+                  class="sprev absolute left-2 top-1/2 -translate-y-1/2 z-[5] w-8 h-8 rounded-full bg-white/85 border-none flex items-center justify-center text-blue-950 text-xs shadow-md cursor-pointer opacity-0 transition-opacity duration-200"
+                  onclick="prevSlide('bisnis')"
+                >
+                  <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button
+                  class="snext absolute right-2 top-1/2 -translate-y-1/2 z-[5] w-8 h-8 rounded-full bg-white/85 border-none flex items-center justify-center text-blue-950 text-xs shadow-md cursor-pointer opacity-0 transition-opacity duration-200"
+                  onclick="nextSlide('bisnis')"
+                >
+                  <i class="fa-solid fa-chevron-right"></i>
+                </button>
               </div>
-              <div class="p-6 flex flex-col gap-3 flex-1">
-                <h2 class="text-lg font-bold text-gray-900">Bisnis Ritel</h2>
-                <p class="text-sm text-gray-500 leading-relaxed">Membekali siswa dengan kompetensi dalam pengelolaan bisnis ritel, manajemen toko, pemasaran digital, dan pelayanan prima kepada pelanggan.</p>
-                <hr class="border-gray-100 my-1"/>
-                <p class="text-[10px] font-bold tracking-widest uppercase text-gray-400">Prospek Karir</p>
-                <div class="flex flex-wrap gap-2">
-                  <span class="karir-badge"><i class="fa-solid fa-store"></i> Pramuniaga</span>
-                  <span class="karir-badge"><i class="fa-solid fa-user-tie"></i> Store Manager</span>
-                  <span class="karir-badge"><i class="fa-solid fa-lightbulb"></i> Entrepreneur</span>
+
+              <div class="p-6 flex flex-col gap-4 flex-1">
+                <div class="flex items-start gap-3">
+                  <div
+                    class="w-1 h-10 rounded-full bg-green-500 flex-shrink-0 mt-0.5"
+                  ></div>
+                  <div>
+                    <h2 class="text-lg font-bold text-blue-950 leading-snug">
+                      Bisnis Ritel
+                    </h2>
+                    <p
+                      class="text-green-700 text-[11px] font-semibold tracking-wide uppercase mt-0.5"
+                    >
+                      Bisnis & Manajemen
+                    </p>
+                  </div>
+                </div>
+                <p class="text-sm text-slate-500 leading-relaxed">
+                  Membekali siswa dengan kompetensi dalam pengelolaan bisnis
+                  ritel, manajemen toko, pemasaran digital, dan pelayanan prima.
+                </p>
+                <div class="h-px bg-slate-100"></div>
+                <div class="flex flex-col gap-2.5">
+                  <p
+                    class="text-[10px] font-bold tracking-widest uppercase text-slate-400"
+                  >
+                    Prospek Karir
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span
+                      class="inline-flex items-center gap-1.5 border border-green-300 bg-green-50 text-green-800 text-[11.5px] font-semibold px-3 py-1 rounded-full hover:bg-green-100 transition-colors duration-150"
+                    >
+                      <i class="fa-solid fa-store text-[9px]"></i> Pramuniaga
+                    </span>
+                    <span
+                      class="inline-flex items-center gap-1.5 border border-green-300 bg-green-50 text-green-800 text-[11.5px] font-semibold px-3 py-1 rounded-full hover:bg-green-100 transition-colors duration-150"
+                    >
+                      <i class="fa-solid fa-user-tie text-[9px]"></i> Store
+                      Manager
+                    </span>
+                    <span
+                      class="inline-flex items-center gap-1.5 border border-green-300 bg-green-50 text-green-800 text-[11.5px] font-semibold px-3 py-1 rounded-full hover:bg-green-100 transition-colors duration-150"
+                    >
+                      <i class="fa-solid fa-lightbulb text-[9px]"></i>
+                      Entrepreneur
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
+          </div>
+          <!-- end baris 1 -->
 
-          </div><!-- end baris 1 -->
-
-          <!-- BARIS 2 — Akuntansi (kecil) + MP (lebar) -->
-          <div class="flex flex-col md:flex-row gap-6">
-
+          <!-- ── BARIS 2: Akuntansi (kecil) + Manajemen Perkantoran (lebar) ── -->
+          <div class="flex flex-col md:flex-row gap-5">
             <!-- Card Akuntansi — 36% -->
-            <div class="jurusan-card bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden flex flex-col md:w-[36%]">
-              <div class="slider-wrap h-44" data-id="akuntansi">
+            <div
+              class="jurusan-card group bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden flex flex-col hover:-translate-y-1.5 hover:shadow-xl hover:shadow-blue-950/8 transition-all duration-300 md:w-[36%]"
+            >
+              <div
+                class="slider-wrap relative overflow-hidden h-44"
+                data-id="akuntansi"
+              >
                 <div class="slider-track">
                   <div class="slide">
-                    <div class="slide-ph" id="ph-akuntansi-0"><i class="fa-regular fa-image text-4xl text-gray-400"></i></div>
-                    <img id="img-akuntansi-0" src="/images/jurusan-akuntansi-1.jpg" alt="" onload="showImg('akuntansi',0,this)" onerror="this.style.display='none'" style="opacity:0;transition:opacity .3s"/>
+                    <div
+                      class="slide-ph absolute inset-0 flex items-center justify-center bg-slate-100"
+                      id="ph-akuntansi-0"
+                    >
+                      <i
+                        class="fa-regular fa-image text-4xl text-slate-300"
+                      ></i>
+                    </div>
+                    <img
+                      id="img-akuntansi-0"
+                      src="/images/jurusan-akuntansi-1.jpg"
+                      alt=""
+                      onload="showImg('akuntansi', 0, this)"
+                      onerror="this.style.display = 'none'"
+                    />
                   </div>
                   <div class="slide">
-                    <div class="slide-ph" id="ph-akuntansi-1"><i class="fa-regular fa-image text-4xl text-gray-400"></i></div>
-                    <img id="img-akuntansi-1" src="/images/jurusan-akuntansi-2.jpg" alt="" onload="showImg('akuntansi',1,this)" onerror="this.style.display='none'" style="opacity:0;transition:opacity .3s"/>
+                    <div
+                      class="slide-ph absolute inset-0 flex items-center justify-center bg-slate-100"
+                      id="ph-akuntansi-1"
+                    >
+                      <i
+                        class="fa-regular fa-image text-4xl text-slate-300"
+                      ></i>
+                    </div>
+                    <img
+                      id="img-akuntansi-1"
+                      src="/images/jurusan-akuntansi-2.jpg"
+                      alt=""
+                      onload="showImg('akuntansi', 1, this)"
+                      onerror="this.style.display = 'none'"
+                    />
                   </div>
                   <div class="slide">
-                    <div class="slide-ph" id="ph-akuntansi-2"><i class="fa-regular fa-image text-4xl text-gray-400"></i></div>
-                    <img id="img-akuntansi-2" src="/images/jurusan-akuntansi-3.jpg" alt="" onload="showImg('akuntansi',2,this)" onerror="this.style.display='none'" style="opacity:0;transition:opacity .3s"/>
+                    <div
+                      class="slide-ph absolute inset-0 flex items-center justify-center bg-slate-100"
+                      id="ph-akuntansi-2"
+                    >
+                      <i
+                        class="fa-regular fa-image text-4xl text-slate-300"
+                      ></i>
+                    </div>
+                    <img
+                      id="img-akuntansi-2"
+                      src="/images/jurusan-akuntansi-3.jpg"
+                      alt=""
+                      onload="showImg('akuntansi', 2, this)"
+                      onerror="this.style.display = 'none'"
+                    />
                   </div>
                 </div>
-                <div class="sdot-wrap">
-                  <button class="sdot on" onclick="goSlide('akuntansi',0)"></button>
-                  <button class="sdot"    onclick="goSlide('akuntansi',1)"></button>
-                  <button class="sdot"    onclick="goSlide('akuntansi',2)"></button>
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none z-[2]"
+                ></div>
+                <div
+                  class="foto-badge absolute bottom-3 left-3 z-[4] flex items-center gap-1.5 bg-black/50 backdrop-blur-sm text-white text-[11px] font-semibold px-3 py-1 rounded-full"
+                >
+                  <span
+                    class="w-1.5 h-1.5 rounded-full bg-violet-400 flex-shrink-0"
+                  ></span>
+                  Keuangan
                 </div>
-                <button class="sprev" onclick="prevSlide('akuntansi')"><i class="fa-solid fa-chevron-left"></i></button>
-                <button class="snext" onclick="nextSlide('akuntansi')"><i class="fa-solid fa-chevron-right"></i></button>
-                <div class="foto-badge"><span class="bdot" style="background:#a78bfa"></span> Keuangan</div>
+                <div
+                  class="sdot-wrap absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-[5]"
+                >
+                  <button
+                    class="sdot on w-2 h-2 rounded-full border-none cursor-pointer p-0 bg-white/50 transition-all duration-200"
+                    onclick="goSlide('akuntansi', 0)"
+                  ></button>
+                  <button
+                    class="sdot w-2 h-2 rounded-full border-none cursor-pointer p-0 bg-white/40 transition-all duration-200"
+                    onclick="goSlide('akuntansi', 1)"
+                  ></button>
+                  <button
+                    class="sdot w-2 h-2 rounded-full border-none cursor-pointer p-0 bg-white/40 transition-all duration-200"
+                    onclick="goSlide('akuntansi', 2)"
+                  ></button>
+                </div>
+                <button
+                  class="sprev absolute left-2 top-1/2 -translate-y-1/2 z-[5] w-8 h-8 rounded-full bg-white/85 border-none flex items-center justify-center text-blue-950 text-xs shadow-md cursor-pointer opacity-0 transition-opacity duration-200"
+                  onclick="prevSlide('akuntansi')"
+                >
+                  <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button
+                  class="snext absolute right-2 top-1/2 -translate-y-1/2 z-[5] w-8 h-8 rounded-full bg-white/85 border-none flex items-center justify-center text-blue-950 text-xs shadow-md cursor-pointer opacity-0 transition-opacity duration-200"
+                  onclick="nextSlide('akuntansi')"
+                >
+                  <i class="fa-solid fa-chevron-right"></i>
+                </button>
               </div>
-              <div class="p-6 flex flex-col gap-3 flex-1">
-                <h2 class="text-lg font-bold text-gray-900">Akuntansi</h2>
-                <p class="text-sm text-gray-500 leading-relaxed line-clamp-3">Fokus pada pencatatan, pengklasifikasian, dan pelaporan keuangan perusahaan jasa, dagang, dan manufaktur menggunakan software akuntansi modern.</p>
-                <hr class="border-gray-100 my-1"/>
-                <p class="text-[10px] font-bold tracking-widest uppercase text-gray-400">Prospek Karir</p>
-                <div class="flex flex-wrap gap-2">
-                  <span class="karir-badge"><i class="fa-solid fa-coins"></i> Staf Keuangan</span>
-                  <span class="karir-badge"><i class="fa-solid fa-cash-register"></i> Kasir</span>
-                  <span class="karir-badge"><i class="fa-solid fa-file-invoice"></i> Tax Admin</span>
+
+              <div class="p-6 flex flex-col gap-4 flex-1">
+                <div class="flex items-start gap-3">
+                  <div
+                    class="w-1 h-10 rounded-full bg-violet-400 flex-shrink-0 mt-0.5"
+                  ></div>
+                  <div>
+                    <h2 class="text-lg font-bold text-blue-950 leading-snug">
+                      Akuntansi
+                    </h2>
+                    <p
+                      class="text-violet-600 text-[11px] font-semibold tracking-wide uppercase mt-0.5"
+                    >
+                      Keuangan & Bisnis
+                    </p>
+                  </div>
+                </div>
+                <p class="text-sm text-slate-500 leading-relaxed line-clamp-3">
+                  Fokus pada pencatatan, pengklasifikasian, dan pelaporan
+                  keuangan perusahaan menggunakan software akuntansi modern.
+                </p>
+                <div class="h-px bg-slate-100"></div>
+                <div class="flex flex-col gap-2.5">
+                  <p
+                    class="text-[10px] font-bold tracking-widest uppercase text-slate-400"
+                  >
+                    Prospek Karir
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span
+                      class="inline-flex items-center gap-1.5 border border-violet-300 bg-violet-50 text-violet-800 text-[11.5px] font-semibold px-3 py-1 rounded-full hover:bg-violet-100 transition-colors duration-150"
+                    >
+                      <i class="fa-solid fa-coins text-[9px]"></i> Staf Keuangan
+                    </span>
+                    <span
+                      class="inline-flex items-center gap-1.5 border border-violet-300 bg-violet-50 text-violet-800 text-[11.5px] font-semibold px-3 py-1 rounded-full hover:bg-violet-100 transition-colors duration-150"
+                    >
+                      <i class="fa-solid fa-cash-register text-[9px]"></i> Kasir
+                    </span>
+                    <span
+                      class="inline-flex items-center gap-1.5 border border-violet-300 bg-violet-50 text-violet-800 text-[11.5px] font-semibold px-3 py-1 rounded-full hover:bg-violet-100 transition-colors duration-150"
+                    >
+                      <i class="fa-solid fa-file-invoice text-[9px]"></i> Tax
+                      Admin
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
 
             <!-- Card Manajemen Perkantoran — flex-1 -->
-            <div class="jurusan-card bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden flex flex-col flex-1">
-              <div class="slider-wrap h-56" data-id="mp">
+            <div
+              class="jurusan-card group bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden flex flex-col flex-1 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-blue-950/8 transition-all duration-300"
+            >
+              <div
+                class="slider-wrap relative overflow-hidden h-56"
+                data-id="mp"
+              >
                 <div class="slider-track">
                   <div class="slide">
-                    <div class="slide-ph" id="ph-mp-0"><i class="fa-regular fa-image text-4xl text-gray-400"></i></div>
-                    <img id="img-mp-0" src="/images/jurusan-mp-1.jpg" alt="" onload="showImg('mp',0,this)" onerror="this.style.display='none'" style="opacity:0;transition:opacity .3s"/>
+                    <div
+                      class="slide-ph absolute inset-0 flex items-center justify-center bg-slate-100"
+                      id="ph-mp-0"
+                    >
+                      <i
+                        class="fa-regular fa-image text-4xl text-slate-300"
+                      ></i>
+                    </div>
+                    <img
+                      id="img-mp-0"
+                      src="/images/jurusan-mp-1.jpg"
+                      alt=""
+                      onload="showImg('mp', 0, this)"
+                      onerror="this.style.display = 'none'"
+                    />
                   </div>
                   <div class="slide">
-                    <div class="slide-ph" id="ph-mp-1"><i class="fa-regular fa-image text-4xl text-gray-400"></i></div>
-                    <img id="img-mp-1" src="/images/jurusan-mp-2.jpg" alt="" onload="showImg('mp',1,this)" onerror="this.style.display='none'" style="opacity:0;transition:opacity .3s"/>
+                    <div
+                      class="slide-ph absolute inset-0 flex items-center justify-center bg-slate-100"
+                      id="ph-mp-1"
+                    >
+                      <i
+                        class="fa-regular fa-image text-4xl text-slate-300"
+                      ></i>
+                    </div>
+                    <img
+                      id="img-mp-1"
+                      src="/images/jurusan-mp-2.jpg"
+                      alt=""
+                      onload="showImg('mp', 1, this)"
+                      onerror="this.style.display = 'none'"
+                    />
                   </div>
                   <div class="slide">
-                    <div class="slide-ph" id="ph-mp-2"><i class="fa-regular fa-image text-4xl text-gray-400"></i></div>
-                    <img id="img-mp-2" src="/images/jurusan-mp-3.jpg" alt="" onload="showImg('mp',2,this)" onerror="this.style.display='none'" style="opacity:0;transition:opacity .3s"/>
+                    <div
+                      class="slide-ph absolute inset-0 flex items-center justify-center bg-slate-100"
+                      id="ph-mp-2"
+                    >
+                      <i
+                        class="fa-regular fa-image text-4xl text-slate-300"
+                      ></i>
+                    </div>
+                    <img
+                      id="img-mp-2"
+                      src="/images/jurusan-mp-3.jpg"
+                      alt=""
+                      onload="showImg('mp', 2, this)"
+                      onerror="this.style.display = 'none'"
+                    />
                   </div>
                 </div>
-                <div class="sdot-wrap">
-                  <button class="sdot on" onclick="goSlide('mp',0)"></button>
-                  <button class="sdot"    onclick="goSlide('mp',1)"></button>
-                  <button class="sdot"    onclick="goSlide('mp',2)"></button>
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none z-[2]"
+                ></div>
+                <div
+                  class="foto-badge absolute bottom-3 left-3 z-[4] flex items-center gap-1.5 bg-black/50 backdrop-blur-sm text-white text-[11px] font-semibold px-3 py-1 rounded-full"
+                >
+                  <span
+                    class="w-1.5 h-1.5 rounded-full bg-blue-400 flex-shrink-0"
+                  ></span>
+                  TK Administrasi
                 </div>
-                <button class="sprev" onclick="prevSlide('mp')"><i class="fa-solid fa-chevron-left"></i></button>
-                <button class="snext" onclick="nextSlide('mp')"><i class="fa-solid fa-chevron-right"></i></button>
-                <div class="foto-badge"><span class="bdot" style="background:#60a5fa"></span> TK Administrasi</div>
+                <div
+                  class="sdot-wrap absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-[5]"
+                >
+                  <button
+                    class="sdot on w-2 h-2 rounded-full border-none cursor-pointer p-0 bg-white/50 transition-all duration-200"
+                    onclick="goSlide('mp', 0)"
+                  ></button>
+                  <button
+                    class="sdot w-2 h-2 rounded-full border-none cursor-pointer p-0 bg-white/40 transition-all duration-200"
+                    onclick="goSlide('mp', 1)"
+                  ></button>
+                  <button
+                    class="sdot w-2 h-2 rounded-full border-none cursor-pointer p-0 bg-white/40 transition-all duration-200"
+                    onclick="goSlide('mp', 2)"
+                  ></button>
+                </div>
+                <button
+                  class="sprev absolute left-2 top-1/2 -translate-y-1/2 z-[5] w-8 h-8 rounded-full bg-white/85 border-none flex items-center justify-center text-blue-950 text-xs shadow-md cursor-pointer opacity-0 transition-opacity duration-200"
+                  onclick="prevSlide('mp')"
+                >
+                  <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button
+                  class="snext absolute right-2 top-1/2 -translate-y-1/2 z-[5] w-8 h-8 rounded-full bg-white/85 border-none flex items-center justify-center text-blue-950 text-xs shadow-md cursor-pointer opacity-0 transition-opacity duration-200"
+                  onclick="nextSlide('mp')"
+                >
+                  <i class="fa-solid fa-chevron-right"></i>
+                </button>
               </div>
-              <div class="p-6 flex flex-col gap-3 flex-1">
-                <h2 class="text-lg font-bold text-gray-900">Manajemen Perkantoran</h2>
-                <p class="text-sm text-gray-500 leading-relaxed">Menyiapkan tenaga terampil dalam mengelola administrasi kantor, kecakapan digital, korespondensi bisnis, dan public relations yang profesional.</p>
-                <hr class="border-gray-100 my-1"/>
-                <p class="text-[10px] font-bold tracking-widest uppercase text-gray-400">Prospek Karir</p>
-                <div class="flex flex-wrap gap-2">
-                  <span class="karir-badge"><i class="fa-solid fa-id-badge"></i> Sekretaris</span>
-                  <span class="karir-badge"><i class="fa-solid fa-clipboard-list"></i> Staf Administrasi</span>
-                  <span class="karir-badge"><i class="fa-solid fa-concierge-bell"></i> Resepsionis</span>
+
+              <div class="p-6 flex flex-col gap-4 flex-1">
+                <div class="flex items-start gap-3">
+                  <div
+                    class="w-1 h-10 rounded-full bg-blue-400 flex-shrink-0 mt-0.5"
+                  ></div>
+                  <div>
+                    <h2 class="text-lg font-bold text-blue-950 leading-snug">
+                      Manajemen Perkantoran
+                    </h2>
+                    <p
+                      class="text-blue-600 text-[11px] font-semibold tracking-wide uppercase mt-0.5"
+                    >
+                      Administrasi & Bisnis
+                    </p>
+                  </div>
+                </div>
+                <p class="text-sm text-slate-500 leading-relaxed">
+                  Menyiapkan tenaga terampil dalam mengelola administrasi
+                  kantor, kecakapan digital, korespondensi bisnis, dan public
+                  relations yang profesional.
+                </p>
+                <div class="h-px bg-slate-100"></div>
+                <div class="flex flex-col gap-2.5">
+                  <p
+                    class="text-[10px] font-bold tracking-widest uppercase text-slate-400"
+                  >
+                    Prospek Karir
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span
+                      class="inline-flex items-center gap-1.5 border border-blue-300 bg-blue-50 text-blue-800 text-[11.5px] font-semibold px-3 py-1 rounded-full hover:bg-blue-100 transition-colors duration-150"
+                    >
+                      <i class="fa-solid fa-id-badge text-[9px]"></i> Sekretaris
+                    </span>
+                    <span
+                      class="inline-flex items-center gap-1.5 border border-blue-300 bg-blue-50 text-blue-800 text-[11.5px] font-semibold px-3 py-1 rounded-full hover:bg-blue-100 transition-colors duration-150"
+                    >
+                      <i class="fa-solid fa-clipboard-list text-[9px]"></i> Staf
+                      Administrasi
+                    </span>
+                    <span
+                      class="inline-flex items-center gap-1.5 border border-blue-300 bg-blue-50 text-blue-800 text-[11.5px] font-semibold px-3 py-1 rounded-full hover:bg-blue-100 transition-colors duration-150"
+                    >
+                      <i class="fa-solid fa-concierge-bell text-[9px]"></i>
+                      Resepsionis
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
-
-          </div><!-- end baris 2 -->
-
+          </div>
+          <!-- end baris 2 -->
         </div>
       </section>
-
     </main>
 
-    <!-- ===== FOOTER (identik dengan about.html) ===== -->
-    <footer class="bg-blue-950 text-white py-8 px-6 md:px-16">
-      <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-        <p class="font-bold text-sm">SMK ICB Cinta Niaga</p>
-        <ul class="flex gap-5 text-sm text-blue-200">
-          <li><a href="index.html" class="hover:text-white">Home</a></li>
-          <li><a href="profile.html" class="hover:text-white">Profile</a></li>
-          <li><a href="#" class="hover:text-white font-semibold text-white">Major</a></li>
-          <li><a href="about.html" class="hover:text-white">About</a></li>
-          <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
-          <li><a href="#" class="hover:text-white">Contact</a></li>
-        </ul>
-        <p class="text-xs text-blue-300">© 2024 SMK ICB Cinta Niaga. All rights reserved.</p>
+    <!-- ===== FOOTER ===== -->
+    <footer
+      class="bg-blue-950 text-white border-t border-blue-900 py-12 px-6 md:px-16"
+    >
+      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+        <!-- Brand -->
+        <div class="flex flex-col gap-4">
+          <h2 class="text-lg font-bold">SMK ICB Cinta Niaga</h2>
+          <p class="text-blue-200 text-sm leading-relaxed max-w-xs">
+            Membentuk generasi unggul yang siap bersaing di dunia industri dan
+            teknologi.
+          </p>
+        </div>
+
+        <!-- Tautan -->
+        <div class="flex flex-col gap-4">
+          <h3 class="font-bold text-sm">Tautan Cepat</h3>
+          <ul class="flex flex-col gap-2.5 text-blue-200 text-sm">
+            <li>
+              <a href="index.html" class="hover:text-white transition-colors"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a href="profile.html" class="hover:text-white transition-colors"
+                >Profile</a
+              >
+            </li>
+            <li>
+              <a href="#" class="font-semibold text-white transition-colors"
+                >Major</a
+              >
+            </li>
+            <li>
+              <a href="about.html" class="hover:text-white transition-colors"
+                >About</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Info -->
+        <div class="flex flex-col gap-4">
+          <h3 class="font-bold text-sm">Informasi</h3>
+          <ul class="flex flex-col gap-2.5 text-blue-200 text-sm">
+            <li>
+              <a href="#" class="hover:text-white transition-colors"
+                >Privacy Policy</a
+              >
+            </li>
+            <li>
+              <a href="#" class="hover:text-white transition-colors">Contact</a>
+            </li>
+          </ul>
+          <p class="text-blue-300/60 text-xs mt-2">
+            © 2024 SMK ICB Cinta Niaga. All rights reserved.
+          </p>
+        </div>
       </div>
     </footer>
 
     <script>
-      const state  = { rpl:0, bisnis:0, akuntansi:0, mp:0 };
+      /* ── Slider logic (tidak diubah dari versi asli) ── */
+      const state = { rpl: 0, bisnis: 0, akuntansi: 0, mp: 0 };
       const timers = {};
-      const TOTAL  = 3, DELAY = 3500;
+      const TOTAL = 3,
+        DELAY = 3500;
 
-      document.querySelectorAll('.slider-wrap').forEach(w => {
+      document.querySelectorAll(".slider-wrap").forEach((w) => {
         const id = w.dataset.id;
         startAuto(id);
-        w.addEventListener('mouseenter', () => clearInterval(timers[id]));
-        w.addEventListener('mouseleave', () => startAuto(id));
+        w.addEventListener("mouseenter", () => clearInterval(timers[id]));
+        w.addEventListener("mouseleave", () => startAuto(id));
       });
 
       function startAuto(id) {
         clearInterval(timers[id]);
-        timers[id] = setInterval(() => goSlide(id, (state[id]+1) % TOTAL), DELAY);
+        timers[id] = setInterval(
+          () => goSlide(id, (state[id] + 1) % TOTAL),
+          DELAY,
+        );
       }
       function goSlide(id, n) {
         state[id] = n;
         const w = document.querySelector(`.slider-wrap[data-id="${id}"]`);
-        w.querySelector('.slider-track').style.transform = `translateX(-${n*33.3333}%)`;
-        w.querySelectorAll('.sdot').forEach((d,i) => d.classList.toggle('on', i===n));
+        w.querySelector(".slider-track").style.transform =
+          `translateX(-${n * 33.3333}%)`;
+        // Update dots
+        w.querySelectorAll(".sdot").forEach((d, i) => {
+          if (i === n) {
+            d.style.background = "rgba(255,255,255,0.9)";
+            d.style.transform = "scale(1.35)";
+          } else {
+            d.style.background = "rgba(255,255,255,0.4)";
+            d.style.transform = "scale(1)";
+          }
+        });
       }
-      function prevSlide(id) { goSlide(id,(state[id]-1+TOTAL)%TOTAL); restart(id); }
-      function nextSlide(id) { goSlide(id,(state[id]+1)%TOTAL); restart(id); }
-      function restart(id)   { clearInterval(timers[id]); startAuto(id); }
+      function prevSlide(id) {
+        goSlide(id, (state[id] - 1 + TOTAL) % TOTAL);
+        restart(id);
+      }
+      function nextSlide(id) {
+        goSlide(id, (state[id] + 1) % TOTAL);
+        restart(id);
+      }
+      function restart(id) {
+        clearInterval(timers[id]);
+        startAuto(id);
+      }
       function showImg(id, idx, img) {
-        img.style.opacity = '1';
+        img.style.opacity = "1";
         const ph = document.getElementById(`ph-${id}-${idx}`);
-        if (ph) ph.classList.add('hide');
+        if (ph) ph.style.display = "none";
       }
     </script>
-
   </body>
 </html>

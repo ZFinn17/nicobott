@@ -5,325 +5,494 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="./src/style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Fontawesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
-    <title>About SMK ICB Cinta Niaga</title>
+    <title>About — SMK ICB Cinta Niaga</title>
   </head>
-  <body class="text-gray-800">
 
-    <!-- ===== NAVBAR (sama seperti halaman lain) ===== -->
-    <nav
-      class="fixed top-0 z-50 w-full bg-white flex flex-col md:flex-row justify-around border-b border-gray-300 p-3 items-center"
-    >
-      <h1 class="font-bold">SMK ICB Cinta Niaga</h1>
-      <ul class="flex gap-3">
-        <li>
-          <a href="index.html">Home</a>
+  <body class="bg-[#f5f5f7] text-blue-950">
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 px-4 py-3
+                flex flex-col md:flex-row md:justify-around items-center gap-2 md:gap-0">
+      <h1 class="font-bold text-blue-950 text-sm md:text-base">SMK ICB Cinta Niaga</h1>
+      <ul class="flex gap-4 text-sm text-slate-600">
+        <li><a href="index.html"   class="hover:text-blue-950 transition-colors">Home</a></li>
+        <li><a href="profile.html" class="hover:text-blue-950 transition-colors">Profile</a></li>
+        <li><a href="major.html"   class="hover:text-blue-950 transition-colors">Major</a></li>
+        <li class="font-bold text-blue-950 underline underline-offset-4">
+          <a href="#">About</a>
         </li>
-        <li>
-          <a href="profile.html">Profile</a>
-        </li>
-        <li><a href="major.html">Major</a></li>
-        <li  class="underline underline-offset-5 font-bold"><a href="#">About</a></li>
       </ul>
-      <a
-        href="nicobot.html"
-        class="bg-blue-950 text-white w-1/2 md:w-fit px-2.5 py-1.5 rounded-lg text-xs mt-2 md:mt-0 md:px-4.5 md:py-2 text-center"
-      >
+      <a href="nicobot.html"
+         class="bg-blue-950 hover:bg-blue-900 text-white w-full md:w-fit
+                px-4 py-2 rounded-lg text-xs text-center font-semibold
+                transition-colors duration-200">
         Chat With Us
       </a>
     </nav>
 
-    <main class="pt-16">
-      <!-- ===== SECTION 1: TENTANG KAMI + FOTO ===== -->
-      <section class="bg-white py-16 px-6 md:px-16">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 items-center">
+    <main class="pt-14">
 
-          <!-- Teks kiri -->
-          <div class="md:w-1/2 flex flex-col gap-5">
-            <span class="inline-block w-fit py-1 px-3 rounded-xl bg-amber-100 border border-gray-300 text-sm drop-shadow-sm">
-              <i class="fa-solid fa-ranking-star text-amber-600"></i> Tentang Kami
+      <!-- ============================================================
+           SECTION 1 — TENTANG KAMI
+           Layout: teks kiri diperkaya + foto kanan dipertahankan
+           ============================================================ -->
+      <section class="bg-white py-20 px-6 md:px-16">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-14 items-center">
+
+          <!-- ── Teks kiri ── -->
+          <div class="md:w-1/2 flex flex-col gap-6">
+
+            <!-- Badge konsisten dengan sistem global -->
+            <span class="inline-flex items-center gap-2 w-fit
+                         text-xs font-semibold tracking-widest uppercase text-amber-600">
+              <span class="w-6 h-px bg-amber-500"></span>
+              Tentang Kami
             </span>
-            <h2 class="text-3xl font-bold leading-snug">
-              Membangun Generasi Unggul di Era Digital
+
+            <h2 class="text-3xl md:text-4xl font-bold text-blue-950 leading-tight">
+              Membangun Generasi Unggul<br class="hidden md:block">
+              di Era <span class="text-amber-500">Digital</span>
             </h2>
-            <p class="text-sm text-gray-600 leading-relaxed">
-              SMK ICB Cinta Niaga berkomitmen untuk mencetak lulusan yang
-              tidak hanya kompeten di bidangnya, tetapi juga siap menghadapi
-              tantangan industri modern dengan kemampuan teknologi dan
-              karakter yang kuat.
+
+            <p class="text-slate-500 text-sm md:text-base leading-relaxed">
+              SMK ICB Cinta Niaga berkomitmen untuk mencetak lulusan yang tidak hanya
+              kompeten di bidangnya, tetapi juga siap menghadapi tantangan industri
+              modern dengan kemampuan teknologi dan karakter yang kuat.
             </p>
 
-            <p class="font-semibold text-gray-700 mt-2">Mengapa Memilih Kami?</p>
-            <p class="text-sm text-gray-600">
-              Ruang lingkup yang memberikan ciri khas dalam cara untuk masa depan
-              yang gemilang.
-            </p>
+            <!-- Quote highlight -->
+            <blockquote class="border-l-4 border-amber-400 pl-4 py-1">
+              <p class="text-blue-950 font-semibold text-sm md:text-base leading-relaxed italic">
+                "Mengapa memilih kami? Karena kami memberi ruang untuk berkembang
+                sesuai potensi unik setiap siswa."
+              </p>
+            </blockquote>
           </div>
 
-          <!-- Foto kanan -->
-          <div class="md:w-1/2">
+          <!-- ── Foto kanan (dipertahankan) ── -->
+          <div class="md:w-1/2 relative">
+            <!-- Badge mengambang di atas foto -->
+            <div class="absolute -top-4 -left-4 z-10
+                        bg-blue-950 text-white rounded-xl px-4 py-3 shadow-lg
+                        flex items-center gap-2">
+              <i class="fa-solid fa-shield-halved text-amber-400"></i>
+              <span class="text-xs font-bold">Akreditasi A</span>
+            </div>
+
             <img
               src="/images/foto-sekolah.JPG"
               alt="Foto SMK ICB Cinta Niaga"
-              class="w-full h-72 md:h-96 object-cover rounded-2xl bg-gray-200"
-              onerror="this.style.background='#e5e7eb'; this.removeAttribute('src')"
+              class="w-full h-72 md:h-96 object-cover rounded-2xl bg-slate-200"
+              onerror="this.style.background='#e2e8f0'; this.removeAttribute('src')"
             />
+
+            <!-- Badge bawah kanan -->
+            <div class="absolute -bottom-4 -right-4 z-10
+                        bg-amber-400 rounded-xl px-4 py-3 shadow-lg
+                        flex items-center gap-2">
+              <i class="fa-solid fa-graduation-cap text-blue-950"></i>
+              <span class="text-blue-950 text-xs font-bold">15K+ Lulusan</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- ============================================================
+           SECTION 2 — 4 KEUNGGULAN
+           Layout: Bento grid asimetris — 1 kartu dominan + 3 supporting
+           ============================================================ -->
+      <section class="bg-[#f5f5f7] py-20 px-6 md:px-16">
+        <div class="max-w-6xl mx-auto flex flex-col gap-12">
+
+          <!-- Header -->
+          <div class="flex flex-col gap-3">
+            <span class="inline-flex items-center gap-2
+                         text-xs font-semibold tracking-widest uppercase text-amber-600 w-fit">
+              <span class="w-6 h-px bg-amber-500"></span>
+              Keunggulan
+            </span>
+            <h2 class="text-3xl md:text-4xl font-bold text-blue-950">
+              Mengapa Memilih<br class="hidden md:block"> SMK ICB Cinta Niaga?
+            </h2>
+          </div>
+
+          <!-- Bento grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+            <!-- Kartu dominan: Akreditasi (span 2 col di lg, biru tua) -->
+            <div class="lg:col-span-2 bg-blue-950 rounded-2xl p-8
+                        flex flex-col justify-between gap-8
+                        relative overflow-hidden min-h-[220px]">
+              <!-- Dekorasi -->
+              <span class="absolute -top-12 -right-12 w-52 h-52 rounded-full
+                           bg-blue-800/30 pointer-events-none"></span>
+              <span class="absolute bottom-0 left-0 w-32 h-32 rounded-full
+                           bg-amber-400/5 pointer-events-none"></span>
+
+              <div class="relative z-10 flex flex-col gap-4">
+                <!-- Icon + badge -->
+                <div class="inline-flex items-center gap-3 w-fit">
+                  <div class="w-12 h-12 rounded-xl bg-amber-400/15 border border-amber-400/25
+                              flex items-center justify-center">
+                    <i class="fa-solid fa-certificate text-amber-400 text-lg"></i>
+                  </div>
+                  <span class="bg-amber-400/20 text-amber-300 text-[11px] font-bold
+                               tracking-widest uppercase px-3 py-1 rounded-full border
+                               border-amber-400/25">
+                    Akreditasi A
+                  </span>
+                </div>
+
+                <h3 class="text-white text-xl md:text-2xl font-bold leading-snug max-w-md">
+                  Diakui Standar Pendidikan Nasional Tertinggi
+                </h3>
+              </div>
+
+              <div class="relative z-10 flex flex-col gap-3">
+                <div class="w-10 h-0.5 bg-amber-400/40 rounded-full"></div>
+                <p class="text-blue-200/80 text-sm leading-relaxed max-w-lg">
+                  Telah terakreditasi resmi, menjamin mutu dan standar pendidikan kejuruan
+                  berkualitas tinggi yang diakui secara nasional oleh BAN-SM.
+                </p>
+              </div>
+            </div>
+
+            <!-- Kartu 2: Kurikulum (putih) -->
+            <div class="bg-white rounded-2xl p-7 border border-slate-200/80 shadow-sm
+                        flex flex-col gap-5
+                        hover:-translate-y-0.5 hover:shadow-md hover:shadow-blue-950/5
+                        transition-all duration-200">
+              <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-xl bg-blue-950 flex items-center justify-center">
+                  <i class="fa-solid fa-book-open text-amber-400 text-base"></i>
+                </div>
+                <span class="text-amber-600 text-[10px] font-bold tracking-widest uppercase">
+                  Kurikulum
+                </span>
+              </div>
+              <div class="flex flex-col gap-2">
+                <h3 class="text-blue-950 font-bold text-base leading-snug">
+                  Kurikulum Berbasis Industri
+                </h3>
+                <p class="text-slate-500 text-sm leading-relaxed">
+                  Dirancang bersama mitra industri terkemuka untuk memastikan relevansi
+                  kompetensi dengan kebutuhan dunia kerja.
+                </p>
+              </div>
+              <div class="mt-auto pt-3 border-t border-slate-100">
+                <span class="inline-flex items-center gap-1.5 text-blue-950 text-xs font-semibold">
+                  <i class="fa-solid fa-arrow-trend-up text-amber-500 text-xs"></i>
+                  100+ Mitra Industri
+                </span>
+              </div>
+            </div>
+
+            <!-- Kartu 3: Pengajar (abu terang + border kiri amber) -->
+            <div class="bg-[#f5f5f7] rounded-2xl p-7 border border-slate-200/80
+                        border-l-4 border-l-amber-400
+                        flex flex-col gap-5
+                        hover:-translate-y-0.5 hover:shadow-md hover:shadow-blue-950/5
+                        transition-all duration-200">
+              <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-xl bg-blue-950 flex items-center justify-center">
+                  <i class="fa-solid fa-chalkboard-user text-amber-400 text-base"></i>
+                </div>
+                <span class="text-amber-600 text-[10px] font-bold tracking-widest uppercase">
+                  Pengajar
+                </span>
+              </div>
+              <div class="flex flex-col gap-2">
+                <h3 class="text-blue-950 font-bold text-base leading-snug">
+                  Pengajar Profesional
+                </h3>
+                <p class="text-slate-500 text-sm leading-relaxed">
+                  Didampingi tenaga pendidik bersertifikat dan berpengalaman di
+                  bidangnya masing-masing.
+                </p>
+              </div>
+              <div class="mt-auto pt-3 border-t border-slate-200">
+                <span class="inline-flex items-center gap-1.5 text-blue-950 text-xs font-semibold">
+                  <i class="fa-solid fa-users text-amber-500 text-xs"></i>
+                  80+ Guru Tersertifikasi
+                </span>
+              </div>
+            </div>
+
+            <!-- Kartu 4: Peluang Kerja (putih + border kiri biru) -->
+            <div class="bg-white rounded-2xl p-7 border border-slate-200/80
+                        border-l-4 border-l-blue-950
+                        flex flex-col gap-5
+                        hover:-translate-y-0.5 hover:shadow-md hover:shadow-blue-950/5
+                        transition-all duration-200">
+              <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-xl bg-blue-950 flex items-center justify-center">
+                  <i class="fa-solid fa-briefcase text-amber-400 text-base"></i>
+                </div>
+                <span class="text-blue-950 text-[10px] font-bold tracking-widest uppercase">
+                  Karir
+                </span>
+              </div>
+              <div class="flex flex-col gap-2">
+                <h3 class="text-blue-950 font-bold text-base leading-snug">
+                  Peluang Kerja & Wirausaha
+                </h3>
+                <p class="text-slate-500 text-sm leading-relaxed">
+                  Lulusan kami dipercaya bekerja di perusahaan mitra atau membangun
+                  usaha sendiri melalui program inkubator bisnis.
+                </p>
+              </div>
+              <div class="mt-auto pt-3 border-t border-slate-100">
+                <span class="inline-flex items-center gap-1.5 text-blue-950 text-xs font-semibold">
+                  <i class="fa-solid fa-chart-line text-amber-500 text-xs"></i>
+                  85% Terserap Industri
+                </span>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
 
-      <!-- ===== SECTION 2: 4 KEUNGGULAN (2 baris x 2 kolom) ===== -->
-      <section class="bg-white py-8 px-6 md:px-16">
-        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
 
-          <!-- Card 1: Kurikulum -->
-          <div class="flex gap-4 items-start">
-            <div class="bg-amber-100 rounded-xl p-3 shrink-0">
-              <i class="fa-solid fa-book-open text-amber-600 text-2xl"></i>
-            </div>
-            <div>
-              <h3 class="font-bold text-base mb-1">Kurikulum Berbasis Industri</h3>
-              <p class="text-sm text-gray-600 leading-relaxed">
-                Kurikulum kami dirancang bersama mitra industri terkemuka untuk memastikan relevansi
-                kompetensi siswa dengan kebutuhan dunia kerja dan masa depan.
-              </p>
-            </div>
+      <!-- ============================================================
+           SECTION 3 — FASILITAS UNGGULAN (SLIDER BESAR)
+           Struktur dipertahankan, visual disesuaikan
+           ============================================================ -->
+      <section class="bg-white py-20 px-6 md:px-16">
+        <div class="max-w-6xl mx-auto flex flex-col gap-10">
+
+          <!-- Header -->
+          <div class="flex flex-col gap-3">
+            <span class="inline-flex items-center gap-2
+                         text-xs font-semibold tracking-widest uppercase text-amber-600 w-fit">
+              <span class="w-6 h-px bg-amber-500"></span>
+              Fasilitas Unggulan
+            </span>
+            <h2 class="text-3xl md:text-4xl font-bold text-blue-950">
+              Ruang Belajar Berstandar Industri
+            </h2>
           </div>
 
-          <!-- Card 2: Akreditasi -->
-          <div class="flex gap-4 items-start">
-            <div class="bg-blue-950 rounded-xl p-4 shrink-0 flex flex-col items-center justify-center min-w-24">
-              <i class="fa-solid fa-circle-check text-yellow-400 text-2xl mb-1"></i>
-              <span class="text-white font-bold text-sm">Akreditasi A</span>
-              <span class="text-blue-200 text-xs text-center mt-1">Diakui standar pendidikan berkualitas tinggi</span>
-            </div>
-            <div>
-              <h3 class="font-bold text-base mb-1">Akreditasi A</h3>
-              <p class="text-sm text-gray-600 leading-relaxed">
-                Telah terakreditasi resmi, menjamin mutu dan standar pendidikan kejuruan berkualitas tinggi
-                yang diakui secara nasional.
-              </p>
-            </div>
-          </div>
+          <!-- Carousel besar -->
+          <div class="relative rounded-2xl overflow-hidden shadow-sm border border-slate-200/80"
+               style="height: 420px;">
 
-          <!-- Card 3: Pengajar -->
-          <div class="flex gap-4 items-start">
-            <div class="bg-amber-100 rounded-xl p-3 shrink-0">
-              <i class="fa-solid fa-chalkboard-teacher text-amber-600 text-2xl"></i>
-            </div>
-            <div>
-              <h3 class="font-bold text-base mb-1">Pengajar Profesional</h3>
-              <p class="text-sm text-gray-600 leading-relaxed">
-                Didampingi oleh tenaga pendidik bersertifikat dan berpengalaman di bidangnya masing-masing.
-              </p>
-            </div>
-          </div>
-
-          <!-- Card 4: Peluang Kerja -->
-          <div class="flex gap-4 items-start">
-            <div class="bg-amber-100 rounded-xl p-3 shrink-0">
-              <i class="fa-solid fa-briefcase text-amber-600 text-2xl"></i>
-            </div>
-            <div>
-              <h3 class="font-bold text-base mb-1">Peluang Kerja & Wirausaha</h3>
-              <p class="text-sm text-gray-600 leading-relaxed">
-                Lulusan kami dipercaya untuk bekerja di perusahaan-perusahaan mitra atau membangun
-                usaha sendiri melalui program inkubator bisnis sekolah.
-              </p>
-            </div>
-          </div>
-        
-          
-        </div>
-      </section>
-
-       <!-- ===== SECTION 3: FASILITAS UNGGULAN + SLIDER ===== -->
-      <section class="bg-gray-50 py-14 px-6 md:px-16">
-        <div class="max-w-6xl mx-auto">
-          <h2 class="text-2xl font-bold mb-8">Fasilitas Unggulan</h2>
- 
-          <!-- ===== CAROUSEL BESAR ===== -->
-          <div class="relative rounded-2xl overflow-hidden shadow-lg mb-8" style="height: 420px;">
- 
-            <!-- Slide 1: Lab Komputer -->
+            <!-- Slide 1 -->
             <div class="carousel-slide absolute inset-0 transition-opacity duration-700 opacity-100"
                  style="background-color: #cbd5e1;">
-              <img
-                src="/images/RPL.jpeg"
-                alt="Laboratorium RPL"
-                class="w-full h-full object-cover"
-                onerror="this.style.display='none'"
-              />
-              <!-- Overlay teks di dalam foto -->
-              <div class="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/75 to-transparent p-8">
-                <span class="bg-amber-500 text-white text-xs font-semibold px-3 py-1 rounded-full mb-3 inline-block">
-                  <i class="fa-solid fa-desktop mr-1"></i> Fasilitas 1 / 4
+              <img src="/images/RPL.jpeg" alt="Laboratorium RPL"
+                   class="w-full h-full object-cover" onerror="this.style.display='none'"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-blue-950/20
+                          to-transparent pointer-events-none"></div>
+              <div class="absolute bottom-0 left-0 right-0 p-7 md:p-9">
+                <span class="inline-flex items-center gap-1.5
+                             bg-amber-400 text-blue-950 text-[11px] font-bold
+                             px-3 py-1.5 rounded-full mb-4">
+                  <i class="fa-solid fa-desktop text-xs"></i>
+                  Fasilitas 1 / 4
                 </span>
-                <h3 class="text-white text-2xl font-bold mb-1">Laboratorium RPL</h3>
-                <p class="text-gray-200 text-sm max-w-2xl">
-                  Dilengkapi dengan perangkat komputer spesifikasi tinggi untuk menunjang pembelajaran IT & Business secara optimal. Setiap siswa mendapatkan satu unit komputer selama proses belajar mengajar berlangsung.
+                <h3 class="text-white text-xl md:text-2xl font-bold mb-2">
+                  Laboratorium RPL
+                </h3>
+                <p class="text-blue-100/80 text-sm max-w-2xl leading-relaxed">
+                  Dilengkapi dengan perangkat komputer spesifikasi tinggi untuk menunjang
+                  pembelajaran IT & Business secara optimal. Setiap siswa mendapatkan
+                  satu unit komputer selama proses belajar mengajar.
                 </p>
               </div>
             </div>
- 
-            <!-- Slide 2: Lab MP -->
+
+            <!-- Slide 2 -->
             <div class="carousel-slide absolute inset-0 transition-opacity duration-700 opacity-0"
                  style="background-color: #a7c7e7;">
-              <img
-                src="/images/MP.jpeg"
-                alt="Laboratorium MP"
-                class="w-full h-full object-cover"
-                onerror="this.style.display='none'"
-              />
-              <div class="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/75 to-transparent p-8">
-                <span class="bg-amber-500 text-white text-xs font-semibold px-3 py-1 rounded-full mb-3 inline-block">
-                  <i class="fa-solid fa-book mr-1"></i> Fasilitas 2 / 4
+              <img src="/images/MP.jpeg" alt="Laboratorium MP"
+                   class="w-full h-full object-cover" onerror="this.style.display='none'"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-blue-950/20
+                          to-transparent pointer-events-none"></div>
+              <div class="absolute bottom-0 left-0 right-0 p-7 md:p-9">
+                <span class="inline-flex items-center gap-1.5
+                             bg-amber-400 text-blue-950 text-[11px] font-bold
+                             px-3 py-1.5 rounded-full mb-4">
+                  <i class="fa-solid fa-book text-xs"></i>
+                  Fasilitas 2 / 4
                 </span>
-                <h3 class="text-white text-2xl font-bold mb-1">Laboratorium MP</h3>
-                <p class="text-gray-200 text-sm max-w-2xl">
-                  Akses ribuan e-book dan jurnal ilmiah untuk mendukung riset dan literasi Digital Nasional. Tersedia area baca yang nyaman serta koneksi internet cepat untuk keperluan belajar mandiri.
+                <h3 class="text-white text-xl md:text-2xl font-bold mb-2">
+                  Laboratorium MP
+                </h3>
+                <p class="text-blue-100/80 text-sm max-w-2xl leading-relaxed">
+                  Akses ribuan e-book dan jurnal ilmiah untuk mendukung riset dan literasi
+                  Digital Nasional. Area baca nyaman dengan koneksi internet cepat.
                 </p>
               </div>
             </div>
- 
-            <!-- Slide 3: Lab AK -->
+
+            <!-- Slide 3 -->
             <div class="carousel-slide absolute inset-0 transition-opacity duration-700 opacity-0"
                  style="background-color: #b5c9a1;">
-              <img
-                src="/images/AK.jpeg"
-                alt="Laboratorium AK"
-                class="w-full h-full object-cover"
-                onerror="this.style.display='none'"
-              />
-              <div class="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/75 to-transparent p-8">
-                <span class="bg-amber-500 text-white text-xs font-semibold px-3 py-1 rounded-full mb-3 inline-block">
-                  <i class="fa-solid fa-users mr-1"></i> Fasilitas 3 / 4
+              <img src="/images/AK.jpeg" alt="Laboratorium AK"
+                   class="w-full h-full object-cover" onerror="this.style.display='none'"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-blue-950/20
+                          to-transparent pointer-events-none"></div>
+              <div class="absolute bottom-0 left-0 right-0 p-7 md:p-9">
+                <span class="inline-flex items-center gap-1.5
+                             bg-amber-400 text-blue-950 text-[11px] font-bold
+                             px-3 py-1.5 rounded-full mb-4">
+                  <i class="fa-solid fa-users text-xs"></i>
+                  Fasilitas 3 / 4
                 </span>
-                <h3 class="text-white text-2xl font-bold mb-1">Laboratorium AK</h3>
-                <p class="text-gray-200 text-sm max-w-2xl">
-                  Ruang representatif untuk berbagai acara sekolah, seminar, dan kegiatan siswa. Mampu menampung ratusan peserta dengan sistem audio-visual modern dan pencahayaan yang memadai.
+                <h3 class="text-white text-xl md:text-2xl font-bold mb-2">
+                  Laboratorium AK
+                </h3>
+                <p class="text-blue-100/80 text-sm max-w-2xl leading-relaxed">
+                  Ruang representatif untuk seminar dan kegiatan siswa. Menampung ratusan
+                  peserta dengan sistem audio-visual modern.
                 </p>
               </div>
             </div>
- 
-            <!-- Slide 4: Ruang Praktik -->
+
+            <!-- Slide 4 -->
             <div class="carousel-slide absolute inset-0 transition-opacity duration-700 opacity-0"
                  style="background-color: #d4b8a0;">
-              <img
-                src="/images/niaga_mart.JPG"
-                alt="Laboratorium BR"
-                class="w-full h-full object-cover"
-                onerror="this.style.display='none'"
-              />
-              <div class="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/75 to-transparent p-8">
-                <span class="bg-amber-500 text-white text-xs font-semibold px-3 py-1 rounded-full mb-3 inline-block">
-                  <i class="fa-solid fa-briefcase mr-1"></i> Fasilitas 4 / 4
+              <img src="/images/niaga_mart.JPG" alt="Ruang Praktik Bisnis"
+                   class="w-full h-full object-cover" onerror="this.style.display='none'"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-blue-950/20
+                          to-transparent pointer-events-none"></div>
+              <div class="absolute bottom-0 left-0 right-0 p-7 md:p-9">
+                <span class="inline-flex items-center gap-1.5
+                             bg-amber-400 text-blue-950 text-[11px] font-bold
+                             px-3 py-1.5 rounded-full mb-4">
+                  <i class="fa-solid fa-briefcase text-xs"></i>
+                  Fasilitas 4 / 4
                 </span>
-                <h3 class="text-white text-2xl font-bold mb-1">Ruang Praktik Bisnis</h3>
-                <p class="text-gray-200 text-sm max-w-2xl">
-                  Simulasi lingkungan kerja nyata untuk melatih keterampilan administrasi dan niaga. Siswa belajar langsung mengelola transaksi, pembukuan, dan layanan pelanggan seperti di dunia kerja sesungguhnya.
+                <h3 class="text-white text-xl md:text-2xl font-bold mb-2">
+                  Ruang Praktik Bisnis
+                </h3>
+                <p class="text-blue-100/80 text-sm max-w-2xl leading-relaxed">
+                  Simulasi lingkungan kerja nyata untuk melatih keterampilan administrasi
+                  dan niaga. Siswa belajar mengelola transaksi dan layanan pelanggan.
                 </p>
               </div>
             </div>
- 
-            <!-- Tombol Prev -->
-            <button
-              id="prevBtn"
-              class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 w-10 h-10 rounded-full flex items-center justify-center shadow-md z-10 transition"
-            >
+
+            <!-- Tombol Prev — konsisten dengan major.html -->
+            <button id="prevBtn"
+              class="absolute left-4 top-1/2 -translate-y-1/2 z-10
+                     w-10 h-10 rounded-full bg-white/85 hover:bg-white
+                     border border-white/40 text-blue-950 text-sm
+                     flex items-center justify-center shadow-md
+                     transition-all duration-200 hover:scale-105">
               <i class="fa-solid fa-chevron-left"></i>
             </button>
- 
+
             <!-- Tombol Next -->
-            <button
-              id="nextBtn"
-              class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 w-10 h-10 rounded-full flex items-center justify-center shadow-md z-10 transition"
-            >
+            <button id="nextBtn"
+              class="absolute right-4 top-1/2 -translate-y-1/2 z-10
+                     w-10 h-10 rounded-full bg-white/85 hover:bg-white
+                     border border-white/40 text-blue-950 text-sm
+                     flex items-center justify-center shadow-md
+                     transition-all duration-200 hover:scale-105">
               <i class="fa-solid fa-chevron-right"></i>
             </button>
- 
-            <!-- Dots -->
-            <div class="absolute top-4 right-4 flex gap-2 z-10">
-              <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-white transition" onclick="goToSlide(0)"></button>
-              <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/40 transition" onclick="goToSlide(1)"></button>
-              <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/40 transition" onclick="goToSlide(2)"></button>
-              <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/40 transition" onclick="goToSlide(3)"></button>
+
+            <!-- Dots (kanan atas) -->
+            <div class="absolute top-5 right-5 flex gap-2 z-10">
+              <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-white
+                             transition-all duration-200 border-none cursor-pointer p-0"
+                      onclick="goToSlide(0)"></button>
+              <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/40
+                             transition-all duration-200 border-none cursor-pointer p-0"
+                      onclick="goToSlide(1)"></button>
+              <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/40
+                             transition-all duration-200 border-none cursor-pointer p-0"
+                      onclick="goToSlide(2)"></button>
+              <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/40
+                             transition-all duration-200 border-none cursor-pointer p-0"
+                      onclick="goToSlide(3)"></button>
             </div>
           </div>
- 
-          <!-- Thumbnail strip di bawah -->
+
+          <!-- Thumbnail strip -->
           <div class="grid grid-cols-4 gap-3">
-            <div class="carousel-thumb cursor-pointer rounded-xl overflow-hidden border-2 border-amber-400 transition"
+            <div class="carousel-thumb cursor-pointer rounded-xl overflow-hidden
+                        border-2 border-amber-400 transition-all duration-200"
                  onclick="goToSlide(0)">
-              <div class="w-full h-20 bg-gray-300 overflow-hidden">
-                <img src="/images/RPL.jpeg" alt="Lab Komputer"
+              <div class="w-full h-20 bg-slate-200 overflow-hidden">
+                <img src="/images/RPL.jpeg" alt="Lab RPL"
                      class="w-full h-full object-cover" onerror="this.style.display='none'"/>
               </div>
-              <div class="bg-white px-2 py-1.5">
-                <p class="text-xs font-semibold truncate">Laboratorium Komputer</p>
+              <div class="bg-white px-2 py-2">
+                <p class="text-[11px] font-semibold text-blue-950 truncate">Lab RPL</p>
               </div>
             </div>
-            <div class="carousel-thumb cursor-pointer rounded-xl overflow-hidden border-2 border-transparent transition"
+            <div class="carousel-thumb cursor-pointer rounded-xl overflow-hidden
+                        border-2 border-transparent hover:border-slate-300
+                        transition-all duration-200"
                  onclick="goToSlide(1)">
-              <div class="w-full h-20 bg-gray-300 overflow-hidden">
+              <div class="w-full h-20 bg-slate-200 overflow-hidden">
                 <img src="/images/MP.jpeg" alt="Lab MP"
                      class="w-full h-full object-cover" onerror="this.style.display='none'"/>
               </div>
-              <div class="bg-white px-2 py-1.5">
-                <p class="text-xs font-semibold truncate">Laboratorium MP</p>
+              <div class="bg-white px-2 py-2">
+                <p class="text-[11px] font-semibold text-blue-950 truncate">Lab MP</p>
               </div>
             </div>
-            <div class="carousel-thumb cursor-pointer rounded-xl overflow-hidden border-2 border-transparent transition"
+            <div class="carousel-thumb cursor-pointer rounded-xl overflow-hidden
+                        border-2 border-transparent hover:border-slate-300
+                        transition-all duration-200"
                  onclick="goToSlide(2)">
-              <div class="w-full h-20 bg-gray-300 overflow-hidden">
+              <div class="w-full h-20 bg-slate-200 overflow-hidden">
                 <img src="/images/AK.jpeg" alt="Lab AK"
                      class="w-full h-full object-cover" onerror="this.style.display='none'"/>
               </div>
-              <div class="bg-white px-2 py-1.5">
-                <p class="text-xs font-semibold truncate">Laboratorium AK</p>
+              <div class="bg-white px-2 py-2">
+                <p class="text-[11px] font-semibold text-blue-950 truncate">Lab AK</p>
               </div>
             </div>
-            <div class="carousel-thumb cursor-pointer rounded-xl overflow-hidden border-2 border-transparent transition"
+            <div class="carousel-thumb cursor-pointer rounded-xl overflow-hidden
+                        border-2 border-transparent hover:border-slate-300
+                        transition-all duration-200"
                  onclick="goToSlide(3)">
-              <div class="w-full h-20 bg-gray-300 overflow-hidden">
+              <div class="w-full h-20 bg-slate-200 overflow-hidden">
                 <img src="/images/niaga_mart.JPG" alt="Lab BR"
                      class="w-full h-full object-cover" onerror="this.style.display='none'"/>
               </div>
-              <div class="bg-white px-2 py-1.5">
-                <p class="text-xs font-semibold truncate">Laboratorium BR</p>
+              <div class="bg-white px-2 py-2">
+                <p class="text-[11px] font-semibold text-blue-950 truncate">Ruang Bisnis</p>
               </div>
             </div>
           </div>
- 
+
         </div>
       </section>
- 
+
       <script>
         let currentSlide = 0;
         const slides = document.querySelectorAll('.carousel-slide');
         const dots   = document.querySelectorAll('.carousel-dot');
         const thumbs = document.querySelectorAll('.carousel-thumb');
         let autoTimer = setInterval(() => goToSlide((currentSlide + 1) % slides.length), 4000);
- 
+
         function goToSlide(n) {
           slides[currentSlide].style.opacity = '0';
-          dots[currentSlide].style.opacity   = '0.4';
+          dots[currentSlide].style.background  = 'rgba(255,255,255,0.4)';
           thumbs[currentSlide].style.borderColor = 'transparent';
- 
+
           currentSlide = n;
- 
+
           slides[currentSlide].style.opacity = '1';
-          dots[currentSlide].style.opacity   = '1';
-          thumbs[currentSlide].style.borderColor = '#f59e0b'; /* amber-400 */
- 
+          dots[currentSlide].style.background  = 'rgba(255,255,255,1)';
+          thumbs[currentSlide].style.borderColor = '#f59e0b';
+
           clearInterval(autoTimer);
           autoTimer = setInterval(() => goToSlide((currentSlide + 1) % slides.length), 4000);
         }
- 
+
         document.getElementById('prevBtn').addEventListener('click', () => {
           goToSlide((currentSlide - 1 + slides.length) % slides.length);
         });
@@ -332,90 +501,199 @@
         });
       </script>
 
-    <!-- ===== SECTION 3: FASILITAS UNGGULAN ===== -->
-      <section class="bg-gray-50 py-14 px-6 md:px-16">
-        <div class="max-w-6xl mx-auto">
-          <h2 class="text-2xl font-bold mb-8">Fasilitas Unggulan</h2>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
 
-            <!-- Fasilitas 1 -->
-            <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100">
-              <div class="w-full h-36 bg-gray-200 overflow-hidden">
-                <img
-                  src="/images/foto 1.JPG"
-                  alt="Laboratorium Komputer"
-                  class="w-full h-full object-cover"
-                  onerror="this.style.display='none'"
-                />
+      <!-- ============================================================
+           SECTION 4 — FASILITAS UNGGULAN (GRID CARD KECIL)
+           Redesign: card dengan hover overlay + accent bottom + icon
+           ============================================================ -->
+      <section class="bg-[#f5f5f7] py-20 px-6 md:px-16">
+        <div class="max-w-6xl mx-auto flex flex-col gap-10">
+
+          <!-- Header -->
+          <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div class="flex flex-col gap-3">
+              <span class="inline-flex items-center gap-2
+                           text-xs font-semibold tracking-widest uppercase text-amber-600 w-fit">
+                <span class="w-6 h-px bg-amber-500"></span>
+                Sarana & Prasarana
+              </span>
+              <h2 class="text-3xl md:text-4xl font-bold text-blue-950">
+                Fasilitas Lengkap & Modern
+              </h2>
+            </div>
+            <p class="text-slate-400 text-sm max-w-xs text-right hidden sm:block leading-relaxed">
+              Setiap fasilitas dirancang untuk mendukung proses pembelajaran yang optimal
+            </p>
+          </div>
+
+          <!-- Grid card kecil -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+            <!-- Card 1 -->
+            <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200/80
+                        shadow-sm hover:shadow-lg hover:shadow-blue-950/8
+                        hover:-translate-y-1 transition-all duration-300">
+              <!-- Image dengan overlay saat hover -->
+              <div class="relative w-full h-36 bg-slate-200 overflow-hidden">
+                <img src="/images/foto 1.JPG" alt="Laboratorium Komputer"
+                     class="w-full h-full object-cover
+                            group-hover:scale-105 transition-transform duration-500"
+                     onerror="this.style.display='none'"/>
+                <!-- overlay icon on hover -->
+                <div class="absolute inset-0 bg-blue-950/0 group-hover:bg-blue-950/30
+                            flex items-center justify-center
+                            transition-all duration-300">
+                  <div class="w-10 h-10 rounded-full bg-white/0 group-hover:bg-white/90
+                              flex items-center justify-center
+                              scale-75 group-hover:scale-100
+                              transition-all duration-300">
+                    <i class="fa-solid fa-desktop text-blue-950 text-sm opacity-0
+                              group-hover:opacity-100 transition-opacity duration-300"></i>
+                  </div>
+                </div>
+                <!-- placeholder -->
+                <div class="absolute inset-0 flex items-center justify-center bg-slate-100
+                            [&:has(+img)]:hidden">
+                  <i class="fa-regular fa-image text-3xl text-slate-300"></i>
+                </div>
               </div>
-              <div class="p-3">
-                <h4 class="font-semibold text-sm">Laboratorium Komputer</h4>
-                <p class="text-xs text-gray-500 mt-1">Dilengkapi dengan perangkat komputer terkini yang menunjang proses belajar IT & Business.</p>
+              <!-- Info -->
+              <div class="p-4 flex flex-col gap-1.5 border-t-2 border-amber-400">
+                <h4 class="font-bold text-sm text-blue-950 leading-snug">
+                  Laboratorium Komputer
+                </h4>
+                <p class="text-xs text-slate-500 leading-relaxed">
+                  Perangkat komputer terkini menunjang proses belajar IT & Business.
+                </p>
               </div>
             </div>
 
-            <!-- Fasilitas 2 -->
-            <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100">
-              <div class="w-full h-36 bg-gray-200 overflow-hidden">
-                <img
-                  src="/images/foto 1.JPG"
-                  alt="Perpustakaan Digital"
-                  class="w-full h-full object-cover"
-                  onerror="this.style.display='none'"
-                />
+            <!-- Card 2 -->
+            <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200/80
+                        shadow-sm hover:shadow-lg hover:shadow-blue-950/8
+                        hover:-translate-y-1 transition-all duration-300">
+              <div class="relative w-full h-36 bg-slate-200 overflow-hidden">
+                <img src="/images/foto 1.JPG" alt="Perpustakaan Digital"
+                     class="w-full h-full object-cover
+                            group-hover:scale-105 transition-transform duration-500"
+                     onerror="this.style.display='none'"/>
+                <div class="absolute inset-0 bg-blue-950/0 group-hover:bg-blue-950/30
+                            flex items-center justify-center transition-all duration-300">
+                  <div class="w-10 h-10 rounded-full bg-white/0 group-hover:bg-white/90
+                              flex items-center justify-center
+                              scale-75 group-hover:scale-100 transition-all duration-300">
+                    <i class="fa-solid fa-book text-blue-950 text-sm opacity-0
+                              group-hover:opacity-100 transition-opacity duration-300"></i>
+                  </div>
+                </div>
               </div>
-              <div class="p-3">
-                <h4 class="font-semibold text-sm">Perpustakaan Digital</h4>
-                <p class="text-xs text-gray-500 mt-1">Koleksi e-book dan jurnal untuk mendukung riset dan literasi Digital Nasional.</p>
-              </div>
-            </div>
-
-            <!-- Fasilitas 3 -->
-            <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100">
-              <div class="w-full h-36 bg-gray-200 overflow-hidden">
-                <img
-                  src="/images/foto 1.JPG"
-                  alt="Aula Serbaguna"
-                  class="w-full h-full object-cover"
-                  onerror="this.style.display='none'"
-                />
-              </div>
-              <div class="p-3">
-                <h4 class="font-semibold text-sm">Aula Serbaguna</h4>
-                <p class="text-xs text-gray-500 mt-1">Ruang serbaguna yang dipakai sebagai tempat seminar, acara sekolah, dan kegiatan siswa.</p>
+              <div class="p-4 flex flex-col gap-1.5 border-t-2 border-blue-950">
+                <h4 class="font-bold text-sm text-blue-950 leading-snug">
+                  Perpustakaan Digital
+                </h4>
+                <p class="text-xs text-slate-500 leading-relaxed">
+                  Koleksi e-book & jurnal untuk mendukung riset dan literasi digital.
+                </p>
               </div>
             </div>
 
-            <!-- Fasilitas 4 -->
-            <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100">
-              <div class="w-full h-36 bg-gray-200 overflow-hidden">
-                <img
-                  src="/images/foto 1.JPG"
-                  alt="Ruang Praktik Bisnis"
-                  class="w-full h-full object-cover"
-                  onerror="this.style.display='none'"
-                />
+            <!-- Card 3 -->
+            <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200/80
+                        shadow-sm hover:shadow-lg hover:shadow-blue-950/8
+                        hover:-translate-y-1 transition-all duration-300">
+              <div class="relative w-full h-36 bg-slate-200 overflow-hidden">
+                <img src="/images/foto 1.JPG" alt="Aula Serbaguna"
+                     class="w-full h-full object-cover
+                            group-hover:scale-105 transition-transform duration-500"
+                     onerror="this.style.display='none'"/>
+                <div class="absolute inset-0 bg-blue-950/0 group-hover:bg-blue-950/30
+                            flex items-center justify-center transition-all duration-300">
+                  <div class="w-10 h-10 rounded-full bg-white/0 group-hover:bg-white/90
+                              flex items-center justify-center
+                              scale-75 group-hover:scale-100 transition-all duration-300">
+                    <i class="fa-solid fa-users text-blue-950 text-sm opacity-0
+                              group-hover:opacity-100 transition-opacity duration-300"></i>
+                  </div>
+                </div>
               </div>
-              <div class="p-3">
-                <h4 class="font-semibold text-sm">Ruang Praktik Bisnis</h4>
-                <p class="text-xs text-gray-500 mt-1">Fasilitas lingkungan belajar nyata untuk mencetak wirausahawan, ahli akuntansi, dan lainnya.</p>
+              <div class="p-4 flex flex-col gap-1.5 border-t-2 border-amber-400">
+                <h4 class="font-bold text-sm text-blue-950 leading-snug">
+                  Aula Serbaguna
+                </h4>
+                <p class="text-xs text-slate-500 leading-relaxed">
+                  Ruang serbaguna untuk seminar, acara sekolah, dan kegiatan siswa.
+                </p>
               </div>
             </div>
-          </main>
-    
+
+            <!-- Card 4 -->
+            <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200/80
+                        shadow-sm hover:shadow-lg hover:shadow-blue-950/8
+                        hover:-translate-y-1 transition-all duration-300">
+              <div class="relative w-full h-36 bg-slate-200 overflow-hidden">
+                <img src="/images/foto 1.JPG" alt="Ruang Praktik Bisnis"
+                     class="w-full h-full object-cover
+                            group-hover:scale-105 transition-transform duration-500"
+                     onerror="this.style.display='none'"/>
+                <div class="absolute inset-0 bg-blue-950/0 group-hover:bg-blue-950/30
+                            flex items-center justify-center transition-all duration-300">
+                  <div class="w-10 h-10 rounded-full bg-white/0 group-hover:bg-white/90
+                              flex items-center justify-center
+                              scale-75 group-hover:scale-100 transition-all duration-300">
+                    <i class="fa-solid fa-briefcase text-blue-950 text-sm opacity-0
+                              group-hover:opacity-100 transition-opacity duration-300"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="p-4 flex flex-col gap-1.5 border-t-2 border-blue-950">
+                <h4 class="font-bold text-sm text-blue-950 leading-snug">
+                  Ruang Praktik Bisnis
+                </h4>
+                <p class="text-xs text-slate-500 leading-relaxed">
+                  Lingkungan belajar nyata untuk mencetak wirausahawan dan akuntan.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </main>
+
     <!-- ===== FOOTER ===== -->
-    <footer class="bg-blue-950 text-white py-8 px-6 md:px-16">
-      <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-        <p class="font-bold text-sm">SMK ICB Cinta Niaga</p>
-        <ul class="flex gap-5 text-sm text-blue-200">
-          <li><a href="index.html" class="hover:text-white">Home</a></li>
-          <li><a href="profile.html" class="hover:text-white">Profil</a></li>
-          <li><a href="major.html" class="hover:text-white">Jurusan</a></li>
-          <li><a href="#" class="hover:text-white font-semibold text-white">About</a></li>
-          <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
-          <li><a href="#" class="hover:text-white">Contact</a></li>
-        </ul>
-        <p class="text-xs text-blue-300">© 2024 SMK ICB Cinta Niaga. All rights reserved.</p>
+    <footer class="bg-blue-950 text-white border-t border-blue-900 py-12 px-6 md:px-16">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+
+        <div class="flex flex-col gap-4">
+          <h2 class="text-lg font-bold">SMK ICB Cinta Niaga</h2>
+          <p class="text-blue-200 text-sm leading-relaxed max-w-xs">
+            Membentuk generasi unggul yang siap bersaing di dunia industri
+            dan teknologi dengan fondasi akademik yang kokoh.
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          <h3 class="font-bold text-sm">Tautan Cepat</h3>
+          <ul class="flex flex-col gap-2.5 text-blue-200 text-sm">
+            <li><a href="index.html"   class="hover:text-white transition-colors">Home</a></li>
+            <li><a href="profile.html" class="hover:text-white transition-colors">Profile</a></li>
+            <li><a href="major.html"   class="hover:text-white transition-colors">Major</a></li>
+            <li><a href="#" class="font-semibold text-white">About</a></li>
+          </ul>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          <h3 class="font-bold text-sm">Informasi</h3>
+          <ul class="flex flex-col gap-2.5 text-blue-200 text-sm">
+            <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
+          </ul>
+          <p class="text-blue-300/60 text-xs mt-2">
+            © 2024 SMK ICB Cinta Niaga. All rights reserved.
+          </p>
+        </div>
+
       </div>
     </footer>
 
