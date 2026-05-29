@@ -13,62 +13,80 @@
   </head>
 
   <body class="bg-[#f5f5f7] text-blue-950">
-
     <!-- ===== NAVBAR ===== -->
-    <nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 px-4 py-3
-                flex flex-col md:flex-row md:justify-around items-center gap-2 md:gap-0">
-      <h1 class="font-bold text-blue-950 text-sm md:text-base">SMK ICB Cinta Niaga</h1>
+    <nav
+      class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 px-4 py-3 flex flex-col md:flex-row md:justify-around items-center gap-2 md:gap-0"
+    >
+      <h1 class="font-bold text-blue-950 text-sm md:text-base">
+        SMK ICB Cinta Niaga
+      </h1>
       <ul class="flex gap-4 text-sm text-slate-600">
-        <li><a href="index.html"   class="hover:text-blue-950 transition-colors">Home</a></li>
-        <li><a href="profile.html" class="hover:text-blue-950 transition-colors">Profile</a></li>
-        <li><a href="major.html"   class="hover:text-blue-950 transition-colors">Major</a></li>
+        <li>
+          <a href="index.html" class="hover:text-blue-950 transition-colors"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a href="profile.html" class="hover:text-blue-950 transition-colors"
+            >Profile</a
+          >
+        </li>
+        <li>
+          <a href="major.html" class="hover:text-blue-950 transition-colors"
+            >Major</a
+          >
+        </li>
         <li class="font-bold text-blue-950 underline underline-offset-4">
           <a href="#">About</a>
         </li>
       </ul>
-      <a href="nicobot.html"
-         class="bg-blue-950 hover:bg-blue-900 text-white w-full md:w-fit
-                px-4 py-2 rounded-lg text-xs text-center font-semibold
-                transition-colors duration-200">
+      <a
+        href="nicobot.html"
+        class="bg-blue-950 hover:bg-blue-900 text-white w-full md:w-fit px-4 py-2 rounded-lg text-xs text-center font-semibold transition-colors duration-200"
+      >
         Chat With Us
       </a>
     </nav>
 
     <main class="pt-14">
-
       <!-- ============================================================
            SECTION 1 — TENTANG KAMI
            Layout: teks kiri diperkaya + foto kanan dipertahankan
            ============================================================ -->
       <section class="bg-white py-20 px-6 md:px-16">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-14 items-center">
-
+        <div
+          class="max-w-6xl mx-auto flex flex-col md:flex-row gap-14 items-center"
+        >
           <!-- ── Teks kiri ── -->
           <div class="md:w-1/2 flex flex-col gap-6">
-
             <!-- Badge konsisten dengan sistem global -->
-            <span class="inline-flex items-center gap-2 w-fit
-                         text-xs font-semibold tracking-widest uppercase text-amber-600">
+            <span
+              class="inline-flex items-center gap-2 w-fit text-xs font-semibold tracking-widest uppercase text-amber-600"
+            >
               <span class="w-6 h-px bg-amber-500"></span>
               Tentang Kami
             </span>
 
-            <h2 class="text-3xl md:text-4xl font-bold text-blue-950 leading-tight">
-              Membangun Generasi Unggul<br class="hidden md:block">
+            <h2
+              class="text-3xl md:text-4xl font-bold text-blue-950 leading-tight"
+            >
+              Membangun Generasi Unggul<br class="hidden md:block" />
               di Era <span class="text-amber-500">Digital</span>
             </h2>
 
             <p class="text-slate-500 text-sm md:text-base leading-relaxed">
-              SMK ICB Cinta Niaga berkomitmen untuk mencetak lulusan yang tidak hanya
-              kompeten di bidangnya, tetapi juga siap menghadapi tantangan industri
-              modern dengan kemampuan teknologi dan karakter yang kuat.
+              SMK ICB Cinta Niaga berkomitmen untuk mencetak lulusan yang tidak
+              hanya kompeten di bidangnya, tetapi juga siap menghadapi tantangan
+              industri modern dengan kemampuan teknologi dan karakter yang kuat.
             </p>
 
             <!-- Quote highlight -->
             <blockquote class="border-l-4 border-amber-400 pl-4 py-1">
-              <p class="text-blue-950 font-semibold text-sm md:text-base leading-relaxed italic">
-                "Mengapa memilih kami? Karena kami memberi ruang untuk berkembang
-                sesuai potensi unik setiap siswa."
+              <p
+                class="text-blue-950 font-semibold text-sm md:text-base leading-relaxed italic"
+              >
+                "Mengapa memilih kami? Karena kami memberi ruang untuk
+                berkembang sesuai potensi unik setiap siswa."
               </p>
             </blockquote>
           </div>
@@ -76,189 +94,313 @@
           <!-- ── Foto kanan (dipertahankan) ── -->
           <div class="md:w-1/2 relative">
             <!-- Badge mengambang di atas foto -->
-            <div class="absolute -top-4 -left-4 z-10
-                        bg-blue-950 text-white rounded-xl px-4 py-3 shadow-lg
-                        flex items-center gap-2">
-              <i class="fa-solid fa-shield-halved text-amber-400"></i>
-              <span class="text-xs font-bold">Akreditasi A</span>
+            <div
+              class="absolute -top-4 -left-4 z-10 bg-blue-950 text-white rounded-xl px-4 py-3 shadow-lg flex items-center gap-2"
+            >
+              <span class="text-xs font-bold">Sekolah Berbasis Industri</span>
             </div>
 
             <img
-              src="/images/foto-sekolah.JPG"
+              src="/images/landing-page.jpeg"
               alt="Foto SMK ICB Cinta Niaga"
               class="w-full h-72 md:h-96 object-cover rounded-2xl bg-slate-200"
-              onerror="this.style.background='#e2e8f0'; this.removeAttribute('src')"
+              onerror="
+                this.style.background = '#e2e8f0';
+                this.removeAttribute('src');
+              "
             />
 
             <!-- Badge bawah kanan -->
-            <div class="absolute -bottom-4 -right-4 z-10
-                        bg-amber-400 rounded-xl px-4 py-3 shadow-lg
-                        flex items-center gap-2">
-              <i class="fa-solid fa-graduation-cap text-blue-950"></i>
-              <span class="text-blue-950 text-xs font-bold">15K+ Lulusan</span>
+            <div
+              class="absolute -bottom-4 -right-4 z-10 bg-amber-400 rounded-xl px-4 py-3 shadow-lg flex items-center gap-2"
+            >
+              <span class="text-blue-950 text-xs font-bold">Soft Skill & Karakter</span>
             </div>
           </div>
-
         </div>
       </section>
-
 
       <!-- ============================================================
-           SECTION 2 — 4 KEUNGGULAN
-           Layout: Bento grid asimetris — 1 kartu dominan + 3 supporting
-           ============================================================ -->
+     SECTION: TESTIMONI ALUMNI
+     Pengganti section "4 Keunggulan" di about.html
+     Layout: Bento asymmetric — 1 kartu featured besar +
+             3 kartu standar + 1 kartu highlight bawah
+     Pure Tailwind CSS v4 + FontAwesome 6.5.1
+     ============================================================ -->
+
       <section class="bg-[#f5f5f7] py-20 px-6 md:px-16">
         <div class="max-w-6xl mx-auto flex flex-col gap-12">
-
-          <!-- Header -->
-          <div class="flex flex-col gap-3">
-            <span class="inline-flex items-center gap-2
-                         text-xs font-semibold tracking-widest uppercase text-amber-600 w-fit">
-              <span class="w-6 h-px bg-amber-500"></span>
-              Keunggulan
-            </span>
-            <h2 class="text-3xl md:text-4xl font-bold text-blue-950">
-              Mengapa Memilih<br class="hidden md:block"> SMK ICB Cinta Niaga?
-            </h2>
+          <!-- ── Header ── -->
+          <div
+            class="flex flex-col sm:flex-row sm:items-end justify-between gap-4"
+          >
+            <div class="flex flex-col gap-3">
+              <span
+                class="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-amber-600 w-fit"
+              >
+                <span class="w-6 h-px bg-amber-500"></span>
+                Suara Alumni
+              </span>
+              <h2
+                class="text-3xl md:text-4xl font-bold text-blue-950 leading-tight"
+              >
+                Apa Kata Mereka<br class="hidden sm:block" />
+                yang Sudah Lulus?
+              </h2>
+            </div>
+            <p
+              class="text-slate-400 text-sm max-w-xs leading-relaxed hidden sm:block text-right"
+            >
+              Ribuan alumni kami kini berkarir dan berwirausaha di berbagai
+              sektor industri.
+            </p>
           </div>
 
-          <!-- Bento grid -->
+          <!-- ── BENTO GRID ── -->
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <!-- ════════════════════════════════════
+           KARTU 1 — FEATURED (biru tua, besar)
+           col-span 1 di md, col-span 1 lg
+           row-span 2 di lg
+           ════════════════════════════════════ -->
+            <div
+              class="lg:row-span-2 bg-blue-950 rounded-2xl p-8 flex flex-col justify-between gap-8 relative overflow-hidden min-h-[320px] hover:shadow-2xl hover:shadow-blue-950/25 transition-all duration-300"
+            >
+              <!-- Dekorasi lingkaran -->
+              <span
+                class="absolute -top-14 -right-14 w-52 h-52 rounded-full bg-blue-800/40 pointer-events-none"
+              ></span>
+              <span
+                class="absolute bottom-0 left-0 w-32 h-32 rounded-full bg-amber-400/5 pointer-events-none"
+              ></span>
 
-            <!-- Kartu dominan: Akreditasi (span 2 col di lg, biru tua) -->
-            <div class="lg:col-span-2 bg-blue-950 rounded-2xl p-8
-                        flex flex-col justify-between gap-8
-                        relative overflow-hidden min-h-[220px]">
-              <!-- Dekorasi -->
-              <span class="absolute -top-12 -right-12 w-52 h-52 rounded-full
-                           bg-blue-800/30 pointer-events-none"></span>
-              <span class="absolute bottom-0 left-0 w-32 h-32 rounded-full
-                           bg-amber-400/5 pointer-events-none"></span>
+              <!-- Ikon kutipan besar -->
+              <div class="relative z-10">
+                <i
+                  class="fa-solid fa-quote-left text-amber-400/25 text-7xl leading-none mb-4 block"
+                ></i>
+                <p class="text-blue-100 text-base leading-relaxed">
+                  Dulu saya nggak tahu mau jadi apa setelah SMP. Masuk ICB dan
+                  ambil RPL adalah keputusan terbaik yang pernah saya buat.
+                  Sekarang saya bekerja sebagai junior developer di startup
+                  Bandung — dan saya baru lulus dua tahun lalu.
+                </p>
+              </div>
 
-              <div class="relative z-10 flex flex-col gap-4">
-                <!-- Icon + badge -->
-                <div class="inline-flex items-center gap-3 w-fit">
-                  <div class="w-12 h-12 rounded-xl bg-amber-400/15 border border-amber-400/25
-                              flex items-center justify-center">
-                    <i class="fa-solid fa-certificate text-amber-400 text-lg"></i>
+              <!-- Profil alumni -->
+              <div class="relative z-10 flex items-center gap-4">
+                <!-- Avatar placeholder -->
+                <div
+                  class="w-12 h-12 rounded-full bg-amber-400/20 border-2 border-amber-400/40 flex items-center justify-center flex-shrink-0 overflow-hidden"
+                >
+                  <img
+                    src="/images/alumni/rafi.jpg"
+                    alt="Rafi"
+                    class="w-full h-full object-cover"
+                    onerror="this.style.display = 'none'"
+                  />
+                  <i
+                    class="fa-solid fa-user text-amber-400 text-lg absolute"
+                    aria-hidden="true"
+                  ></i>
+                </div>
+                <div>
+                  <p class="text-white font-bold text-sm leading-tight">
+                    Rafi Saputra
+                  </p>
+                  <p class="text-amber-400 text-xs font-semibold mt-0.5">
+                    RPL · Angkatan 2022
+                  </p>
+                  <p class="text-blue-300/70 text-[11px] mt-0.5">
+                    Junior Developer · Startup
+                  </p>
+                </div>
+                <!-- Rating -->
+                <div class="ml-auto flex gap-0.5 flex-shrink-0">
+                  <i class="fa-solid fa-star text-amber-400 text-xs"></i>
+                  <i class="fa-solid fa-star text-amber-400 text-xs"></i>
+                  <i class="fa-solid fa-star text-amber-400 text-xs"></i>
+                  <i class="fa-solid fa-star text-amber-400 text-xs"></i>
+                  <i class="fa-solid fa-star text-amber-400 text-xs"></i>
+                </div>
+              </div>
+            </div>
+
+            <!-- ════════════════════════════════════
+           KARTU 2 — Standar (putih)
+           ════════════════════════════════════ -->
+            <div
+              class="bg-white rounded-2xl p-7 border border-slate-200/80 shadow-sm flex flex-col gap-5 relative overflow-hidden hover:-translate-y-0.5 hover:shadow-md hover:shadow-blue-950/6 transition-all duration-200"
+            >
+              <!-- Quote icon transparan -->
+              <i
+                class="fa-solid fa-quote-left text-blue-950/6 text-6xl absolute top-4 right-5 leading-none pointer-events-none"
+              ></i>
+
+              <!-- Border aksen kiri -->
+              <div
+                class="absolute left-0 top-6 bottom-6 w-1 rounded-full bg-amber-400"
+              ></div>
+
+              <p class="text-slate-600 text-sm leading-relaxed pl-3">
+                Gurunya sabar banget jelasin materi yang susah. Waktu PKL, saya
+                langsung ditempatkan di kantor yang beneran — bukan sekedar
+                fotokopi doang. Ilmu yang saya dapat di ICB ternyata langsung
+                kepake.
+              </p>
+
+              <div class="flex items-center gap-3 pl-3">
+                <div
+                  class="w-10 h-10 rounded-full bg-blue-950 flex items-center justify-center flex-shrink-0 overflow-hidden"
+                >
+                  <img
+                    src="/images/alumni/sinta.jpg"
+                    alt="Sinta"
+                    class="w-full h-full object-cover"
+                    onerror="this.style.display = 'none'"
+                  />
+                  <i class="fa-solid fa-user text-white text-sm absolute"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <p
+                    class="text-blue-950 font-bold text-sm leading-tight truncate"
+                  >
+                    Sinta Rahmawati
+                  </p>
+                  <p class="text-amber-600 text-[11px] font-semibold mt-0.5">
+                    Manajemen Perkantoran · 2021
+                  </p>
+                </div>
+                <div class="flex gap-0.5 flex-shrink-0">
+                  <i class="fa-solid fa-star text-amber-400 text-[10px]"></i>
+                  <i class="fa-solid fa-star text-amber-400 text-[10px]"></i>
+                  <i class="fa-solid fa-star text-amber-400 text-[10px]"></i>
+                  <i class="fa-solid fa-star text-amber-400 text-[10px]"></i>
+                  <i class="fa-solid fa-star text-amber-400 text-[10px]"></i>
+                </div>
+              </div>
+            </div>
+
+            <!-- ════════════════════════════════════
+           KARTU 3 — Standar (abu terang)
+           ════════════════════════════════════ -->
+            <div
+              class="bg-[#ffffff] rounded-2xl p-7 border border-slate-200/80 flex flex-col gap-5 relative overflow-hidden hover:-translate-y-0.5 hover:shadow-md hover:shadow-blue-950/6 transition-all duration-200"
+            >
+              <i
+                class="fa-solid fa-quote-left text-blue-950/5 text-6xl absolute top-4 right-5 leading-none pointer-events-none"
+              ></i>
+
+              <div
+                class="absolute left-0 top-6 bottom-6 w-1 rounded-full bg-blue-950"
+              ></div>
+
+              <p class="text-slate-600 text-sm leading-relaxed pl-3">
+                Saya sempat ragu antara SMA dan SMK. Ternyata pilih ICB adalah
+                keputusan tepat. Selain belajar akuntansi, saya juga belajar
+                tentang mental kerja, disiplin, dan komunikasi profesional.
+                Sekarang saya staf keuangan di perusahaan distribusi.
+              </p>
+
+              <div class="flex items-center gap-3 pl-3">
+                <div
+                  class="w-10 h-10 rounded-full bg-blue-950 flex items-center justify-center flex-shrink-0 overflow-hidden"
+                >
+                  <img
+                    src="/images/alumni/dimas.jpg"
+                    alt="Dimas"
+                    class="w-full h-full object-cover"
+                    onerror="this.style.display = 'none'"
+                  />
+                  <i class="fa-solid fa-user text-white text-sm absolute"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <p
+                    class="text-blue-950 font-bold text-sm leading-tight truncate"
+                  >
+                    Dimas Prasetyo
+                  </p>
+                  <p class="text-blue-600 text-[11px] font-semibold mt-0.5">
+                    Akuntansi · 2020
+                  </p>
+                </div>
+                <div class="flex gap-0.5 flex-shrink-0">
+                  <i class="fa-solid fa-star text-amber-400 text-[10px]"></i>
+                  <i class="fa-solid fa-star text-amber-400 text-[10px]"></i>
+                  <i class="fa-solid fa-star text-amber-400 text-[10px]"></i>
+                  <i class="fa-solid fa-star text-amber-400 text-[10px]"></i>
+                  <i
+                    class="fa-solid fa-star-half-stroke text-amber-400 text-[10px]"
+                  ></i>
+                </div>
+              </div>
+            </div>
+
+            <!-- ════════════════════════════════════
+           KARTU 4 — Wide bottom (putih, full col-span 2 di lg)
+           ════════════════════════════════════ -->
+            <div
+              class="lg:col-span-2 bg-white rounded-2xl p-7 border border-slate-200/80 shadow-sm flex flex-col sm:flex-row gap-6 relative overflow-hidden hover:shadow-md hover:shadow-blue-950/6 transition-all duration-200"
+            >
+              <!-- Aksen kiri vertikal -->
+              <div
+                class="hidden sm:block absolute left-0 top-6 bottom-6 w-1 rounded-full bg-amber-400"
+              ></div>
+
+              <!-- Quote icon besar transparan -->
+              <i
+                class="fa-solid fa-quote-left text-blue-950/5 text-7xl absolute bottom-3 right-6 leading-none pointer-events-none"
+              ></i>
+
+              <!-- Konten -->
+              <div class="sm:pl-4 flex flex-col gap-4 flex-1">
+                <p class="text-slate-600 text-sm leading-relaxed">
+                  Waktu sekolah dulu saya ikut ekstrakurikuler kewirausahaan dan
+                  diajarin cara buka usaha dari nol. Sekarang saya punya toko
+                  online yang omzetnya sudah lumayan. Pelajaran bisnis ritel di
+                  ICB beneran ngebantu banget — dari manajemen stok sampai cara
+                  melayani pelanggan yang baik.
+                </p>
+
+                <div class="flex items-center gap-3">
+                  <div
+                    class="w-11 h-11 rounded-full bg-amber-100 border-2 border-amber-200 flex items-center justify-center flex-shrink-0 overflow-hidden"
+                  >
+                    <img
+                      src="/images/alumni/nadia.jpg"
+                      alt="Nadia"
+                      class="w-full h-full object-cover"
+                      onerror="this.style.display = 'none'"
+                    />
+                    <i
+                      class="fa-solid fa-user text-amber-600 text-sm absolute"
+                    ></i>
                   </div>
-                  <span class="bg-amber-400/20 text-amber-300 text-[11px] font-bold
-                               tracking-widest uppercase px-3 py-1 rounded-full border
-                               border-amber-400/25">
-                    Akreditasi A
-                  </span>
+                  <div>
+                    <p class="text-blue-950 font-bold text-sm leading-tight">
+                      Nadia Kusuma
+                    </p>
+                    <p class="text-amber-600 text-[11px] font-semibold mt-0.5">
+                      Bisnis Ritel · Angkatan 2021
+                    </p>
+                    <p class="text-slate-400 text-[11px] mt-0.5">
+                      Wirausaha · Toko Online Fashion
+                    </p>
+                  </div>
+                  <div class="ml-auto hidden sm:flex gap-0.5 flex-shrink-0">
+                    <i class="fa-solid fa-star text-amber-400 text-[10px]"></i>
+                    <i class="fa-solid fa-star text-amber-400 text-[10px]"></i>
+                    <i class="fa-solid fa-star text-amber-400 text-[10px]"></i>
+                    <i class="fa-solid fa-star text-amber-400 text-[10px]"></i>
+                    <i class="fa-solid fa-star text-amber-400 text-[10px]"></i>
+                  </div>
                 </div>
-
-                <h3 class="text-white text-xl md:text-2xl font-bold leading-snug max-w-md">
-                  Diakui Standar Pendidikan Nasional Tertinggi
-                </h3>
-              </div>
-
-              <div class="relative z-10 flex flex-col gap-3">
-                <div class="w-10 h-0.5 bg-amber-400/40 rounded-full"></div>
-                <p class="text-blue-200/80 text-sm leading-relaxed max-w-lg">
-                  Telah terakreditasi resmi, menjamin mutu dan standar pendidikan kejuruan
-                  berkualitas tinggi yang diakui secara nasional oleh BAN-SM.
-                </p>
               </div>
             </div>
-
-            <!-- Kartu 2: Kurikulum (putih) -->
-            <div class="bg-white rounded-2xl p-7 border border-slate-200/80 shadow-sm
-                        flex flex-col gap-5
-                        hover:-translate-y-0.5 hover:shadow-md hover:shadow-blue-950/5
-                        transition-all duration-200">
-              <div class="flex items-center gap-3">
-                <div class="w-11 h-11 rounded-xl bg-blue-950 flex items-center justify-center">
-                  <i class="fa-solid fa-book-open text-amber-400 text-base"></i>
-                </div>
-                <span class="text-amber-600 text-[10px] font-bold tracking-widest uppercase">
-                  Kurikulum
-                </span>
-              </div>
-              <div class="flex flex-col gap-2">
-                <h3 class="text-blue-950 font-bold text-base leading-snug">
-                  Kurikulum Berbasis Industri
-                </h3>
-                <p class="text-slate-500 text-sm leading-relaxed">
-                  Dirancang bersama mitra industri terkemuka untuk memastikan relevansi
-                  kompetensi dengan kebutuhan dunia kerja.
-                </p>
-              </div>
-              <div class="mt-auto pt-3 border-t border-slate-100">
-                <span class="inline-flex items-center gap-1.5 text-blue-950 text-xs font-semibold">
-                  <i class="fa-solid fa-arrow-trend-up text-amber-500 text-xs"></i>
-                  100+ Mitra Industri
-                </span>
-              </div>
-            </div>
-
-            <!-- Kartu 3: Pengajar (abu terang + border kiri amber) -->
-            <div class="bg-[#f5f5f7] rounded-2xl p-7 border border-slate-200/80
-                        border-l-4 border-l-amber-400
-                        flex flex-col gap-5
-                        hover:-translate-y-0.5 hover:shadow-md hover:shadow-blue-950/5
-                        transition-all duration-200">
-              <div class="flex items-center gap-3">
-                <div class="w-11 h-11 rounded-xl bg-blue-950 flex items-center justify-center">
-                  <i class="fa-solid fa-chalkboard-user text-amber-400 text-base"></i>
-                </div>
-                <span class="text-amber-600 text-[10px] font-bold tracking-widest uppercase">
-                  Pengajar
-                </span>
-              </div>
-              <div class="flex flex-col gap-2">
-                <h3 class="text-blue-950 font-bold text-base leading-snug">
-                  Pengajar Profesional
-                </h3>
-                <p class="text-slate-500 text-sm leading-relaxed">
-                  Didampingi tenaga pendidik bersertifikat dan berpengalaman di
-                  bidangnya masing-masing.
-                </p>
-              </div>
-              <div class="mt-auto pt-3 border-t border-slate-200">
-                <span class="inline-flex items-center gap-1.5 text-blue-950 text-xs font-semibold">
-                  <i class="fa-solid fa-users text-amber-500 text-xs"></i>
-                  80+ Guru Tersertifikasi
-                </span>
-              </div>
-            </div>
-
-            <!-- Kartu 4: Peluang Kerja (putih + border kiri biru) -->
-            <div class="bg-white rounded-2xl p-7 border border-slate-200/80
-                        border-l-4 border-l-blue-950
-                        flex flex-col gap-5
-                        hover:-translate-y-0.5 hover:shadow-md hover:shadow-blue-950/5
-                        transition-all duration-200">
-              <div class="flex items-center gap-3">
-                <div class="w-11 h-11 rounded-xl bg-blue-950 flex items-center justify-center">
-                  <i class="fa-solid fa-briefcase text-amber-400 text-base"></i>
-                </div>
-                <span class="text-blue-950 text-[10px] font-bold tracking-widest uppercase">
-                  Karir
-                </span>
-              </div>
-              <div class="flex flex-col gap-2">
-                <h3 class="text-blue-950 font-bold text-base leading-snug">
-                  Peluang Kerja & Wirausaha
-                </h3>
-                <p class="text-slate-500 text-sm leading-relaxed">
-                  Lulusan kami dipercaya bekerja di perusahaan mitra atau membangun
-                  usaha sendiri melalui program inkubator bisnis.
-                </p>
-              </div>
-              <div class="mt-auto pt-3 border-t border-slate-100">
-                <span class="inline-flex items-center gap-1.5 text-blue-950 text-xs font-semibold">
-                  <i class="fa-solid fa-chart-line text-amber-500 text-xs"></i>
-                  85% Terserap Industri
-                </span>
-              </div>
-            </div>
-
           </div>
+          <!-- END BENTO GRID -->
         </div>
       </section>
-
 
       <!-- ============================================================
            SECTION 3 — FASILITAS UNGGULAN (SLIDER BESAR)
@@ -266,11 +408,11 @@
            ============================================================ -->
       <section class="bg-white py-20 px-6 md:px-16">
         <div class="max-w-6xl mx-auto flex flex-col gap-10">
-
           <!-- Header -->
           <div class="flex flex-col gap-3">
-            <span class="inline-flex items-center gap-2
-                         text-xs font-semibold tracking-widest uppercase text-amber-600 w-fit">
+            <span
+              class="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-amber-600 w-fit"
+            >
               <span class="w-6 h-px bg-amber-500"></span>
               Fasilitas Unggulan
             </span>
@@ -280,20 +422,28 @@
           </div>
 
           <!-- Carousel besar -->
-          <div class="relative rounded-2xl overflow-hidden shadow-sm border border-slate-200/80"
-               style="height: 420px;">
-
+          <div
+            class="relative rounded-2xl overflow-hidden shadow-sm border border-slate-200/80"
+            style="height: 420px"
+          >
             <!-- Slide 1 -->
-            <div class="carousel-slide absolute inset-0 transition-opacity duration-700 opacity-100"
-                 style="background-color: #cbd5e1;">
-              <img src="/images/RPL.jpeg" alt="Laboratorium RPL"
-                   class="w-full h-full object-cover" onerror="this.style.display='none'"/>
-              <div class="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-blue-950/20
-                          to-transparent pointer-events-none"></div>
+            <div
+              class="carousel-slide absolute inset-0 transition-opacity duration-700 opacity-100"
+              style="background-color: #cbd5e1"
+            >
+              <img
+                src="./images/lab-rpl.jpeg"
+                alt="Laboratorium RPL"
+                class="w-full h-full object-cover"
+                onerror="this.style.display = 'none'"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-blue-950/20 to-transparent pointer-events-none"
+              ></div>
               <div class="absolute bottom-0 left-0 right-0 p-7 md:p-9">
-                <span class="inline-flex items-center gap-1.5
-                             bg-amber-400 text-blue-950 text-[11px] font-bold
-                             px-3 py-1.5 rounded-full mb-4">
+                <span
+                  class="inline-flex items-center gap-1.5 bg-amber-400 text-blue-950 text-[11px] font-bold px-3 py-1.5 rounded-full mb-4"
+                >
                   <i class="fa-solid fa-desktop text-xs"></i>
                   Fasilitas 1 / 4
                 </span>
@@ -301,24 +451,32 @@
                   Laboratorium RPL
                 </h3>
                 <p class="text-blue-100/80 text-sm max-w-2xl leading-relaxed">
-                  Dilengkapi dengan perangkat komputer spesifikasi tinggi untuk menunjang
-                  pembelajaran IT & Business secara optimal. Setiap siswa mendapatkan
-                  satu unit komputer selama proses belajar mengajar.
+                  Dilengkapi dengan perangkat komputer spesifikasi tinggi untuk
+                  menunjang pembelajaran IT & Business secara optimal. Setiap
+                  siswa mendapatkan satu unit komputer selama proses belajar
+                  mengajar.
                 </p>
               </div>
             </div>
 
             <!-- Slide 2 -->
-            <div class="carousel-slide absolute inset-0 transition-opacity duration-700 opacity-0"
-                 style="background-color: #a7c7e7;">
-              <img src="/images/MP.jpeg" alt="Laboratorium MP"
-                   class="w-full h-full object-cover" onerror="this.style.display='none'"/>
-              <div class="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-blue-950/20
-                          to-transparent pointer-events-none"></div>
+            <div
+              class="carousel-slide absolute inset-0 transition-opacity duration-700 opacity-0"
+              style="background-color: #a7c7e7"
+            >
+              <img
+                src="./images/lab-mp.jpeg"
+                alt="Laboratorium MP"
+                class="w-full h-full object-cover"
+                onerror="this.style.display = 'none'"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-blue-950/20 to-transparent pointer-events-none"
+              ></div>
               <div class="absolute bottom-0 left-0 right-0 p-7 md:p-9">
-                <span class="inline-flex items-center gap-1.5
-                             bg-amber-400 text-blue-950 text-[11px] font-bold
-                             px-3 py-1.5 rounded-full mb-4">
+                <span
+                  class="inline-flex items-center gap-1.5 bg-amber-400 text-blue-950 text-[11px] font-bold px-3 py-1.5 rounded-full mb-4"
+                >
                   <i class="fa-solid fa-book text-xs"></i>
                   Fasilitas 2 / 4
                 </span>
@@ -326,23 +484,31 @@
                   Laboratorium MP
                 </h3>
                 <p class="text-blue-100/80 text-sm max-w-2xl leading-relaxed">
-                  Akses ribuan e-book dan jurnal ilmiah untuk mendukung riset dan literasi
-                  Digital Nasional. Area baca nyaman dengan koneksi internet cepat.
+                  Akses ribuan e-book dan jurnal ilmiah untuk mendukung riset
+                  dan literasi Digital Nasional. Area baca nyaman dengan koneksi
+                  internet cepat.
                 </p>
               </div>
             </div>
 
             <!-- Slide 3 -->
-            <div class="carousel-slide absolute inset-0 transition-opacity duration-700 opacity-0"
-                 style="background-color: #b5c9a1;">
-              <img src="/images/AK.jpeg" alt="Laboratorium AK"
-                   class="w-full h-full object-cover" onerror="this.style.display='none'"/>
-              <div class="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-blue-950/20
-                          to-transparent pointer-events-none"></div>
+            <div
+              class="carousel-slide absolute inset-0 transition-opacity duration-700 opacity-0"
+              style="background-color: #b5c9a1"
+            >
+              <img
+                src="./images/lab-ak.jpeg"
+                alt="Laboratorium AK"
+                class="w-full h-full object-cover"
+                onerror="this.style.display = 'none'"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-blue-950/20 to-transparent pointer-events-none"
+              ></div>
               <div class="absolute bottom-0 left-0 right-0 p-7 md:p-9">
-                <span class="inline-flex items-center gap-1.5
-                             bg-amber-400 text-blue-950 text-[11px] font-bold
-                             px-3 py-1.5 rounded-full mb-4">
+                <span
+                  class="inline-flex items-center gap-1.5 bg-amber-400 text-blue-950 text-[11px] font-bold px-3 py-1.5 rounded-full mb-4"
+                >
                   <i class="fa-solid fa-users text-xs"></i>
                   Fasilitas 3 / 4
                 </span>
@@ -350,23 +516,30 @@
                   Laboratorium AK
                 </h3>
                 <p class="text-blue-100/80 text-sm max-w-2xl leading-relaxed">
-                  Ruang representatif untuk seminar dan kegiatan siswa. Menampung ratusan
-                  peserta dengan sistem audio-visual modern.
+                  Ruang representatif untuk seminar dan kegiatan siswa.
+                  Menampung ratusan peserta dengan sistem audio-visual modern.
                 </p>
               </div>
             </div>
 
             <!-- Slide 4 -->
-            <div class="carousel-slide absolute inset-0 transition-opacity duration-700 opacity-0"
-                 style="background-color: #d4b8a0;">
-              <img src="/images/niaga_mart.JPG" alt="Ruang Praktik Bisnis"
-                   class="w-full h-full object-cover" onerror="this.style.display='none'"/>
-              <div class="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-blue-950/20
-                          to-transparent pointer-events-none"></div>
+            <div
+              class="carousel-slide absolute inset-0 transition-opacity duration-700 opacity-0"
+              style="background-color: #d4b8a0"
+            >
+              <img
+                src="./images/lab-niaga.jpeg"
+                alt="Ruang Praktik Bisnis"
+                class="w-full h-full object-cover"
+                onerror="this.style.display = 'none'"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-blue-950/20 to-transparent pointer-events-none"
+              ></div>
               <div class="absolute bottom-0 left-0 right-0 p-7 md:p-9">
-                <span class="inline-flex items-center gap-1.5
-                             bg-amber-400 text-blue-950 text-[11px] font-bold
-                             px-3 py-1.5 rounded-full mb-4">
+                <span
+                  class="inline-flex items-center gap-1.5 bg-amber-400 text-blue-950 text-[11px] font-bold px-3 py-1.5 rounded-full mb-4"
+                >
                   <i class="fa-solid fa-briefcase text-xs"></i>
                   Fasilitas 4 / 4
                 </span>
@@ -374,311 +547,719 @@
                   Ruang Praktik Bisnis
                 </h3>
                 <p class="text-blue-100/80 text-sm max-w-2xl leading-relaxed">
-                  Simulasi lingkungan kerja nyata untuk melatih keterampilan administrasi
-                  dan niaga. Siswa belajar mengelola transaksi dan layanan pelanggan.
+                  Simulasi lingkungan kerja nyata untuk melatih keterampilan
+                  administrasi dan niaga. Siswa belajar mengelola transaksi dan
+                  layanan pelanggan.
                 </p>
               </div>
             </div>
 
             <!-- Tombol Prev — konsisten dengan major.html -->
-            <button id="prevBtn"
-              class="absolute left-4 top-1/2 -translate-y-1/2 z-10
-                     w-10 h-10 rounded-full bg-white/85 hover:bg-white
-                     border border-white/40 text-blue-950 text-sm
-                     flex items-center justify-center shadow-md
-                     transition-all duration-200 hover:scale-105">
+            <button
+              id="prevBtn"
+              class="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/85 hover:bg-white border border-white/40 text-blue-950 text-sm flex items-center justify-center shadow-md transition-all duration-200 hover:scale-105"
+            >
               <i class="fa-solid fa-chevron-left"></i>
             </button>
 
             <!-- Tombol Next -->
-            <button id="nextBtn"
-              class="absolute right-4 top-1/2 -translate-y-1/2 z-10
-                     w-10 h-10 rounded-full bg-white/85 hover:bg-white
-                     border border-white/40 text-blue-950 text-sm
-                     flex items-center justify-center shadow-md
-                     transition-all duration-200 hover:scale-105">
+            <button
+              id="nextBtn"
+              class="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/85 hover:bg-white border border-white/40 text-blue-950 text-sm flex items-center justify-center shadow-md transition-all duration-200 hover:scale-105"
+            >
               <i class="fa-solid fa-chevron-right"></i>
             </button>
 
             <!-- Dots (kanan atas) -->
             <div class="absolute top-5 right-5 flex gap-2 z-10">
-              <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-white
-                             transition-all duration-200 border-none cursor-pointer p-0"
-                      onclick="goToSlide(0)"></button>
-              <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/40
-                             transition-all duration-200 border-none cursor-pointer p-0"
-                      onclick="goToSlide(1)"></button>
-              <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/40
-                             transition-all duration-200 border-none cursor-pointer p-0"
-                      onclick="goToSlide(2)"></button>
-              <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/40
-                             transition-all duration-200 border-none cursor-pointer p-0"
-                      onclick="goToSlide(3)"></button>
+              <button
+                class="carousel-dot w-2.5 h-2.5 rounded-full bg-white transition-all duration-200 border-none cursor-pointer p-0"
+                onclick="goToSlide(0)"
+              ></button>
+              <button
+                class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/40 transition-all duration-200 border-none cursor-pointer p-0"
+                onclick="goToSlide(1)"
+              ></button>
+              <button
+                class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/40 transition-all duration-200 border-none cursor-pointer p-0"
+                onclick="goToSlide(2)"
+              ></button>
+              <button
+                class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/40 transition-all duration-200 border-none cursor-pointer p-0"
+                onclick="goToSlide(3)"
+              ></button>
             </div>
           </div>
 
           <!-- Thumbnail strip -->
           <div class="grid grid-cols-4 gap-3">
-            <div class="carousel-thumb cursor-pointer rounded-xl overflow-hidden
-                        border-2 border-amber-400 transition-all duration-200"
-                 onclick="goToSlide(0)">
+            <div
+              class="carousel-thumb cursor-pointer rounded-xl overflow-hidden border-2 border-amber-400 transition-all duration-200"
+              onclick="goToSlide(0)"
+            >
               <div class="w-full h-20 bg-slate-200 overflow-hidden">
-                <img src="/images/RPL.jpeg" alt="Lab RPL"
-                     class="w-full h-full object-cover" onerror="this.style.display='none'"/>
+                <img
+                  src="./images/lab-rpl.jpeg"
+                  alt="Lab RPL"
+                  class="w-full h-full object-cover"
+                  onerror="this.style.display = 'none'"
+                />
               </div>
               <div class="bg-white px-2 py-2">
-                <p class="text-[11px] font-semibold text-blue-950 truncate">Lab RPL</p>
+                <p class="text-[11px] font-semibold text-blue-950 truncate">
+                  Lab RPL
+                </p>
               </div>
             </div>
-            <div class="carousel-thumb cursor-pointer rounded-xl overflow-hidden
-                        border-2 border-transparent hover:border-slate-300
-                        transition-all duration-200"
-                 onclick="goToSlide(1)">
+            <div
+              class="carousel-thumb cursor-pointer rounded-xl overflow-hidden border-2 border-transparent hover:border-slate-300 transition-all duration-200"
+              onclick="goToSlide(1)"
+            >
               <div class="w-full h-20 bg-slate-200 overflow-hidden">
-                <img src="/images/MP.jpeg" alt="Lab MP"
-                     class="w-full h-full object-cover" onerror="this.style.display='none'"/>
+                <img
+                  src="./images/lab-mp.jpeg"
+                  alt="Lab MP"
+                  class="w-full h-full object-cover"
+                  onerror="this.style.display = 'none'"
+                />
               </div>
               <div class="bg-white px-2 py-2">
-                <p class="text-[11px] font-semibold text-blue-950 truncate">Lab MP</p>
+                <p class="text-[11px] font-semibold text-blue-950 truncate">
+                  Lab MP
+                </p>
               </div>
             </div>
-            <div class="carousel-thumb cursor-pointer rounded-xl overflow-hidden
-                        border-2 border-transparent hover:border-slate-300
-                        transition-all duration-200"
-                 onclick="goToSlide(2)">
+            <div
+              class="carousel-thumb cursor-pointer rounded-xl overflow-hidden border-2 border-transparent hover:border-slate-300 transition-all duration-200"
+              onclick="goToSlide(2)"
+            >
               <div class="w-full h-20 bg-slate-200 overflow-hidden">
-                <img src="/images/AK.jpeg" alt="Lab AK"
-                     class="w-full h-full object-cover" onerror="this.style.display='none'"/>
+                <img
+                  src="./images/lab-ak.jpeg"
+                  alt="Lab AK"
+                  class="w-full h-full object-cover"
+                  onerror="this.style.display = 'none'"
+                />
               </div>
               <div class="bg-white px-2 py-2">
-                <p class="text-[11px] font-semibold text-blue-950 truncate">Lab AK</p>
+                <p class="text-[11px] font-semibold text-blue-950 truncate">
+                  Lab AK
+                </p>
               </div>
             </div>
-            <div class="carousel-thumb cursor-pointer rounded-xl overflow-hidden
-                        border-2 border-transparent hover:border-slate-300
-                        transition-all duration-200"
-                 onclick="goToSlide(3)">
+            <div
+              class="carousel-thumb cursor-pointer rounded-xl overflow-hidden border-2 border-transparent hover:border-slate-300 transition-all duration-200"
+              onclick="goToSlide(3)"
+            >
               <div class="w-full h-20 bg-slate-200 overflow-hidden">
-                <img src="/images/niaga_mart.JPG" alt="Lab BR"
-                     class="w-full h-full object-cover" onerror="this.style.display='none'"/>
+                <img
+                  src="./images/lab-niaga.jpeg"
+                  alt="Lab BR"
+                  class="w-full h-full object-cover"
+                  onerror="this.style.display = 'none'"
+                />
               </div>
               <div class="bg-white px-2 py-2">
-                <p class="text-[11px] font-semibold text-blue-950 truncate">Ruang Bisnis</p>
+                <p class="text-[11px] font-semibold text-blue-950 truncate">
+                  Ruang Bisnis
+                </p>
               </div>
             </div>
           </div>
-
         </div>
       </section>
 
       <script>
         let currentSlide = 0;
-        const slides = document.querySelectorAll('.carousel-slide');
-        const dots   = document.querySelectorAll('.carousel-dot');
-        const thumbs = document.querySelectorAll('.carousel-thumb');
-        let autoTimer = setInterval(() => goToSlide((currentSlide + 1) % slides.length), 4000);
+        const slides = document.querySelectorAll(".carousel-slide");
+        const dots = document.querySelectorAll(".carousel-dot");
+        const thumbs = document.querySelectorAll(".carousel-thumb");
+        let autoTimer = setInterval(
+          () => goToSlide((currentSlide + 1) % slides.length),
+          4000,
+        );
 
         function goToSlide(n) {
-          slides[currentSlide].style.opacity = '0';
-          dots[currentSlide].style.background  = 'rgba(255,255,255,0.4)';
-          thumbs[currentSlide].style.borderColor = 'transparent';
+          slides[currentSlide].style.opacity = "0";
+          dots[currentSlide].style.background = "rgba(255,255,255,0.4)";
+          thumbs[currentSlide].style.borderColor = "transparent";
 
           currentSlide = n;
 
-          slides[currentSlide].style.opacity = '1';
-          dots[currentSlide].style.background  = 'rgba(255,255,255,1)';
-          thumbs[currentSlide].style.borderColor = '#f59e0b';
+          slides[currentSlide].style.opacity = "1";
+          dots[currentSlide].style.background = "rgba(255,255,255,1)";
+          thumbs[currentSlide].style.borderColor = "#f59e0b";
 
           clearInterval(autoTimer);
-          autoTimer = setInterval(() => goToSlide((currentSlide + 1) % slides.length), 4000);
+          autoTimer = setInterval(
+            () => goToSlide((currentSlide + 1) % slides.length),
+            4000,
+          );
         }
 
-        document.getElementById('prevBtn').addEventListener('click', () => {
+        document.getElementById("prevBtn").addEventListener("click", () => {
           goToSlide((currentSlide - 1 + slides.length) % slides.length);
         });
-        document.getElementById('nextBtn').addEventListener('click', () => {
+        document.getElementById("nextBtn").addEventListener("click", () => {
           goToSlide((currentSlide + 1) % slides.length);
         });
       </script>
-
 
       <!-- ============================================================
            SECTION 4 — FASILITAS UNGGULAN (GRID CARD KECIL)
            Redesign: card dengan hover overlay + accent bottom + icon
            ============================================================ -->
-      <section class="bg-[#f5f5f7] py-20 px-6 md:px-16">
-        <div class="max-w-6xl mx-auto flex flex-col gap-10">
+      <!-- ============================================================
+     SECTION: EKSTRAKURIKULER
+     Grid 4 kolom desktop, 2 tablet, 1 mobile
+     Pure Tailwind CSS v4 + FontAwesome 6.5.1
+     ============================================================ -->
 
-          <!-- Header -->
-          <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-            <div class="flex flex-col gap-3">
-              <span class="inline-flex items-center gap-2
-                           text-xs font-semibold tracking-widest uppercase text-amber-600 w-fit">
-                <span class="w-6 h-px bg-amber-500"></span>
-                Sarana & Prasarana
-              </span>
-              <h2 class="text-3xl md:text-4xl font-bold text-blue-950">
-                Fasilitas Lengkap & Modern
-              </h2>
-            </div>
-            <p class="text-slate-400 text-sm max-w-xs text-right hidden sm:block leading-relaxed">
-              Setiap fasilitas dirancang untuk mendukung proses pembelajaran yang optimal
-            </p>
+<section class="bg-[#f5f5f7] py-20 px-6 md:px-16">
+  <div class="max-w-6xl mx-auto flex flex-col gap-12">
+
+    <!-- ── Header ── -->
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+      <div class="flex flex-col gap-3">
+        <span class="inline-flex items-center gap-2 text-xs font-semibold
+                     tracking-widest uppercase text-amber-600 w-fit">
+          <span class="w-6 h-px bg-amber-500"></span>
+          Ekstrakurikuler
+        </span>
+        <h2 class="text-3xl md:text-4xl font-bold text-blue-950 leading-tight">
+          Kembangkan Potensi<br class="hidden sm:block"> &amp; Bakat Siswa
+        </h2>
+      </div>
+      <p class="text-slate-400 text-sm max-w-xs text-right hidden sm:block leading-relaxed">
+        Beragam kegiatan untuk membangun kreativitas, kepemimpinan,
+        sportivitas, dan kemampuan sosial siswa.
+      </p>
+    </div>
+
+    <!-- ── GRID ── -->
+    <!--
+      Baris 1: OSIS (lebar 2 col) + Angklung + Boxing
+      Baris 2: Dance + English Club + Jepang + Pramuka
+      Baris 3: Padus + Serinca (lebar 2 col) + SISPALA
+      Baris 4: Basket (full width banner pendek)
+    -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+      <!-- ═══ 1. OSIS — featured, 2 kolom ═══ -->
+      <div class="group sm:col-span-2 bg-white rounded-2xl overflow-hidden
+                  border border-slate-200/80 shadow-sm
+                  hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-950/10
+                  transition-all duration-300">
+        <!-- Image area -->
+        <div class="relative w-full h-52 bg-slate-100 overflow-hidden">
+          <img src="./images/osis.jpeg" alt="OSIS"
+               class="w-full h-full object-cover group-hover:scale-105
+                      transition-transform duration-500"
+               onerror="this.style.display='none'"/>
+          <!-- Gradient overlay -->
+          <div class="absolute inset-0 bg-gradient-to-t from-blue-950/60
+                      via-blue-950/10 to-transparent pointer-events-none"></div>
+          <!-- Placeholder -->
+          <div class="absolute inset-0 flex items-center justify-center
+                      bg-slate-100 -z-10">
+            <i class="fa-regular fa-image text-4xl text-slate-300"></i>
           </div>
-
-          <!-- Grid card kecil -->
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-
-            <!-- Card 1 -->
-            <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200/80
-                        shadow-sm hover:shadow-lg hover:shadow-blue-950/8
-                        hover:-translate-y-1 transition-all duration-300">
-              <!-- Image dengan overlay saat hover -->
-              <div class="relative w-full h-36 bg-slate-200 overflow-hidden">
-                <img src="/images/foto 1.JPG" alt="Laboratorium Komputer"
-                     class="w-full h-full object-cover
-                            group-hover:scale-105 transition-transform duration-500"
-                     onerror="this.style.display='none'"/>
-                <!-- overlay icon on hover -->
-                <div class="absolute inset-0 bg-blue-950/0 group-hover:bg-blue-950/30
-                            flex items-center justify-center
-                            transition-all duration-300">
-                  <div class="w-10 h-10 rounded-full bg-white/0 group-hover:bg-white/90
-                              flex items-center justify-center
-                              scale-75 group-hover:scale-100
-                              transition-all duration-300">
-                    <i class="fa-solid fa-desktop text-blue-950 text-sm opacity-0
-                              group-hover:opacity-100 transition-opacity duration-300"></i>
-                  </div>
-                </div>
-                <!-- placeholder -->
-                <div class="absolute inset-0 flex items-center justify-center bg-slate-100
-                            [&:has(+img)]:hidden">
-                  <i class="fa-regular fa-image text-3xl text-slate-300"></i>
-                </div>
-              </div>
-              <!-- Info -->
-              <div class="p-4 flex flex-col gap-1.5 border-t-2 border-amber-400">
-                <h4 class="font-bold text-sm text-blue-950 leading-snug">
-                  Laboratorium Komputer
-                </h4>
-                <p class="text-xs text-slate-500 leading-relaxed">
-                  Perangkat komputer terkini menunjang proses belajar IT & Business.
+          <!-- Badge kategori -->
+          <span class="absolute top-3 left-3 inline-flex items-center gap-1.5
+                       bg-blue-950/80 backdrop-blur-sm text-white
+                       text-[10px] font-bold tracking-wide uppercase
+                       px-2.5 py-1 rounded-full z-10">
+            <i class="fa-solid fa-crown text-amber-400 text-[8px]"></i>
+            Organisasi
+          </span>
+          <!-- Label populer -->
+          <span class="absolute top-3 right-3 inline-flex items-center gap-1
+                       bg-amber-400 text-blue-950 text-[10px] font-bold
+                       px-2.5 py-1 rounded-full z-10">
+            <i class="fa-solid fa-fire text-[8px]"></i>
+            Populer
+          </span>
+          <!-- Info bawah dalam foto -->
+          <div class="absolute bottom-0 left-0 right-0 p-4 z-10">
+            <div class="flex items-end justify-between">
+              <div>
+                <h3 class="text-white font-bold text-lg leading-tight">OSIS</h3>
+                <p class="text-blue-200/80 text-xs mt-0.5">
+                  Organisasi Siswa Intra Sekolah
                 </p>
               </div>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200/80
-                        shadow-sm hover:shadow-lg hover:shadow-blue-950/8
-                        hover:-translate-y-1 transition-all duration-300">
-              <div class="relative w-full h-36 bg-slate-200 overflow-hidden">
-                <img src="/images/foto 1.JPG" alt="Perpustakaan Digital"
-                     class="w-full h-full object-cover
-                            group-hover:scale-105 transition-transform duration-500"
-                     onerror="this.style.display='none'"/>
-                <div class="absolute inset-0 bg-blue-950/0 group-hover:bg-blue-950/30
-                            flex items-center justify-center transition-all duration-300">
-                  <div class="w-10 h-10 rounded-full bg-white/0 group-hover:bg-white/90
-                              flex items-center justify-center
-                              scale-75 group-hover:scale-100 transition-all duration-300">
-                    <i class="fa-solid fa-book text-blue-950 text-sm opacity-0
-                              group-hover:opacity-100 transition-opacity duration-300"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="p-4 flex flex-col gap-1.5 border-t-2 border-blue-950">
-                <h4 class="font-bold text-sm text-blue-950 leading-snug">
-                  Perpustakaan Digital
-                </h4>
-                <p class="text-xs text-slate-500 leading-relaxed">
-                  Koleksi e-book & jurnal untuk mendukung riset dan literasi digital.
-                </p>
+              <div class="w-9 h-9 rounded-xl bg-amber-400 flex items-center
+                          justify-center flex-shrink-0">
+                <i class="fa-solid fa-star text-blue-950 text-sm"></i>
               </div>
             </div>
-
-            <!-- Card 3 -->
-            <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200/80
-                        shadow-sm hover:shadow-lg hover:shadow-blue-950/8
-                        hover:-translate-y-1 transition-all duration-300">
-              <div class="relative w-full h-36 bg-slate-200 overflow-hidden">
-                <img src="/images/foto 1.JPG" alt="Aula Serbaguna"
-                     class="w-full h-full object-cover
-                            group-hover:scale-105 transition-transform duration-500"
-                     onerror="this.style.display='none'"/>
-                <div class="absolute inset-0 bg-blue-950/0 group-hover:bg-blue-950/30
-                            flex items-center justify-center transition-all duration-300">
-                  <div class="w-10 h-10 rounded-full bg-white/0 group-hover:bg-white/90
-                              flex items-center justify-center
-                              scale-75 group-hover:scale-100 transition-all duration-300">
-                    <i class="fa-solid fa-users text-blue-950 text-sm opacity-0
-                              group-hover:opacity-100 transition-opacity duration-300"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="p-4 flex flex-col gap-1.5 border-t-2 border-amber-400">
-                <h4 class="font-bold text-sm text-blue-950 leading-snug">
-                  Aula Serbaguna
-                </h4>
-                <p class="text-xs text-slate-500 leading-relaxed">
-                  Ruang serbaguna untuk seminar, acara sekolah, dan kegiatan siswa.
-                </p>
-              </div>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200/80
-                        shadow-sm hover:shadow-lg hover:shadow-blue-950/8
-                        hover:-translate-y-1 transition-all duration-300">
-              <div class="relative w-full h-36 bg-slate-200 overflow-hidden">
-                <img src="/images/foto 1.JPG" alt="Ruang Praktik Bisnis"
-                     class="w-full h-full object-cover
-                            group-hover:scale-105 transition-transform duration-500"
-                     onerror="this.style.display='none'"/>
-                <div class="absolute inset-0 bg-blue-950/0 group-hover:bg-blue-950/30
-                            flex items-center justify-center transition-all duration-300">
-                  <div class="w-10 h-10 rounded-full bg-white/0 group-hover:bg-white/90
-                              flex items-center justify-center
-                              scale-75 group-hover:scale-100 transition-all duration-300">
-                    <i class="fa-solid fa-briefcase text-blue-950 text-sm opacity-0
-                              group-hover:opacity-100 transition-opacity duration-300"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="p-4 flex flex-col gap-1.5 border-t-2 border-blue-950">
-                <h4 class="font-bold text-sm text-blue-950 leading-snug">
-                  Ruang Praktik Bisnis
-                </h4>
-                <p class="text-xs text-slate-500 leading-relaxed">
-                  Lingkungan belajar nyata untuk mencetak wirausahawan dan akuntan.
-                </p>
-              </div>
-            </div>
-
           </div>
         </div>
-      </section>
+        <!-- Deskripsi -->
+        <div class="p-5 border-t-2 border-amber-400">
+          <p class="text-slate-500 text-xs leading-relaxed">
+            Wadah kepemimpinan dan pengembangan karakter siswa. Berperan aktif
+            dalam merancang program sekolah dan membina hubungan antar-organisasi.
+          </p>
+          <div class="flex items-center justify-between mt-3">
+            <span class="text-[11px] text-slate-400 font-medium">
+              <i class="fa-solid fa-circle text-green-400 text-[7px] mr-1"></i>
+              Aktif
+            </span>
+          </div>
+        </div>
+      </div>
 
+      <!-- ═══ 2. Angklung ═══ -->
+      <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200/80
+                  shadow-sm hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-950/10
+                  transition-all duration-300">
+        <div class="relative w-full h-36 bg-slate-100 overflow-hidden">
+          <img src="./images/ang.jpeg" alt="Angklung"
+               class="w-full h-full object-cover group-hover:scale-105
+                      transition-transform duration-500"
+               onerror="this.style.display='none'"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-blue-950/50
+                      via-transparent to-transparent pointer-events-none"></div>
+          <div class="absolute inset-0 flex items-center justify-center -z-10">
+            <i class="fa-regular fa-image text-3xl text-slate-300"></i>
+          </div>
+          <span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5
+                       bg-blue-950/80 backdrop-blur-sm text-white text-[10px]
+                       font-bold tracking-wide uppercase px-2.5 py-1 rounded-full z-10">
+            <i class="fa-solid fa-music text-amber-400 text-[8px]"></i>
+            Seni
+          </span>
+          <div class="absolute bottom-3 right-3 z-10 w-8 h-8 rounded-lg
+                      bg-white/20 backdrop-blur-sm flex items-center justify-center">
+            <i class="fa-solid fa-music text-white text-xs"></i>
+          </div>
+        </div>
+        <div class="p-4 border-t-2 border-blue-950 flex flex-col gap-1.5">
+          <h4 class="font-bold text-sm text-blue-950 leading-snug">Angklung</h4>
+          <p class="text-xs text-slate-500 leading-relaxed">
+            Lestarikan seni musik tradisional Sunda sambil membangun
+            kekompakan dan kepekaan musikal.
+          </p>
+          <span class="text-[11px] text-slate-400 mt-1">
+            <i class="fa-solid fa-circle text-green-400 text-[7px] mr-1"></i>Aktif
+          </span>
+        </div>
+      </div>
+
+      <!-- ═══ 3. Boxing ═══ -->
+      <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200/80
+                  shadow-sm hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-950/10
+                  transition-all duration-300">
+        <div class="relative w-full h-36 bg-slate-100 overflow-hidden">
+          <img src="./images/box.jpeg" alt="Boxing"
+               class="w-full h-full object-cover group-hover:scale-105
+                      transition-transform duration-500"
+               onerror="this.style.display='none'"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-blue-950/50
+                      via-transparent to-transparent pointer-events-none"></div>
+          <div class="absolute inset-0 flex items-center justify-center -z-10">
+            <i class="fa-regular fa-image text-3xl text-slate-300"></i>
+          </div>
+          <span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5
+                       bg-blue-950/80 backdrop-blur-sm text-white text-[10px]
+                       font-bold tracking-wide uppercase px-2.5 py-1 rounded-full z-10">
+            <i class="fa-solid fa-hand-fist text-amber-400 text-[8px]"></i>
+            Olahraga
+          </span>
+          <div class="absolute bottom-3 right-3 z-10 w-8 h-8 rounded-lg
+                      bg-white/20 backdrop-blur-sm flex items-center justify-center">
+            <i class="fa-solid fa-hand-fist text-white text-xs"></i>
+          </div>
+        </div>
+        <div class="p-4 border-t-2 border-amber-400 flex flex-col gap-1.5">
+          <h4 class="font-bold text-sm text-blue-950 leading-snug">Boxing</h4>
+          <p class="text-xs text-slate-500 leading-relaxed">
+            Melatih ketahanan fisik, mental baja, dan disiplin diri melalui
+            seni bela diri tinju yang terstruktur.
+          </p>
+          <span class="text-[11px] text-slate-400 mt-1">
+            <i class="fa-solid fa-circle text-green-400 text-[7px] mr-1"></i>Aktif
+          </span>
+        </div>
+      </div>
+
+      <!-- ═══ 4. Dance ═══ -->
+      <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200/80
+                  shadow-sm hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-950/10
+                  transition-all duration-300">
+        <div class="relative w-full h-36 bg-slate-100 overflow-hidden">
+          <img src="./images/dance.jpeg" alt="Dance"
+               class="w-full h-full object-cover group-hover:scale-105
+                      transition-transform duration-500"
+               onerror="this.style.display='none'"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-blue-950/50
+                      via-transparent to-transparent pointer-events-none"></div>
+          <div class="absolute inset-0 flex items-center justify-center -z-10">
+            <i class="fa-regular fa-image text-3xl text-slate-300"></i>
+          </div>
+          <span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5
+                       bg-blue-950/80 backdrop-blur-sm text-white text-[10px]
+                       font-bold tracking-wide uppercase px-2.5 py-1 rounded-full z-10">
+            <i class="fa-solid fa-person-dancing text-amber-400 text-[8px]"></i>
+            Seni
+          </span>
+          <div class="absolute bottom-3 right-3 z-10 w-8 h-8 rounded-lg
+                      bg-white/20 backdrop-blur-sm flex items-center justify-center">
+            <i class="fa-solid fa-person-dancing text-white text-xs"></i>
+          </div>
+        </div>
+        <div class="p-4 border-t-2 border-blue-950 flex flex-col gap-1.5">
+          <h4 class="font-bold text-sm text-blue-950 leading-snug">Dance</h4>
+          <p class="text-xs text-slate-500 leading-relaxed">
+            Ekspresikan diri lewat gerakan modern dance dan K-Pop cover
+            yang kreatif dan penuh semangat.
+          </p>
+          <span class="text-[11px] text-slate-400 mt-1">
+            <i class="fa-solid fa-circle text-green-400 text-[7px] mr-1"></i>Aktif
+          </span>
+        </div>
+      </div>
+
+      <!-- ═══ 5. English Club ═══ -->
+      <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200/80
+                  shadow-sm hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-950/10
+                  transition-all duration-300">
+        <div class="relative w-full h-36 bg-slate-100 overflow-hidden">
+          <img src="./images/ec.jpeg" alt="English Club"
+               class="w-full h-full object-cover group-hover:scale-105
+                      transition-transform duration-500"
+               onerror="this.style.display='none'"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-blue-950/50
+                      via-transparent to-transparent pointer-events-none"></div>
+          <div class="absolute inset-0 flex items-center justify-center -z-10">
+            <i class="fa-regular fa-image text-3xl text-slate-300"></i>
+          </div>
+          <span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5
+                       bg-blue-950/80 backdrop-blur-sm text-white text-[10px]
+                       font-bold tracking-wide uppercase px-2.5 py-1 rounded-full z-10">
+            <i class="fa-solid fa-language text-amber-400 text-[8px]"></i>
+            Akademik
+          </span>
+          <div class="absolute bottom-3 right-3 z-10 w-8 h-8 rounded-lg
+                      bg-white/20 backdrop-blur-sm flex items-center justify-center">
+            <i class="fa-solid fa-earth-americas text-white text-xs"></i>
+          </div>
+        </div>
+        <div class="p-4 border-t-2 border-amber-400 flex flex-col gap-1.5">
+          <h4 class="font-bold text-sm text-blue-950 leading-snug">English Club</h4>
+          <p class="text-xs text-slate-500 leading-relaxed">
+            Tingkatkan kemampuan speaking, listening, dan writing untuk
+            persiapan karir global.
+          </p>
+          <span class="text-[11px] text-slate-400 mt-1">
+            <i class="fa-solid fa-circle text-green-400 text-[7px] mr-1"></i>Aktif
+          </span>
+        </div>
+      </div>
+
+      <!-- ═══ 6. Jepang ═══ -->
+      <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200/80
+                  shadow-sm hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-950/10
+                  transition-all duration-300">
+        <div class="relative w-full h-36 bg-slate-100 overflow-hidden">
+          <img src="./images/jpn.jpeg" alt="Bahasa Jepang"
+               class="w-full h-full object-cover group-hover:scale-105
+                      transition-transform duration-500"
+               onerror="this.style.display='none'"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-blue-950/50
+                      via-transparent to-transparent pointer-events-none"></div>
+          <div class="absolute inset-0 flex items-center justify-center -z-10">
+            <i class="fa-regular fa-image text-3xl text-slate-300"></i>
+          </div>
+          <span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5
+                       bg-blue-950/80 backdrop-blur-sm text-white text-[10px]
+                       font-bold tracking-wide uppercase px-2.5 py-1 rounded-full z-10">
+            <i class="fa-solid fa-language text-amber-400 text-[8px]"></i>
+            Akademik
+          </span>
+          <div class="absolute bottom-3 right-3 z-10 w-8 h-8 rounded-lg
+                      bg-white/20 backdrop-blur-sm flex items-center justify-center">
+            <i class="fa-solid fa-torii-gate text-white text-xs"></i>
+          </div>
+        </div>
+        <div class="p-4 border-t-2 border-blue-950 flex flex-col gap-1.5">
+          <h4 class="font-bold text-sm text-blue-950 leading-snug">Bahasa Jepang</h4>
+          <p class="text-xs text-slate-500 leading-relaxed">
+            Pelajari bahasa dan budaya Jepang sebagai bekal karir di
+            perusahaan internasional.
+          </p>
+          <span class="text-[11px] text-slate-400 mt-1">
+            <i class="fa-solid fa-circle text-green-400 text-[7px] mr-1"></i>Aktif
+          </span>
+        </div>
+      </div>
+
+      <!-- ═══ 7. Pramuka ═══ -->
+      <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200/80
+                  shadow-sm hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-950/10
+                  transition-all duration-300">
+        <div class="relative w-full h-36 bg-slate-100 overflow-hidden">
+          <img src="./images/pram.jpeg" alt="Pramuka"
+               class="w-full h-full object-cover group-hover:scale-105
+                      transition-transform duration-500"
+               onerror="this.style.display='none'"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-blue-950/50
+                      via-transparent to-transparent pointer-events-none"></div>
+          <div class="absolute inset-0 flex items-center justify-center -z-10">
+            <i class="fa-regular fa-image text-3xl text-slate-300"></i>
+          </div>
+          <span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5
+                       bg-blue-950/80 backdrop-blur-sm text-white text-[10px]
+                       font-bold tracking-wide uppercase px-2.5 py-1 rounded-full z-10">
+            <i class="fa-solid fa-campground text-amber-400 text-[8px]"></i>
+            Wajib
+          </span>
+          <span class="absolute top-2.5 right-2.5 inline-flex items-center gap-1
+                       bg-amber-400 text-blue-950 text-[10px] font-bold
+                       px-2.5 py-1 rounded-full z-10">
+            Wajib
+          </span>
+        </div>
+        <div class="p-4 border-t-2 border-amber-400 flex flex-col gap-1.5">
+          <h4 class="font-bold text-sm text-blue-950 leading-snug">Pramuka</h4>
+          <p class="text-xs text-slate-500 leading-relaxed">
+            Membentuk karakter mandiri, disiplin, dan jiwa kepemimpinan
+            melalui kegiatan kepanduan terstruktur.
+          </p>
+          <span class="text-[11px] text-slate-400 mt-1">
+            <i class="fa-solid fa-circle text-green-400 text-[7px] mr-1"></i>Aktif
+          </span>
+        </div>
+      </div>
+
+      <!-- ═══ 8. Padus ═══ -->
+      <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200/80
+                  shadow-sm hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-950/10
+                  transition-all duration-300">
+        <div class="relative w-full h-36 bg-slate-100 overflow-hidden">
+          <img src="./images/padus.jpeg" alt="Paduan Suara"
+               class="w-full h-full object-cover group-hover:scale-105
+                      transition-transform duration-500"
+               onerror="this.style.display='none'"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-blue-950/50
+                      via-transparent to-transparent pointer-events-none"></div>
+          <div class="absolute inset-0 flex items-center justify-center -z-10">
+            <i class="fa-regular fa-image text-3xl text-slate-300"></i>
+          </div>
+          <span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5
+                       bg-blue-950/80 backdrop-blur-sm text-white text-[10px]
+                       font-bold tracking-wide uppercase px-2.5 py-1 rounded-full z-10">
+            <i class="fa-solid fa-microphone text-amber-400 text-[8px]"></i>
+            Seni
+          </span>
+          <div class="absolute bottom-3 right-3 z-10 w-8 h-8 rounded-lg
+                      bg-white/20 backdrop-blur-sm flex items-center justify-center">
+            <i class="fa-solid fa-microphone text-white text-xs"></i>
+          </div>
+        </div>
+        <div class="p-4 border-t-2 border-blue-950 flex flex-col gap-1.5">
+          <h4 class="font-bold text-sm text-blue-950 leading-snug">Paduan Suara</h4>
+          <p class="text-xs text-slate-500 leading-relaxed">
+            Wadah bagi siswa berbakat vokal untuk tampil di berbagai
+            ajang seni dan kompetisi paduan suara.
+          </p>
+          <span class="text-[11px] text-slate-400 mt-1">
+            <i class="fa-solid fa-circle text-green-400 text-[7px] mr-1"></i>Aktif
+          </span>
+        </div>
+      </div>
+
+      <!-- ═══ 9. Serinca — featured, 2 kolom ═══ -->
+      <div class="group sm:col-span-2 bg-white rounded-2xl overflow-hidden
+                  border border-slate-200/80 shadow-sm
+                  hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-950/10
+                  transition-all duration-300">
+        <div class="relative w-full h-48 bg-slate-100 overflow-hidden">
+          <img src="./images/serin.jpeg" alt="Serinca"
+               class="w-full h-full object-cover group-hover:scale-105
+                      transition-transform duration-500"
+               onerror="this.style.display='none'"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-blue-950/65
+                      via-blue-950/15 to-transparent pointer-events-none"></div>
+          <div class="absolute inset-0 flex items-center justify-center -z-10">
+            <i class="fa-regular fa-image text-4xl text-slate-300"></i>
+          </div>
+          <span class="absolute top-3 left-3 inline-flex items-center gap-1.5
+                       bg-blue-950/80 backdrop-blur-sm text-white text-[10px]
+                       font-bold tracking-wide uppercase px-2.5 py-1 rounded-full z-10">
+            <i class="fa-solid fa-masks-theater text-amber-400 text-[8px]"></i>
+            Seni Budaya
+          </span>
+          <span class="absolute top-3 right-3 inline-flex items-center gap-1
+                       bg-amber-400 text-blue-950 text-[10px] font-bold
+                       px-2.5 py-1 rounded-full z-10">
+            <i class="fa-solid fa-medal text-[8px]"></i>
+            Prestasi
+          </span>
+          <div class="absolute bottom-0 left-0 right-0 p-4 z-10">
+            <h3 class="text-white font-bold text-base leading-tight">Serinca</h3>
+            <p class="text-blue-200/80 text-xs mt-0.5">
+              Seni Tari Daerah ICB Cinta Niaga
+            </p>
+          </div>
+        </div>
+        <div class="p-5 border-t-2 border-amber-400">
+          <p class="text-slate-500 text-xs leading-relaxed">
+            Unit seni tari daerah kebanggaan ICB yang aktif mewakili sekolah
+            dalam berbagai festival budaya dan kompetisi seni tingkat kota
+            hingga provinsi Jawa Barat.
+          </p>
+          <span class="text-[11px] text-slate-400 mt-2 block">
+            <i class="fa-solid fa-circle text-green-400 text-[7px] mr-1"></i>Aktif · Juara Provinsi
+          </span>
+        </div>
+      </div>
+
+      <!-- ═══ 10. SISPALA ═══ -->
+      <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200/80
+                  shadow-sm hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-950/10
+                  transition-all duration-300">
+        <div class="relative w-full h-36 bg-slate-100 overflow-hidden">
+          <img src="./images/sispala.jpeg" alt="SISPALA"
+               class="w-full h-full object-cover group-hover:scale-105
+                      transition-transform duration-500"
+               onerror="this.style.display='none'"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-blue-950/50
+                      via-transparent to-transparent pointer-events-none"></div>
+          <div class="absolute inset-0 flex items-center justify-center -z-10">
+            <i class="fa-regular fa-image text-3xl text-slate-300"></i>
+          </div>
+          <span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5
+                       bg-blue-950/80 backdrop-blur-sm text-white text-[10px]
+                       font-bold tracking-wide uppercase px-2.5 py-1 rounded-full z-10">
+            <i class="fa-solid fa-mountain text-amber-400 text-[8px]"></i>
+            Alam
+          </span>
+          <div class="absolute bottom-3 right-3 z-10 w-8 h-8 rounded-lg
+                      bg-white/20 backdrop-blur-sm flex items-center justify-center">
+            <i class="fa-solid fa-mountain-sun text-white text-xs"></i>
+          </div>
+        </div>
+        <div class="p-4 border-t-2 border-blue-950 flex flex-col gap-1.5">
+          <h4 class="font-bold text-sm text-blue-950 leading-snug">SISPALA</h4>
+          <p class="text-xs text-slate-500 leading-relaxed">
+            Siswa Pencinta Alam — melatih ketangguhan, kepedulian lingkungan,
+            dan jiwa petualang yang bertanggung jawab.
+          </p>
+          <span class="text-[11px] text-slate-400 mt-1">
+            <i class="fa-solid fa-circle text-green-400 text-[7px] mr-1"></i>Aktif
+          </span>
+        </div>
+      </div>
+
+      <!-- ═══ 11. Basket — full width banner ═══ -->
+      <div class="group sm:col-span-2 lg:col-span-4 bg-blue-950 rounded-2xl
+                  overflow-hidden border border-blue-900 shadow-sm
+                  hover:shadow-xl hover:shadow-blue-950/30
+                  transition-all duration-300">
+        <div class="relative flex flex-col sm:flex-row">
+          <!-- Image kiri -->
+          <div class="relative sm:w-64 lg:w-80 h-40 sm:h-auto bg-blue-900 overflow-hidden
+                      flex-shrink-0">
+            <img src="./images/basket.jpeg" alt="Basket"
+                 class="w-full h-full object-cover group-hover:scale-105
+                        transition-transform duration-500 opacity-80"
+                 onerror="this.style.display='none'"/>
+            <div class="absolute inset-0 flex items-center justify-center -z-10">
+              <i class="fa-regular fa-image text-4xl text-blue-700"></i>
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-transparent
+                        to-blue-950/80 sm:to-blue-950 pointer-events-none"></div>
+          </div>
+          <!-- Konten kanan -->
+          <div class="flex-1 p-6 flex flex-col justify-center gap-4 relative">
+            <!-- Dekorasi lingkaran -->
+            <span class="absolute -top-10 -right-10 w-40 h-40 rounded-full
+                         bg-blue-800/30 pointer-events-none"></span>
+            <div class="relative z-10 flex flex-col gap-3">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="inline-flex items-center gap-1.5 bg-amber-400/20
+                             border border-amber-400/30 text-amber-300
+                             text-[10px] font-bold tracking-wide uppercase
+                             px-2.5 py-1 rounded-full">
+                  <i class="fa-solid fa-basketball text-amber-400 text-[8px]"></i>
+                  Olahraga
+                </span>
+                <span class="inline-flex items-center gap-1
+                             bg-white/10 text-white/70 text-[10px] font-semibold
+                             px-2.5 py-1 rounded-full">
+                  <i class="fa-solid fa-circle text-green-400 text-[7px]"></i>
+                  Aktif
+                </span>
+              </div>
+              <h3 class="text-white text-xl font-bold leading-tight">
+                Basket
+              </h3>
+              <p class="text-blue-200/75 text-sm leading-relaxed max-w-lg">
+                Tim basket SMK ICB yang kompetitif dan berprestasi di berbagai
+                turnamen antar sekolah. Latihan rutin, pembinaan taktik, dan
+                semangat juang yang tinggi menjadi fondasi tim ini.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- END GRID -->
+
+    <!-- ── Footer info ── -->
+    <div class="flex flex-col sm:flex-row items-center justify-between
+                gap-4 pt-2">
+      <p class="text-slate-400 text-sm">
+        <i class="fa-solid fa-circle-info text-amber-500 mr-1.5"></i>
+        11 ekstrakurikuler aktif · Pendaftaran dibuka setiap awal tahun ajaran
+      </p>
+      <a href="nicobot.html"
+         class="inline-flex items-center gap-2 bg-blue-950 hover:bg-blue-900
+                text-white text-sm font-semibold px-5 py-2.5 rounded-xl
+                transition-colors duration-200 flex-shrink-0">
+        <i class="fa-solid fa-comment-dots text-amber-400"></i>
+        Info Pendaftaran
+      </a>
+    </div>
+
+  </div>
+</section>
     </main>
 
     <!-- ===== FOOTER ===== -->
-    <footer class="bg-blue-950 text-white border-t border-blue-900 py-12 px-6 md:px-16">
+    <footer
+      class="bg-blue-950 text-white border-t border-blue-900 py-12 px-6 md:px-16"
+    >
       <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
-
         <div class="flex flex-col gap-4">
           <h2 class="text-lg font-bold">SMK ICB Cinta Niaga</h2>
           <p class="text-blue-200 text-sm leading-relaxed max-w-xs">
-            Membentuk generasi unggul yang siap bersaing di dunia industri
-            dan teknologi dengan fondasi akademik yang kokoh.
+            Membentuk generasi unggul yang siap bersaing di dunia industri dan
+            teknologi dengan fondasi akademik yang kokoh.
           </p>
         </div>
 
         <div class="flex flex-col gap-4">
           <h3 class="font-bold text-sm">Tautan Cepat</h3>
           <ul class="flex flex-col gap-2.5 text-blue-200 text-sm">
-            <li><a href="index.html"   class="hover:text-white transition-colors">Home</a></li>
-            <li><a href="profile.html" class="hover:text-white transition-colors">Profile</a></li>
-            <li><a href="major.html"   class="hover:text-white transition-colors">Major</a></li>
+            <li>
+              <a href="index.html" class="hover:text-white transition-colors"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a href="profile.html" class="hover:text-white transition-colors"
+                >Profile</a
+              >
+            </li>
+            <li>
+              <a href="major.html" class="hover:text-white transition-colors"
+                >Major</a
+              >
+            </li>
             <li><a href="#" class="font-semibold text-white">About</a></li>
           </ul>
         </div>
@@ -686,16 +1267,20 @@
         <div class="flex flex-col gap-4">
           <h3 class="font-bold text-sm">Informasi</h3>
           <ul class="flex flex-col gap-2.5 text-blue-200 text-sm">
-            <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
-            <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
+            <li>
+              <a href="#" class="hover:text-white transition-colors"
+                >Privacy Policy</a
+              >
+            </li>
+            <li>
+              <a href="#" class="hover:text-white transition-colors">Contact</a>
+            </li>
           </ul>
           <p class="text-blue-300/60 text-xs mt-2">
             © 2024 SMK ICB Cinta Niaga. All rights reserved.
           </p>
         </div>
-
       </div>
     </footer>
-
   </body>
 </html>
