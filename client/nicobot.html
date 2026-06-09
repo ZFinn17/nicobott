@@ -23,7 +23,7 @@
          Base — konsisten dengan website: f5f5f7 background
          ============================================================ */
       body {
-        font-family: "Inter", sans-serif;
+        font-family: 'Inter', sans-serif;
         background: #f5f5f7;
         min-height: 100vh;
       }
@@ -42,9 +42,7 @@
         .chat-layout {
           grid-template-columns: 1fr;
         }
-        .chat-sidebar {
-          display: none;
-        }
+        .chat-sidebar { display: none; }
       }
 
       /* ============================================================
@@ -75,8 +73,8 @@
         width: 44px;
         height: 44px;
         border-radius: 50%;
-        background: #172554; /* blue-950 */
-        border: 2px solid #fbbf24; /* amber-400 */
+        background: #172554;            /* blue-950 */
+        border: 2px solid #FBBF24;      /* amber-400 */
         display: flex;
         align-items: center;
         justify-content: center;
@@ -117,15 +115,8 @@
       }
 
       @keyframes pulse {
-        0%,
-        100% {
-          opacity: 1;
-          transform: scale(1);
-        }
-        50% {
-          opacity: 0.7;
-          transform: scale(0.85);
-        }
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50%       { opacity: 0.7; transform: scale(0.85); }
       }
 
       /* Section label sidebar */
@@ -150,7 +141,7 @@
         background: transparent;
         color: #334155;
         font-size: 0.82rem;
-        font-family: "Inter", sans-serif;
+        font-family: 'Inter', sans-serif;
         font-weight: 500;
         text-align: left;
         cursor: pointer;
@@ -165,7 +156,7 @@
 
       .topic-btn:hover .topic-icon {
         background: #172554;
-        color: #fbbf24;
+        color: #FBBF24;
       }
 
       .topic-icon {
@@ -211,12 +202,10 @@
         border-radius: 9999px;
         text-decoration: none;
         transition: background 0.15s;
-        font-family: "Inter", sans-serif;
+        font-family: 'Inter', sans-serif;
       }
 
-      .sidebar-contact a:hover {
-        background: #15803d;
-      }
+      .sidebar-contact a:hover { background: #15803d; }
 
       /* ============================================================
          AREA CHAT UTAMA
@@ -251,7 +240,7 @@
         height: 36px;
         border-radius: 50%;
         background: #172554;
-        border: 2px solid #fbbf24;
+        border: 2px solid #FBBF24;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -271,12 +260,8 @@
       }
 
       /* Scrollbar — tipis & selaras */
-      #nicobot-messages::-webkit-scrollbar {
-        width: 4px;
-      }
-      #nicobot-messages::-webkit-scrollbar-track {
-        background: transparent;
-      }
+      #nicobot-messages::-webkit-scrollbar { width: 4px; }
+      #nicobot-messages::-webkit-scrollbar-track { background: transparent; }
       #nicobot-messages::-webkit-scrollbar-thumb {
         background: #cbd5e1;
         border-radius: 4px;
@@ -317,16 +302,12 @@
         padding: 0.65rem 1rem;
         color: #1e293b;
         font-size: 0.875rem;
-        font-family: "Inter", sans-serif;
+        font-family: 'Inter', sans-serif;
         outline: none;
-        transition:
-          border-color 0.15s,
-          box-shadow 0.15s;
+        transition: border-color 0.15s, box-shadow 0.15s;
       }
 
-      #nicobot-input::placeholder {
-        color: #94a3b8;
-      }
+      #nicobot-input::placeholder { color: #94a3b8; }
 
       #nicobot-input:focus {
         border-color: #172554;
@@ -346,18 +327,12 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        transition:
-          background 0.15s,
-          transform 0.1s;
+        transition: background 0.15s, transform 0.1s;
         flex-shrink: 0;
       }
 
-      #nicobot-send:hover {
-        background: #1e3a8a;
-      }
-      #nicobot-send:active {
-        transform: scale(0.95);
-      }
+      #nicobot-send:hover   { background: #1e3a8a; }
+      #nicobot-send:active  { transform: scale(0.95); }
       #nicobot-send:disabled {
         opacity: 0.35;
         cursor: not-allowed;
@@ -367,29 +342,15 @@
       /* ============================================================
          BUBBLE WIDTH — full page lebih lebar dari widget
          ============================================================ */
-      .nicobot-bubble-bot {
-        max-width: 72%;
-      }
-      .nicobot-bubble-user {
-        max-width: 60%;
-      }
+      .nicobot-bubble-bot  { max-width: 72%; }
+      .nicobot-bubble-user { max-width: 60%; }
 
       @media (max-width: 768px) {
-        .nicobot-bubble-bot {
-          max-width: 90%;
-        }
-        .nicobot-bubble-user {
-          max-width: 82%;
-        }
-        #nicobot-messages {
-          padding: 1rem;
-        }
-        .chat-input-bar {
-          padding: 0.75rem 1rem;
-        }
-        #nicobot-quick-replies {
-          padding: 0.6rem 1rem;
-        }
+        .nicobot-bubble-bot  { max-width: 90%; }
+        .nicobot-bubble-user { max-width: 82%; }
+        #nicobot-messages    { padding: 1rem; }
+        .chat-input-bar      { padding: 0.75rem 1rem; }
+        #nicobot-quick-replies { padding: 0.6rem 1rem; }
       }
 
       /* ============================================================
@@ -419,9 +380,7 @@
 
   <body>
     <!-- ===================== NAVBAR ===================== -->
-    <nav
-      class="fixed top-0 z-50 w-full bg-white flex flex-col md:flex-row justify-around border-b border-gray-300 p-3 items-center"
-    >
+    <nav class="fixed top-0 z-50 w-full bg-white flex flex-col md:flex-row justify-around border-b border-gray-300 p-3 items-center">
       <h1 class="font-bold">SMK ICB Cinta Niaga</h1>
       <ul class="flex gap-3">
         <li><a href="index.html">Home</a></li>
@@ -438,28 +397,20 @@
     </nav>
 
     <!-- ===================== MAIN LAYOUT ===================== -->
-    <div
-      style="
-        padding-top: 57px;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-      "
-    >
-      <div class="chat-layout" style="flex: 1; overflow: hidden">
+    <div style="padding-top:57px;height:100vh;display:flex;flex-direction:column">
+      <div class="chat-layout" style="flex:1;overflow:hidden">
+
         <!-- =============== SIDEBAR =============== -->
         <aside class="chat-sidebar">
+
           <!-- Brand -->
           <div class="sidebar-brand">
             <div class="sidebar-brand-avatar">
-              <i
-                class="fa-solid fa-robot"
-                style="font-size: 0.875rem; color: #fbbf24"
-              ></i>
+              <i class="fa-solid fa-robot" style="font-size:0.875rem;color:#FBBF24"></i>
             </div>
             <div>
               <p class="sidebar-title">NicoBot</p>
-              <p class="sidebar-sub">Asisten resmi<br />SMK ICB Cinta Niaga</p>
+              <p class="sidebar-sub">Asisten resmi<br>SMK ICB Cinta Niaga</p>
             </div>
           </div>
 
@@ -472,20 +423,13 @@
           <!-- Topik -->
           <div>
             <p class="sidebar-section-label">Topik Tersedia</p>
-            <div
-              style="display: flex; flex-direction: column; gap: 0.2rem"
-              id="sidebar-topics"
-            ></div>
+            <div style="display:flex;flex-direction:column;gap:0.2rem" id="sidebar-topics"></div>
           </div>
 
           <!-- Kontak -->
           <div class="sidebar-contact">
             <p>Butuh bantuan lebih lanjut? Hubungi admin sekolah langsung.</p>
-            <a
-              href="https://wa.me/6281221049998"
-              target="_blank"
-              rel="noopener"
-            >
+            <a href="https://wa.me/6281221049998" target="_blank" rel="noopener">
               <i class="fa-brands fa-whatsapp"></i> WhatsApp Admin
             </a>
           </div>
@@ -493,37 +437,20 @@
 
         <!-- =============== AREA CHAT =============== -->
         <div class="chat-main">
+
           <!-- Sub-header -->
           <div class="chat-header">
             <div class="chat-header-left">
               <div class="chat-header-avatar">
-                <i
-                  class="fa-solid fa-robot"
-                  style="font-size: 0.75rem; color: #fbbf24"
-                ></i>
+                <i class="fa-solid fa-robot" style="font-size:0.75rem;color:#FBBF24"></i>
               </div>
               <div>
-                <p
-                  style="
-                    color: #172554;
-                    font-size: 0.875rem;
-                    font-weight: 700;
-                    line-height: 1.2;
-                  "
-                >
-                  NicoBot
-                </p>
-                <p style="color: #64748b; font-size: 0.72rem; margin-top: 1px">
-                  Ketik pertanyaan atau pilih topik di sidebar
-                </p>
+                <p style="color:#172554;font-size:0.875rem;font-weight:700;line-height:1.2">NicoBot</p>
+                <p style="color:#64748b;font-size:0.72rem;margin-top:1px">Ketik pertanyaan atau pilih topik di sidebar</p>
               </div>
             </div>
-            <button
-              id="nicobot-reset"
-              title="Reset percakapan"
-              aria-label="Reset percakapan"
-            >
-              <i class="fa-solid fa-rotate-right" style="font-size: 0.8rem"></i>
+            <button id="nicobot-reset" title="Reset percakapan" aria-label="Reset percakapan">
+              <i class="fa-solid fa-rotate-right" style="font-size:0.8rem"></i>
             </button>
           </div>
 
@@ -535,15 +462,23 @@
 
           <!-- Input -->
           <div class="chat-input-bar">
-            <input
-              id="nicobot-input"
-              type="text"
-              placeholder="Ketik pertanyaanmu di sini..."
-              autocomplete="off"
-              aria-label="Ketik pesan"
-            />
+            <div style="flex:1;display:flex;flex-direction:column;gap:0.2rem">
+              <input
+                id="nicobot-input"
+                type="text"
+                placeholder="Ketik pertanyaanmu di sini..."
+                autocomplete="off"
+                aria-label="Ketik pesan"
+                maxlength="200"
+              />
+              <span
+                id="nicobot-charcount"
+                style="font-size:0.65rem;color:#94a3b8;font-family:Inter,sans-serif;
+                       text-align:right;padding-right:0.25rem;line-height:1"
+              >0/200</span>
+            </div>
             <button id="nicobot-send" aria-label="Kirim pesan">
-              <i class="fa-solid fa-paper-plane" style="font-size: 0.8rem"></i>
+              <i class="fa-solid fa-paper-plane" style="font-size:0.8rem"></i>
             </button>
           </div>
         </div>
@@ -551,7 +486,7 @@
     </div>
 
     <script type="module">
-      import { initChatbot } from "./src/chatbot.js";
+      import { initChatbot } from './src/chatbot.js';
 
       initChatbot();
 
@@ -559,39 +494,39 @@
       // Isi sidebar topik dari API quick-replies
       // ──────────────────────────────────────────────
       const TOPIC_ICONS = [
-        "fa-book-open",
-        "fa-file-pen",
-        "fa-coins",
-        "fa-school",
-        "fa-clock",
-        "fa-trophy",
-        "fa-location-dot",
-        "fa-bullseye",
+        'fa-book-open',
+        'fa-file-pen',
+        'fa-coins',
+        'fa-school',
+        'fa-clock',
+        'fa-trophy',
+        'fa-location-dot',
+        'fa-bullseye',
       ];
 
       async function loadSidebarTopics() {
         try {
-          const res = await fetch("/api/chat/quick-replies");
+          const res  = await fetch('/api/chat/quick-replies');
           const json = await res.json();
           const replies = json.data || json || [];
-          const container = document.getElementById("sidebar-topics");
+          const container = document.getElementById('sidebar-topics');
           if (!container) return;
 
-          container.innerHTML = "";
+          container.innerHTML = '';
           replies.forEach((r, i) => {
-            const btn = document.createElement("button");
-            btn.className = "topic-btn";
+            const btn = document.createElement('button');
+            btn.className = 'topic-btn';
             btn.innerHTML = `
               <span class="topic-icon">
-                <i class="fa-solid ${TOPIC_ICONS[i] || "fa-circle-info"}"></i>
+                <i class="fa-solid ${TOPIC_ICONS[i] || 'fa-circle-info'}"></i>
               </span>
               <span>${r.label}</span>
             `;
-            btn.addEventListener("click", () => {
-              const qr = document.getElementById("nicobot-quick-replies");
-              const input = document.getElementById("nicobot-input");
-              const send = document.getElementById("nicobot-send");
-              if (qr) qr.style.display = "none";
+            btn.addEventListener('click', () => {
+              const qr    = document.getElementById('nicobot-quick-replies');
+              const input = document.getElementById('nicobot-input');
+              const send  = document.getElementById('nicobot-send');
+              if (qr) qr.style.display = 'none';
               if (input && send) {
                 input.value = r.message || r.label;
                 send.click();
