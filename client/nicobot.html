@@ -8,34 +8,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
     <title>NicoBot — SMK ICB Cinta Niaga</title>
+
     <style>
+      /* ============================================================
+         Base — konsisten dengan website: f5f5f7 background
+         ============================================================ */
       body {
-        font-family: 'Inter', sans-serif;
-        background: linear-gradient(160deg, #0d1b2a 0%, #1b2e45 100%);
+        font-family: "Inter", sans-serif;
+        background: #f5f5f7;
         min-height: 100vh;
       }
 
-      /* Layout full-page: navbar + dua kolom */
+      /* ============================================================
+         LAYOUT UTAMA
+         Navbar (57px) + grid dua kolom
+         ============================================================ */
       .chat-layout {
         display: grid;
-        grid-template-columns: 300px 1fr;
-        height: calc(100vh - 57px); /* tinggi dikurangi navbar */
+        grid-template-columns: 280px 1fr;
+        height: calc(100vh - 57px);
       }
 
       @media (max-width: 768px) {
         .chat-layout {
           grid-template-columns: 1fr;
         }
-        .chat-sidebar { display: none; }
+        .chat-sidebar {
+          display: none;
+        }
       }
 
-      /* ---- Sidebar kiri ---- */
+      /* ============================================================
+         SIDEBAR
+         Putih bersih dengan border kanan — konsisten dengan
+         card-card di profile.html (bg-white + border-slate-200)
+         ============================================================ */
       .chat-sidebar {
-        border-right: 1px solid rgba(255,255,255,0.07);
-        background: rgba(0,0,0,0.2);
+        background: #ffffff;
+        border-right: 1px solid #e2e8f0;
         display: flex;
         flex-direction: column;
         padding: 1.5rem 1.25rem;
@@ -43,18 +62,21 @@
         overflow-y: auto;
       }
 
+      /* Brand di sidebar */
       .sidebar-brand {
         display: flex;
         align-items: center;
         gap: 0.75rem;
+        padding-bottom: 1.25rem;
+        border-bottom: 1px solid #f1f5f9;
       }
 
       .sidebar-brand-avatar {
         width: 44px;
         height: 44px;
         border-radius: 50%;
-        background: rgba(30, 64, 175, 0.5);
-        border: 1px solid rgba(96, 165, 250, 0.3);
+        background: #172554; /* blue-950 */
+        border: 2px solid #fbbf24; /* amber-400 */
         display: flex;
         align-items: center;
         justify-content: center;
@@ -63,69 +85,111 @@
 
       .sidebar-title {
         font-size: 1rem;
-        font-weight: 600;
-        color: #f1f5f9;
-        line-height: 1.3;
+        font-weight: 700;
+        color: #172554;
+        line-height: 1.2;
       }
 
       .sidebar-sub {
-        font-size: 0.75rem;
+        font-size: 0.72rem;
         color: #64748b;
+        margin-top: 0.1rem;
         line-height: 1.4;
-        margin-top: 0.15rem;
       }
 
+      /* Status online */
+      .sidebar-status {
+        display: flex;
+        align-items: center;
+        gap: 0.45rem;
+        font-size: 0.78rem;
+        font-weight: 500;
+        color: #16a34a;
+      }
+
+      .status-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #22c55e;
+        animation: pulse 2s ease-in-out infinite;
+        flex-shrink: 0;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.7;
+          transform: scale(0.85);
+        }
+      }
+
+      /* Section label sidebar */
       .sidebar-section-label {
-        font-size: 0.7rem;
+        font-size: 0.68rem;
+        font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 0.08em;
-        color: #475569;
+        color: #94a3b8;
         margin-bottom: 0.5rem;
       }
 
-      /* Tombol topik di sidebar */
+      /* Tombol topik — konsisten dengan quick-btn tapi full width */
       .topic-btn {
         display: flex;
         align-items: center;
         gap: 0.65rem;
         width: 100%;
-        padding: 0.6rem 0.75rem;
+        padding: 0.55rem 0.7rem;
         border-radius: 0.625rem;
         border: 1px solid transparent;
         background: transparent;
-        color: rgba(255,255,255,0.65);
+        color: #334155;
         font-size: 0.82rem;
-        font-family: 'Inter', sans-serif;
+        font-family: "Inter", sans-serif;
+        font-weight: 500;
         text-align: left;
         cursor: pointer;
         transition: all 0.15s ease;
       }
 
       .topic-btn:hover {
-        background: rgba(255,255,255,0.07);
-        border-color: rgba(255,255,255,0.1);
-        color: #fff;
+        background: #eff6ff;
+        border-color: #bfdbfe;
+        color: #172554;
       }
 
-      .topic-btn .icon {
+      .topic-btn:hover .topic-icon {
+        background: #172554;
+        color: #fbbf24;
+      }
+
+      .topic-icon {
         width: 28px;
         height: 28px;
         border-radius: 0.4rem;
-        background: rgba(255,255,255,0.06);
+        background: #f1f5f9;
+        color: #475569;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 0.8rem;
+        font-size: 0.78rem;
         flex-shrink: 0;
+        transition: all 0.15s;
       }
 
-      /* Info kontak di bawah sidebar */
+      /* Kontak WhatsApp di bawah sidebar */
       .sidebar-contact {
         margin-top: auto;
         padding: 0.875rem;
-        border-radius: 0.75rem;
-        background: rgba(255,255,255,0.04);
-        border: 1px solid rgba(255,255,255,0.07);
+        border-radius: 0.875rem;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-left: 3px solid #172554;
       }
 
       .sidebar-contact p {
@@ -142,30 +206,38 @@
         background: #16a34a;
         color: white;
         font-size: 0.78rem;
-        padding: 0.35rem 0.75rem;
+        font-weight: 500;
+        padding: 0.4rem 0.875rem;
         border-radius: 9999px;
         text-decoration: none;
         transition: background 0.15s;
+        font-family: "Inter", sans-serif;
       }
 
-      .sidebar-contact a:hover { background: #15803d; }
+      .sidebar-contact a:hover {
+        background: #15803d;
+      }
 
-      /* ---- Area chat kanan ---- */
+      /* ============================================================
+         AREA CHAT UTAMA
+         ============================================================ */
       .chat-main {
         display: flex;
         flex-direction: column;
         overflow: hidden;
+        background: #f5f5f7;
       }
 
-      /* Sub-header dalam chat area */
+      /* Sub-header chat — putih dengan border bawah */
       .chat-header {
         display: flex;
         align-items: center;
         justify-content: space-between;
         padding: 0.875rem 1.5rem;
-        border-bottom: 1px solid rgba(255,255,255,0.07);
-        background: rgba(0,0,0,0.15);
+        border-bottom: 1px solid #e2e8f0;
+        background: #ffffff;
         flex-shrink: 0;
+        box-shadow: 0 1px 3px rgba(23, 37, 84, 0.04);
       }
 
       .chat-header-left {
@@ -174,7 +246,21 @@
         gap: 0.75rem;
       }
 
-      /* Pesan-pesan */
+      .chat-header-avatar {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: #172554;
+        border: 2px solid #fbbf24;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      /* ============================================================
+         AREA PESAN
+         ============================================================ */
       #nicobot-messages {
         flex: 1;
         overflow-y: auto;
@@ -184,92 +270,162 @@
         gap: 1rem;
       }
 
-      /* Quick replies */
+      /* Scrollbar — tipis & selaras */
+      #nicobot-messages::-webkit-scrollbar {
+        width: 4px;
+      }
+      #nicobot-messages::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      #nicobot-messages::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 4px;
+      }
+
+      /* ============================================================
+         QUICK REPLIES BAR
+         ============================================================ */
       #nicobot-quick-replies {
         display: flex;
         flex-wrap: wrap;
         gap: 0.5rem;
         padding: 0.75rem 1.5rem;
-        border-top: 1px solid rgba(255,255,255,0.07);
-        background: rgba(0,0,0,0.12);
+        border-top: 1px solid #e2e8f0;
+        background: #ffffff;
         flex-shrink: 0;
       }
 
-      /* Input bar */
+      /* ============================================================
+         INPUT BAR
+         ============================================================ */
       .chat-input-bar {
         display: flex;
         align-items: center;
         gap: 0.6rem;
         padding: 0.875rem 1.5rem;
-        border-top: 1px solid rgba(255,255,255,0.07);
-        background: rgba(0,0,0,0.15);
+        border-top: 1px solid #e2e8f0;
+        background: #ffffff;
         flex-shrink: 0;
+        box-shadow: 0 -1px 3px rgba(23, 37, 84, 0.04);
       }
 
       #nicobot-input {
         flex: 1;
-        background: rgba(255,255,255,0.06);
-        border: 1px solid rgba(255,255,255,0.12);
+        background: #f8fafc;
+        border: 1.5px solid #e2e8f0;
         border-radius: 0.75rem;
         padding: 0.65rem 1rem;
-        color: #f1f5f9;
+        color: #1e293b;
         font-size: 0.875rem;
-        font-family: 'Inter', sans-serif;
+        font-family: "Inter", sans-serif;
         outline: none;
-        transition: border-color 0.15s;
+        transition:
+          border-color 0.15s,
+          box-shadow 0.15s;
       }
 
-      #nicobot-input::placeholder { color: #475569; }
-      #nicobot-input:focus { border-color: rgba(96,165,250,0.4); }
+      #nicobot-input::placeholder {
+        color: #94a3b8;
+      }
 
+      #nicobot-input:focus {
+        border-color: #172554;
+        box-shadow: 0 0 0 3px rgba(23, 37, 84, 0.08);
+        background: #ffffff;
+      }
+
+      /* Tombol kirim — blue-950 */
       #nicobot-send {
-        width: 38px;
-        height: 38px;
-        border-radius: 0.65rem;
-        background: #2563eb;
+        width: 40px;
+        height: 40px;
+        border-radius: 0.75rem;
+        background: #172554;
         color: white;
         border: none;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: background 0.15s;
+        transition:
+          background 0.15s,
+          transform 0.1s;
         flex-shrink: 0;
       }
 
-      #nicobot-send:hover { background: #1d4ed8; }
-      #nicobot-send:disabled { opacity: 0.3; cursor: not-allowed; }
+      #nicobot-send:hover {
+        background: #1e3a8a;
+      }
+      #nicobot-send:active {
+        transform: scale(0.95);
+      }
+      #nicobot-send:disabled {
+        opacity: 0.35;
+        cursor: not-allowed;
+        transform: none;
+      }
 
-      /* Scrollbar chat */
-      #nicobot-messages::-webkit-scrollbar { width: 3px; }
-      #nicobot-messages::-webkit-scrollbar-track { background: transparent; }
-      #nicobot-messages::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
-
-      /* Bubble override untuk full page (lebih lebar) */
-      .nicobot-bubble-bot { max-width: 72%; }
-      .nicobot-bubble-user { max-width: 60%; }
+      /* ============================================================
+         BUBBLE WIDTH — full page lebih lebar dari widget
+         ============================================================ */
+      .nicobot-bubble-bot {
+        max-width: 72%;
+      }
+      .nicobot-bubble-user {
+        max-width: 60%;
+      }
 
       @media (max-width: 768px) {
-        .nicobot-bubble-bot { max-width: 90%; }
-        .nicobot-bubble-user { max-width: 80%; }
+        .nicobot-bubble-bot {
+          max-width: 90%;
+        }
+        .nicobot-bubble-user {
+          max-width: 82%;
+        }
+        #nicobot-messages {
+          padding: 1rem;
+        }
+        .chat-input-bar {
+          padding: 0.75rem 1rem;
+        }
+        #nicobot-quick-replies {
+          padding: 0.6rem 1rem;
+        }
+      }
+
+      /* ============================================================
+         TOMBOL RESET
+         ============================================================ */
+      #nicobot-reset {
+        width: 34px;
+        height: 34px;
+        border-radius: 0.5rem;
+        background: transparent;
+        border: 1px solid #e2e8f0;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #94a3b8;
+        transition: all 0.15s;
+      }
+
+      #nicobot-reset:hover {
+        background: #f1f5f9;
+        color: #172554;
+        border-color: #cbd5e1;
       }
     </style>
   </head>
 
   <body>
-
-    <!-- ===== NAVBAR ===== -->
+    <!-- ===================== NAVBAR ===================== -->
     <nav
       class="fixed top-0 z-50 w-full bg-white flex flex-col md:flex-row justify-around border-b border-gray-300 p-3 items-center"
     >
       <h1 class="font-bold">SMK ICB Cinta Niaga</h1>
       <ul class="flex gap-3">
-        <li>
-          <a href="index.html">Home</a>
-        </li>
-        <li>
-          <a href="profile.html">Profile</a>
-        </li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="profile.html">Profile</a></li>
         <li><a href="major.html">Major</a></li>
         <li><a href="about.html">About</a></li>
       </ul>
@@ -281,64 +437,93 @@
       </a>
     </nav>
 
-    <!-- ===== MAIN LAYOUT ===== -->
-    <div style="padding-top:57px; height:100vh; display:flex; flex-direction:column;">
-      <div class="chat-layout" style="flex:1; overflow:hidden;">
-
-        <!-- ===== SIDEBAR ===== -->
+    <!-- ===================== MAIN LAYOUT ===================== -->
+    <div
+      style="
+        padding-top: 57px;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+      "
+    >
+      <div class="chat-layout" style="flex: 1; overflow: hidden">
+        <!-- =============== SIDEBAR =============== -->
         <aside class="chat-sidebar">
-
           <!-- Brand -->
           <div class="sidebar-brand">
             <div class="sidebar-brand-avatar">
-              <i class="fa-solid fa-robot text-yellow-400"></i>
+              <i
+                class="fa-solid fa-robot"
+                style="font-size: 0.875rem; color: #fbbf24"
+              ></i>
             </div>
             <div>
               <p class="sidebar-title">NicoBot</p>
-              <p class="sidebar-sub">Asisten resmi<br>SMK ICB Cinta Niaga</p>
+              <p class="sidebar-sub">Asisten resmi<br />SMK ICB Cinta Niaga</p>
             </div>
           </div>
 
           <!-- Status -->
-          <div style="display:flex; align-items:center; gap:0.5rem; font-size:0.78rem; color:#4ade80;">
-            <span style="width:7px;height:7px;border-radius:50%;background:#4ade80;display:inline-block;animation:pulse 2s infinite;"></span>
+          <div class="sidebar-status">
+            <span class="status-dot"></span>
             Online — siap membantu
           </div>
 
           <!-- Topik -->
           <div>
             <p class="sidebar-section-label">Topik Tersedia</p>
-            <div style="display:flex; flex-direction:column; gap:0.25rem;" id="sidebar-topics"></div>
+            <div
+              style="display: flex; flex-direction: column; gap: 0.2rem"
+              id="sidebar-topics"
+            ></div>
           </div>
 
           <!-- Kontak -->
           <div class="sidebar-contact">
             <p>Butuh bantuan lebih lanjut? Hubungi admin sekolah langsung.</p>
-            <a href="https://wa.me/6281221049998" target="_blank">
+            <a
+              href="https://wa.me/6281221049998"
+              target="_blank"
+              rel="noopener"
+            >
               <i class="fa-brands fa-whatsapp"></i> WhatsApp Admin
             </a>
           </div>
-
         </aside>
 
-        <!-- ===== AREA CHAT ===== -->
+        <!-- =============== AREA CHAT =============== -->
         <div class="chat-main">
-
           <!-- Sub-header -->
           <div class="chat-header">
             <div class="chat-header-left">
-              <div style="width:32px;height:32px;border-radius:50%;background:rgba(30,64,175,0.5);border:1px solid rgba(96,165,250,0.3);display:flex;align-items:center;justify-content:center;">
-                <i class="fa-solid fa-robot text-yellow-400" style="font-size:0.75rem;"></i>
+              <div class="chat-header-avatar">
+                <i
+                  class="fa-solid fa-robot"
+                  style="font-size: 0.75rem; color: #fbbf24"
+                ></i>
               </div>
               <div>
-                <p style="color:#f1f5f9;font-size:0.875rem;font-weight:600;line-height:1.2;">NicoBot</p>
-                <p style="color:#64748b;font-size:0.72rem;">Ketik pertanyaan atau pilih topik di sidebar</p>
+                <p
+                  style="
+                    color: #172554;
+                    font-size: 0.875rem;
+                    font-weight: 700;
+                    line-height: 1.2;
+                  "
+                >
+                  NicoBot
+                </p>
+                <p style="color: #64748b; font-size: 0.72rem; margin-top: 1px">
+                  Ketik pertanyaan atau pilih topik di sidebar
+                </p>
               </div>
             </div>
-            <button id="nicobot-reset" title="Reset percakapan"
-              style="color:#475569;background:transparent;border:none;cursor:pointer;padding:0.4rem;border-radius:0.5rem;transition:color 0.15s;"
-              onmouseover="this.style.color='#cbd5e1'" onmouseout="this.style.color='#475569'">
-              <i class="fa-solid fa-rotate-right" style="font-size:0.875rem;"></i>
+            <button
+              id="nicobot-reset"
+              title="Reset percakapan"
+              aria-label="Reset percakapan"
+            >
+              <i class="fa-solid fa-rotate-right" style="font-size: 0.8rem"></i>
             </button>
           </div>
 
@@ -350,71 +535,76 @@
 
           <!-- Input -->
           <div class="chat-input-bar">
-            <input id="nicobot-input" type="text" placeholder="Ketik pertanyaanmu di sini..." autocomplete="off" />
-            <button id="nicobot-send">
-              <i class="fa-solid fa-paper-plane" style="font-size:0.8rem;"></i>
+            <input
+              id="nicobot-input"
+              type="text"
+              placeholder="Ketik pertanyaanmu di sini..."
+              autocomplete="off"
+              aria-label="Ketik pesan"
+            />
+            <button id="nicobot-send" aria-label="Kirim pesan">
+              <i class="fa-solid fa-paper-plane" style="font-size: 0.8rem"></i>
             </button>
           </div>
-
         </div>
       </div>
     </div>
 
     <script type="module">
-      import { initChatbot } from './src/chatbot.js';
+      import { initChatbot } from "./src/chatbot.js";
 
-      // Init chatbot utama
       initChatbot();
 
-      // ---- Isi sidebar topik dari quick-replies API ----
+      // ──────────────────────────────────────────────
+      // Isi sidebar topik dari API quick-replies
+      // ──────────────────────────────────────────────
+      const TOPIC_ICONS = [
+        "fa-book-open",
+        "fa-file-pen",
+        "fa-coins",
+        "fa-school",
+        "fa-clock",
+        "fa-trophy",
+        "fa-location-dot",
+        "fa-bullseye",
+      ];
+
       async function loadSidebarTopics() {
         try {
-          const res = await fetch('/api/quick-replies');
-          const replies = await res.json();
-          const container = document.getElementById('sidebar-topics');
+          const res = await fetch("/api/chat/quick-replies");
+          const json = await res.json();
+          const replies = json.data || json || [];
+          const container = document.getElementById("sidebar-topics");
           if (!container) return;
 
-          // Ikon per topik
-          const icons = {
-            0: 'fa-book-open',
-            1: 'fa-file-pen',
-            2: 'fa-coins',
-            3: 'fa-school',
-            4: 'fa-clock',
-            5: 'fa-trophy',
-            6: 'fa-location-dot',
-            7: 'fa-bullseye',
-          };
-
-          container.innerHTML = '';
+          container.innerHTML = "";
           replies.forEach((r, i) => {
-            const btn = document.createElement('button');
-            btn.className = 'topic-btn';
+            const btn = document.createElement("button");
+            btn.className = "topic-btn";
             btn.innerHTML = `
-              <span class="icon"><i class="fa-solid ${icons[i] || 'fa-circle-info'}"></i></span>
+              <span class="topic-icon">
+                <i class="fa-solid ${TOPIC_ICONS[i] || "fa-circle-info"}"></i>
+              </span>
               <span>${r.label}</span>
             `;
-            btn.addEventListener('click', () => {
-              // Tutup quick replies dan kirim pesan
-              const qr = document.getElementById('nicobot-quick-replies');
-              if (qr) qr.style.display = 'none';
-              // Trigger sendMessage via input — import tidak bisa, pakai event
-              const input = document.getElementById('nicobot-input');
-              const sendBtn = document.getElementById('nicobot-send');
-              if (input && sendBtn) {
+            btn.addEventListener("click", () => {
+              const qr = document.getElementById("nicobot-quick-replies");
+              const input = document.getElementById("nicobot-input");
+              const send = document.getElementById("nicobot-send");
+              if (qr) qr.style.display = "none";
+              if (input && send) {
                 input.value = r.message || r.label;
-                sendBtn.click();
+                send.click();
               }
             });
             container.appendChild(btn);
           });
         } catch {
-          // silent
+          // silent — bukan fitur kritis
         }
       }
 
       loadSidebarTopics();
     </script>
-
   </body>
 </html>
