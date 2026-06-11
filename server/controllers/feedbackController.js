@@ -4,28 +4,32 @@
 // Use Case: UC-05 Memberikan feedback
 // ─────────────────────────────────────────────
 
-const feedbackModel = require('../models/feedbackModel');
+const feedbackModel = require("../models/feedbackModel");
 
 const feedbackController = {
-
   // POST /api/feedback
   // UC-05: Simpan penilaian user terhadap jawaban bot
   submit: async (req, res) => {
     try {
       const { message_id, faq_id, value } = req.body;
 
-      // Validasi input
-      if (!message_id || !faq_id || value === undefined) {
+      // Validasi keberadaan field
+      if (!message_id || !faq_id || value === undefined || value === null) {
         return res.status(400).json({
           success: false,
-          message: 'message_id, faq_id, dan value wajib diisi'
+          message: "message_id, faq_id, dan value wajib diisi",
         });
       }
 
-      if (value !== 1 && value !== -1) {
+      // Konversi value: frontend kirim 'like'/'dislike', DB simpan 1/-1
+      const VALUE_MAP = { like: 1, dislike: -1 };
+      const numericValue =
+        typeof value === "string" ? VALUE_MAP[value.toLowerCase()] : value;
+
+      if (numericValue !== 1 && numericValue !== -1) {
         return res.status(400).json({
           success: false,
-          message: 'value harus 1 (👍) atau -1 (👎)'
+          message: "value harus 'like', 'dislike', 1, atau -1",
         });
       }
 
@@ -34,33 +38,35 @@ const feedbackController = {
       if (existing) {
         return res.status(400).json({
           success: false,
-          message: 'Feedback untuk pesan ini sudah pernah diberikan'
+          message: "Feedback untuk pesan ini sudah pernah diberikan",
         });
       }
 
       // Simpan feedback
-      const feedback = await feedbackModel.create(message_id, faq_id, value);
+      const feedback = await feedbackModel.create(
+        message_id,
+        faq_id,
+        numericValue,
+      );
 
       return res.status(200).json({
         success: true,
-        message: 'Feedback berhasil disimpan',
+        message: "Feedback berhasil disimpan",
         data: {
-          id:         feedback.id,
+          id: feedback.id,
           message_id: feedback.message_id,
-          faq_id:     feedback.faq_id,
-          value:      feedback.value
-        }
+          faq_id: feedback.faq_id,
+          value: feedback.value,
+        },
       });
-
     } catch (err) {
-      console.error('[submitFeedback] Error:', err.message);
+      console.error("[submitFeedback] Error:", err.message);
       return res.status(500).json({
         success: false,
-        message: 'Terjadi kesalahan saat menyimpan feedback'
+        message: "Terjadi kesalahan saat menyimpan feedback",
       });
     }
   },
-
 };
 
 module.exports = feedbackController;
