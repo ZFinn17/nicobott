@@ -420,7 +420,10 @@ function buildUnresolvedHTML(whatsappUrl) {
 // ─── Feedback row ────────────────────────────────────────────────────
 let feedbackCounter = 0;
 
-function createFeedbackRow(messageId) {
+// createFeedbackRow — menerima messageId dan faqId
+// Keduanya dikirim ke /api/feedback sesuai validasi feedbackController.
+// faqId diambil dari data.faq_id yang dikembalikan server di sendMessage.
+function createFeedbackRow(messageId, faqId) {
   const id = `fb-${++feedbackCounter}`;
   const div = document.createElement('div');
   div.className = 'nico-feedback-row';
@@ -445,7 +448,12 @@ function createFeedbackRow(messageId) {
       fetch(`${API_BASE}/feedback`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ session_id: state.sessionId, message_id: messageId, value: btn.dataset.val })
+        body: JSON.stringify({
+          session_id: state.sessionId,
+          message_id: messageId,
+          faq_id:     faqId,      // wajib — divalidasi feedbackController
+          value:      btn.dataset.val
+        })
       }).catch(() => {});
     });
   });
@@ -461,7 +469,7 @@ function createTimestamp() {
   return el;
 }
 
-function createBotBubble(htmlContent, isTyping = false, messageId = null) {
+function createBotBubble(htmlContent, isTyping = false, messageId = null, faqId = null) {
   const wrapper = document.createElement('div');
   wrapper.className = 'nico-msg-row nico-msg-bot message-enter';
 
@@ -489,7 +497,7 @@ function createBotBubble(htmlContent, isTyping = false, messageId = null) {
     meta.appendChild(createTimestamp());
 
     if (messageId !== 'welcome') {
-      meta.appendChild(createFeedbackRow(messageId || 'msg-' + Date.now()));
+      meta.appendChild(createFeedbackRow(messageId || 'msg-' + Date.now(), faqId));
     }
     col.appendChild(meta);
   }
@@ -616,19 +624,22 @@ async function sendMessage(text) {
     if (!res.ok) {
       messagesEl.appendChild(createErrorBubble(false));
     } else if (data.resolved === false) {
-      // Unresolved — bubble khusus dengan tombol WA
+      // Unresolved — tidak ada faq_id karena tidak ada FAQ yang cocok
       const msgId = data.message_id || null;
       const unresolvedBubble = createBotBubble(
         buildUnresolvedHTML(data.whatsapp_url),
         false,
-        msgId
+        msgId,
+        null    // faqId = null untuk unresolved
       );
       messagesEl.appendChild(unresolvedBubble);
       if (quickEl) { quickEl.style.display = 'flex'; loadQuickReplies(quickEl); }
     } else {
+      // FAQ ditemukan — ambil faq_id dari response server
       const formatted = formatBotReply(data.answer || data.reply || '');
-      const msgId = data.message_id || data.messageId || null;
-      messagesEl.appendChild(createBotBubble(formatted, false, msgId));
+      const msgId  = data.message_id || data.messageId || null;
+      const faqId  = data.faq_id     || null;   // dari chatController.sendMessage
+      messagesEl.appendChild(createBotBubble(formatted, false, msgId, faqId));
     }
   } catch {
     document.getElementById('nicobot-typing')?.remove();

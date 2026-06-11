@@ -32,19 +32,25 @@
    agar tidak bergantung pada CDN Tailwind
    ============================================= */
 .nico-msg-row {
+  /* KODE BARU */
+.nico-msg-row {
   display: flex;
   align-items: flex-start;
   gap: 0.625rem;
+  width: 100%;          /* ← establishes reference width untuk % child */
+}
 }
 .nico-msg-bot  { flex-direction: row; }
 .nico-msg-user { flex-direction: row-reverse; }
 
 .nico-msg-col {
-  display: flex;
+ display: flex;
   flex-direction: column;
   gap: 0.25rem;
   max-width: 95%;
+  min-width: 0;
 }
+
 
 /* Meta row (timestamp + feedback) */
 .nico-msg-meta {
@@ -104,6 +110,7 @@
   font-family: 'Inter', sans-serif;
   box-shadow: 0 1px 3px rgba(23, 37, 84, 0.06);
   word-break: break-word;
+  min-width: 56px;      /* ← cukup untuk menampung 3 titik typing + padding */
 }
 
 .nicobot-bubble-bot p {
@@ -126,6 +133,8 @@
   font-family: 'Inter', sans-serif;
   word-break: break-word;
   box-shadow: 0 1px 3px rgba(23, 37, 84, 0.12);
+  width: fit-content;           /* ← bubble mengikuti lebar teks */
+  margin-left: auto;            /* ← dorong ke kanan dalam kolom */
 }
 
 /* =============================================
