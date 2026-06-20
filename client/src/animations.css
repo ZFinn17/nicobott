@@ -1,0 +1,116 @@
+/* =============================================
+   SMK ICB Cinta Niaga — animations.css
+   Tambahkan blok ini ke akhir file client/src/style.css
+   (atau import sebagai file terpisah sebelum @import "tailwindcss")
+
+   PENTING:
+   - Tidak ada class Tailwind existing yang diubah.
+   - Semua class di bawah ini adalah NAMA BARU yang tidak
+     bertabrakan dengan utility Tailwind manapun.
+   - prefers-reduced-motion dihormati — animasi nonaktif
+     otomatis untuk user yang mengaktifkan setting tersebut.
+   ============================================= */
+
+/* ─────────────────────────────────────────────
+   1. STAGGERED PAGE LOAD
+   Elemen mulai tersembunyi (opacity 0, translate-y 24px),
+   class .stagger-in ditambahkan via JS lalu transisi ke posisi normal.
+   ───────────────────────────────────────────── */
+[data-stagger] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-stagger].stagger-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─────────────────────────────────────────────
+   2. SCROLL REVEAL
+   Sama prinsipnya dengan stagger, tapi dipicu oleh
+   IntersectionObserver saat scroll, bukan saat load.
+   ───────────────────────────────────────────── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(32px); /* setara translate-y-8 Tailwind */
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-reveal].reveal-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─────────────────────────────────────────────
+   3. NAVBAR UNDERLINE ANIMATION
+   Garis muncul dari kiri ke kanan via pseudo-element ::after.
+   Tambahkan class "nav-underline" pada <a> menu navbar.
+   ───────────────────────────────────────────── */
+.nav-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 2px;
+  background-color: #fbbf24; /* amber-400 — konsisten dengan brand */
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-underline:hover::after {
+  transform: scaleX(1);
+}
+
+/* Untuk menu yang sedang aktif (halaman saat ini) — garis selalu tampil */
+.nav-underline.nav-active::after {
+  transform: scaleX(1);
+}
+
+/* ─────────────────────────────────────────────
+   4. CTA IDLE PULSE
+   Pulse ringan pada tombol utama setelah idle beberapa detik.
+   Class ditambah/dihapus otomatis oleh animations.js.
+   ───────────────────────────────────────────── */
+@keyframes ctaPulseRing {
+  0%   { box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.45); }
+  70%  { box-shadow: 0 0 0 10px rgba(251, 191, 36, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(251, 191, 36, 0); }
+}
+
+.cta-pulse {
+  animation: ctaPulseRing 1.2s ease-out 2; /* 2 siklus saja, lalu berhenti */
+}
+
+/* ─────────────────────────────────────────────
+   5. RESPECT REDUCED MOTION
+   User dengan setting "reduce motion" di OS tidak akan
+   melihat animasi sama sekali — elemen langsung tampil normal.
+   Ini praktik aksesibilitas wajib untuk animasi modern.
+   ───────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  [data-stagger],
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .cta-pulse {
+    animation: none !important;
+  }
+
+  .nav-underline::after {
+    transition: none !important;
+  }
+}

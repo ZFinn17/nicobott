@@ -4,12 +4,13 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="./src/style.css" />
+    <link rel="stylesheet" href="./src/animations.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
-    <title>About — SMK ICB Cinta Niaga</title>
+    <title>Tentang — SMK ICB Cinta Niaga</title>
   </head>
 
   <body class="bg-[#f5f5f7] text-blue-950">
@@ -22,22 +23,16 @@
       </h1>
       <ul class="flex gap-4 text-sm text-slate-600">
         <li>
-          <a href="index.html" class="hover:text-blue-950 transition-colors"
-            >Beranda</a
-          >
+          <a href="index.html" class="nav-underline hover:text-blue-950 transition-colors">Beranda</a>
         </li>
         <li>
-          <a href="profile.html" class="hover:text-blue-950 transition-colors"
-            >Profil</a
-          >
+          <a href="profile.html" class="nav-underline hover:text-blue-950 transition-colors">Profil</a>
         </li>
         <li>
-          <a href="major.html" class="hover:text-blue-950 transition-colors"
-            >Jurusan</a
-          >
+          <a href="major.html" class="nav-underline hover:text-blue-950 transition-colors">Jurusan</a>
         </li>
-        <li class="font-bold text-blue-950 underline underline-offset-4">
-          <a href="#">Tentang Kami</a>
+        <li>
+          <a href="#" class="nav-underline nav-active font-bold text-blue-950">Tentang Kami</a>
         </li>
       </ul>
       <a
@@ -50,16 +45,14 @@
 
     <main class="pt-14">
       <!-- ============================================================
-           SECTION 1 — TENTANG KAMI
-           Layout: teks kiri diperkaya + foto kanan dipertahankan
+           SECTION 1 — TENTANG KAMI (hero-equivalent, staggered load)
            ============================================================ -->
       <section class="bg-white py-20 px-6 md:px-16">
         <div
           class="max-w-6xl mx-auto flex flex-col md:flex-row gap-14 items-center"
         >
           <!-- ── Teks kiri ── -->
-          <div class="md:w-1/2 flex flex-col gap-6">
-            <!-- Badge konsisten dengan sistem global -->
+          <div class="md:w-1/2 flex flex-col gap-6" data-stagger="1">
             <span
               class="inline-flex items-center gap-2 w-fit text-xs font-semibold tracking-widest uppercase text-amber-600"
             >
@@ -91,8 +84,8 @@
             </blockquote>
           </div>
 
-          <!-- ── Foto kanan (dipertahankan) ── -->
-          <div class="md:w-1/2 relative">
+          <!-- ── Foto kanan ── -->
+          <div class="md:w-1/2 relative" data-stagger="2">
             <!-- Badge mengambang di atas foto -->
             <div
               class="absolute -top-4 -left-4 z-10 bg-blue-950 text-white rounded-xl px-4 py-3 shadow-lg flex items-center gap-2"
@@ -121,18 +114,14 @@
       </section>
 
       <!-- ============================================================
-     SECTION: TESTIMONI ALUMNI
-     Pengganti section "4 Keunggulan" di about.html
-     Layout: Bento asymmetric — 1 kartu featured besar +
-             3 kartu standar + 1 kartu highlight bawah
-     Pure Tailwind CSS v4 + FontAwesome 6.5.1
-     ============================================================ -->
-
+           SECTION 2 — TESTIMONI ALUMNI (bento grid)
+           ============================================================ -->
       <section class="bg-[#f5f5f7] py-20 px-6 md:px-16">
         <div class="max-w-6xl mx-auto flex flex-col gap-12">
           <!-- ── Header ── -->
           <div
             class="flex flex-col sm:flex-row sm:items-end justify-between gap-4"
+            data-reveal
           >
             <div class="flex flex-col gap-3">
               <span
@@ -158,15 +147,12 @@
 
           <!-- ── BENTO GRID ── -->
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <!-- ════════════════════════════════════
-           KARTU 1 — FEATURED (biru tua, besar)
-           col-span 1 di md, col-span 1 lg
-           row-span 2 di lg
-           ════════════════════════════════════ -->
+
+            <!-- KARTU 1 — FEATURED (biru tua, besar, row-span 2) -->
             <div
               class="lg:row-span-2 bg-blue-950 rounded-2xl p-8 flex flex-col justify-between gap-8 relative overflow-hidden min-h-80 hover:shadow-2xl hover:shadow-blue-950/25 transition-all duration-300"
+              data-reveal data-reveal-delay="0"
             >
-              <!-- Dekorasi lingkaran -->
               <span
                 class="absolute -top-14 -right-14 w-52 h-52 rounded-full bg-blue-800/40 pointer-events-none"
               ></span>
@@ -174,7 +160,6 @@
                 class="absolute bottom-0 left-0 w-32 h-32 rounded-full bg-amber-400/5 pointer-events-none"
               ></span>
 
-              <!-- Ikon kutipan besar -->
               <div class="relative z-10">
                 <i
                   class="fa-solid fa-quote-left text-amber-400/25 text-7xl leading-none mb-4 block"
@@ -187,9 +172,7 @@
                 </p>
               </div>
 
-              <!-- Profil alumni -->
               <div class="relative z-10 flex items-center gap-4">
-                <!-- Avatar placeholder -->
                 <div
                   class="w-12 h-12 rounded-full bg-amber-400/20 border-2 border-amber-400/40 flex items-center justify-center shrink-0 overflow-hidden"
                 >
@@ -215,7 +198,6 @@
                     Junior Developer · Startup
                   </p>
                 </div>
-                <!-- Rating -->
                 <div class="ml-auto flex gap-0.5 shrink-0">
                   <i class="fa-solid fa-star text-amber-400 text-xs"></i>
                   <i class="fa-solid fa-star text-amber-400 text-xs"></i>
@@ -226,18 +208,15 @@
               </div>
             </div>
 
-            <!-- ════════════════════════════════════
-           KARTU 2 — Standar (putih)
-           ════════════════════════════════════ -->
+            <!-- KARTU 2 — Standar (putih) -->
             <div
               class="bg-white rounded-2xl p-7 border border-slate-200/80 shadow-sm flex flex-col gap-5 relative overflow-hidden hover:-translate-y-0.5 hover:shadow-md hover:shadow-blue-950/6 transition-all duration-200"
+              data-reveal data-reveal-delay="80"
             >
-              <!-- Quote icon transparan -->
               <i
                 class="fa-solid fa-quote-left text-blue-950/6 text-6xl absolute top-4 right-5 leading-none pointer-events-none"
               ></i>
 
-              <!-- Border aksen kiri -->
               <div
                 class="absolute left-0 top-6 bottom-6 w-1 rounded-full bg-amber-400"
               ></div>
@@ -281,11 +260,10 @@
               </div>
             </div>
 
-            <!-- ════════════════════════════════════
-           KARTU 3 — Standar (abu terang)
-           ════════════════════════════════════ -->
+            <!-- KARTU 3 — Standar (abu terang) -->
             <div
               class="bg-[#ffffff] rounded-2xl p-7 border border-slate-200/80 flex flex-col gap-5 relative overflow-hidden hover:-translate-y-0.5 hover:shadow-md hover:shadow-blue-950/6 transition-all duration-200"
+              data-reveal data-reveal-delay="160"
             >
               <i
                 class="fa-solid fa-quote-left text-blue-950/5 text-6xl absolute top-4 right-5 leading-none pointer-events-none"
@@ -336,23 +314,19 @@
               </div>
             </div>
 
-            <!-- ════════════════════════════════════
-           KARTU 4 — Wide bottom (putih, full col-span 2 di lg)
-           ════════════════════════════════════ -->
+            <!-- KARTU 4 — Wide bottom (full col-span 2 di lg) -->
             <div
               class="lg:col-span-2 bg-white rounded-2xl p-7 border border-slate-200/80 shadow-sm flex flex-col sm:flex-row gap-6 relative overflow-hidden hover:shadow-md hover:shadow-blue-950/6 transition-all duration-200"
+              data-reveal data-reveal-delay="240"
             >
-              <!-- Aksen kiri vertikal -->
               <div
                 class="hidden sm:block absolute left-0 top-6 bottom-6 w-1 rounded-full bg-amber-400"
               ></div>
 
-              <!-- Quote icon besar transparan -->
               <i
                 class="fa-solid fa-quote-left text-blue-950/5 text-7xl absolute bottom-3 right-6 leading-none pointer-events-none"
               ></i>
 
-              <!-- Konten -->
               <div class="sm:pl-4 flex flex-col gap-4 flex-1">
                 <p class="text-slate-600 text-sm leading-relaxed">
                   Waktu sekolah dulu saya ikut ekstrakurikuler kewirausahaan dan
@@ -403,11 +377,11 @@
       </section>
 
       <!-- ============================================================
-           SECTION 3 — FASILITAS UNGGULAN (SLIDER BESAR)
-           Struktur dipertahankan, visual disesuaikan
+           SECTION 3 — FASILITAS UNGGULAN (carousel besar)
+           data-reveal dipasang di wrapper terluar — BUKAN di .carousel-slide
            ============================================================ -->
       <section class="bg-white py-20 px-6 md:px-16">
-        <div class="max-w-6xl mx-auto flex flex-col gap-10">
+        <div class="max-w-6xl mx-auto flex flex-col gap-10" data-reveal>
           <!-- Header -->
           <div class="flex flex-col gap-3">
             <span
@@ -554,7 +528,7 @@
               </div>
             </div>
 
-            <!-- Tombol Prev — konsisten dengan major.html -->
+            <!-- Tombol Prev -->
             <button
               id="prevBtn"
               class="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/85 hover:bg-white border border-white/40 text-blue-950 text-sm flex items-center justify-center shadow-md transition-all duration-200 hover:scale-105"
@@ -669,6 +643,7 @@
         </div>
       </section>
 
+      <!-- Carousel JS (tidak diubah dari versi asli) -->
       <script>
         let currentSlide = 0;
         const slides = document.querySelectorAll(".carousel-slide");
@@ -706,527 +681,461 @@
       </script>
 
       <!-- ============================================================
-           SECTION 4 — FASILITAS UNGGULAN (GRID CARD KECIL)
-           Redesign: card dengan hover overlay + accent bottom + icon
+           SECTION 4 — EKSTRAKURIKULER
+           data-reveal per kartu dengan delay berulang 0/60/120/180ms
            ============================================================ -->
-      <!-- ============================================================
-     SECTION: EKSTRAKURIKULER
-     Grid 4 kolom desktop, 2 tablet, 1 mobile
-     Pure Tailwind CSS v4 + FontAwesome 6.5.1
-     ============================================================ -->
+      <section class="bg-[#f5f5f7] py-20 px-6 md:px-16">
+        <div class="max-w-6xl mx-auto flex flex-col gap-12">
 
-<section class="bg-[#f5f5f7] py-20 px-6 md:px-16">
-  <div class="max-w-6xl mx-auto flex flex-col gap-12">
-
-    <!-- ── Header ── -->
-    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-      <div class="flex flex-col gap-3">
-        <span class="inline-flex items-center gap-2 text-xs font-semibold
-                     tracking-widest uppercase text-amber-600 w-fit">
-          <span class="w-6 h-px bg-amber-500"></span>
-          Ekstrakurikuler
-        </span>
-        <h2 class="text-3xl md:text-4xl font-bold text-blue-950 leading-tight">
-          Kembangkan Potensi<br class="hidden sm:block"> &amp; Bakat Siswa
-        </h2>
-      </div>
-      <p class="text-slate-400 text-sm max-w-xs text-right hidden sm:block leading-relaxed">
-        Beragam kegiatan untuk membangun kreativitas, kepemimpinan,
-        sportivitas, dan kemampuan sosial siswa.
-      </p>
-    </div>
-
-    <!-- ── GRID ── -->
-    <!--
-      Baris 1: OSIS (lebar 2 col) + Angklung + Boxing
-      Baris 2: Dance + English Club + Jepang + Pramuka
-      Baris 3: Padus + Serinca (lebar 2 col) + SISPALA
-      Baris 4: Basket (full width banner pendek)
-    -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-
-      <!-- ═══ 1. OSIS — featured, 2 kolom ═══ -->
-      <div class="group sm:col-span-2 bg-white rounded-2xl overflow-hidden
-                  border border-slate-200/80 shadow-sm
-                  hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-950/10
-                  transition-all duration-300">
-        <!-- Image area -->
-        <div class="relative w-full h-52 bg-slate-100 overflow-hidden">
-          <img src="./images/osis.jpeg" alt="OSIS"
-               class="w-full h-full object-cover group-hover:scale-105
-                      transition-transform duration-500"
-               onerror="this.style.display='none'"/>
-          <!-- Gradient overlay -->
-          <div class="absolute inset-0 bg-linear-to-t from-blue-950/60
-                      via-blue-950/10 to-transparent pointer-events-none"></div>
-          <!-- Placeholder -->
-          <div class="absolute inset-0 flex items-center justify-center
-                      bg-slate-100 -z-10">
-            <i class="fa-regular fa-image text-4xl text-slate-300"></i>
-          </div>
-          <!-- Badge kategori -->
-          <span class="absolute top-3 left-3 inline-flex items-center gap-1.5
-                       bg-blue-950/80 backdrop-blur-sm text-white
-                       text-[10px] font-bold tracking-wide uppercase
-                       px-2.5 py-1 rounded-full z-10">
-            <i class="fa-solid fa-crown text-amber-400 text-[8px]"></i>
-            Organisasi
-          </span>
-          <!-- Label populer -->
-          <span class="absolute top-3 right-3 inline-flex items-center gap-1
-                       bg-amber-400 text-blue-950 text-[10px] font-bold
-                       px-2.5 py-1 rounded-full z-10">
-            <i class="fa-solid fa-fire text-[8px]"></i>
-            Populer
-          </span>
-          <!-- Info bawah dalam foto -->
-          <div class="absolute bottom-0 left-0 right-0 p-4 z-10">
-            <div class="flex items-end justify-between">
-              <div>
-                <h3 class="text-white font-bold text-lg leading-tight">OSIS</h3>
-                <p class="text-blue-200/80 text-xs mt-0.5">
-                  Organisasi Siswa Intra Sekolah
-                </p>
-              </div>
-              <div class="w-9 h-9 rounded-xl bg-amber-400 flex items-center
-                          justify-center shrink-0">
-                <i class="fa-solid fa-star text-blue-950 text-sm"></i>
-              </div>
+          <!-- ── Header ── -->
+          <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4" data-reveal>
+            <div class="flex flex-col gap-3">
+              <span class="inline-flex items-center gap-2 text-xs font-semibold
+                           tracking-widest uppercase text-amber-600 w-fit">
+                <span class="w-6 h-px bg-amber-500"></span>
+                Ekstrakurikuler
+              </span>
+              <h2 class="text-3xl md:text-4xl font-bold text-blue-950 leading-tight">
+                Kembangkan Potensi<br class="hidden sm:block"> &amp; Bakat Siswa
+              </h2>
             </div>
-          </div>
-        </div>
-        <!-- Deskripsi -->
-        <div class="p-5 border-t-2 border-amber-400">
-          <p class="text-slate-500 text-xs leading-relaxed">
-            Wadah kepemimpinan dan pengembangan karakter siswa. Berperan aktif
-            dalam merancang program sekolah dan membina hubungan antar-organisasi.
-          </p>
-          <div class="flex items-center justify-between mt-3">
-            <span class="text-[11px] text-slate-400 font-medium">
-              <i class="fa-solid fa-circle text-green-400 text-[7px] mr-1"></i>
-              Aktif
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ═══ 2. Angklung ═══ -->
-      <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200/80
-                  shadow-sm hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-950/10
-                  transition-all duration-300">
-        <div class="relative w-full h-36 bg-slate-100 overflow-hidden">
-          <img src="./images/ang.jpeg" alt="Angklung"
-               class="w-full h-full object-cover group-hover:scale-105
-                      transition-transform duration-500"
-               onerror="this.style.display='none'"/>
-          <div class="absolute inset-0 bg-linear-to-t from-blue-950/50
-                      via-transparent to-transparent pointer-events-none"></div>
-          <div class="absolute inset-0 flex items-center justify-center -z-10">
-            <i class="fa-regular fa-image text-3xl text-slate-300"></i>
-          </div>
-          <span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5
-                       bg-blue-950/80 backdrop-blur-sm text-white text-[10px]
-                       font-bold tracking-wide uppercase px-2.5 py-1 rounded-full z-10">
-            <i class="fa-solid fa-music text-amber-400 text-[8px]"></i>
-            Seni
-          </span>
-          <div class="absolute bottom-3 right-3 z-10 w-8 h-8 rounded-lg
-                      bg-white/20 backdrop-blur-sm flex items-center justify-center">
-            <i class="fa-solid fa-music text-white text-xs"></i>
-          </div>
-        </div>
-        <div class="p-4 border-t-2 border-blue-950 flex flex-col gap-1.5">
-          <h4 class="font-bold text-sm text-blue-950 leading-snug">Angklung</h4>
-          <p class="text-xs text-slate-500 leading-relaxed">
-            Lestarikan seni musik tradisional Sunda sambil membangun
-            kekompakan dan kepekaan musikal.
-          </p>
-          <span class="text-[11px] text-slate-400 mt-1">
-            <i class="fa-solid fa-circle text-green-400 text-[7px] mr-1"></i>Aktif
-          </span>
-        </div>
-      </div>
-
-      <!-- ═══ 3. Boxing ═══ -->
-      <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200/80
-                  shadow-sm hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-950/10
-                  transition-all duration-300">
-        <div class="relative w-full h-36 bg-slate-100 overflow-hidden">
-          <img src="./images/box.jpeg" alt="Boxing"
-               class="w-full h-full object-cover group-hover:scale-105
-                      transition-transform duration-500"
-               onerror="this.style.display='none'"/>
-          <div class="absolute inset-0 bg-linear-to-t from-blue-950/50
-                      via-transparent to-transparent pointer-events-none"></div>
-          <div class="absolute inset-0 flex items-center justify-center -z-10">
-            <i class="fa-regular fa-image text-3xl text-slate-300"></i>
-          </div>
-          <span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5
-                       bg-blue-950/80 backdrop-blur-sm text-white text-[10px]
-                       font-bold tracking-wide uppercase px-2.5 py-1 rounded-full z-10">
-            <i class="fa-solid fa-hand-fist text-amber-400 text-[8px]"></i>
-            Olahraga
-          </span>
-          <div class="absolute bottom-3 right-3 z-10 w-8 h-8 rounded-lg
-                      bg-white/20 backdrop-blur-sm flex items-center justify-center">
-            <i class="fa-solid fa-hand-fist text-white text-xs"></i>
-          </div>
-        </div>
-        <div class="p-4 border-t-2 border-amber-400 flex flex-col gap-1.5">
-          <h4 class="font-bold text-sm text-blue-950 leading-snug">Boxing</h4>
-          <p class="text-xs text-slate-500 leading-relaxed">
-            Melatih ketahanan fisik, mental baja, dan disiplin diri melalui
-            seni bela diri tinju yang terstruktur.
-          </p>
-          <span class="text-[11px] text-slate-400 mt-1">
-            <i class="fa-solid fa-circle text-green-400 text-[7px] mr-1"></i>Aktif
-          </span>
-        </div>
-      </div>
-
-      <!-- ═══ 4. Dance ═══ -->
-      <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200/80
-                  shadow-sm hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-950/10
-                  transition-all duration-300">
-        <div class="relative w-full h-36 bg-slate-100 overflow-hidden">
-          <img src="./images/dance.jpeg" alt="Dance"
-               class="w-full h-full object-cover group-hover:scale-105
-                      transition-transform duration-500"
-               onerror="this.style.display='none'"/>
-          <div class="absolute inset-0 bg-linear-to-t from-blue-950/50
-                      via-transparent to-transparent pointer-events-none"></div>
-          <div class="absolute inset-0 flex items-center justify-center -z-10">
-            <i class="fa-regular fa-image text-3xl text-slate-300"></i>
-          </div>
-          <span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5
-                       bg-blue-950/80 backdrop-blur-sm text-white text-[10px]
-                       font-bold tracking-wide uppercase px-2.5 py-1 rounded-full z-10">
-            <i class="fa-solid fa-person-dancing text-amber-400 text-[8px]"></i>
-            Seni
-          </span>
-          <div class="absolute bottom-3 right-3 z-10 w-8 h-8 rounded-lg
-                      bg-white/20 backdrop-blur-sm flex items-center justify-center">
-            <i class="fa-solid fa-person-dancing text-white text-xs"></i>
-          </div>
-        </div>
-        <div class="p-4 border-t-2 border-blue-950 flex flex-col gap-1.5">
-          <h4 class="font-bold text-sm text-blue-950 leading-snug">Dance</h4>
-          <p class="text-xs text-slate-500 leading-relaxed">
-            Ekspresikan diri lewat gerakan modern dance dan K-Pop cover
-            yang kreatif dan penuh semangat.
-          </p>
-          <span class="text-[11px] text-slate-400 mt-1">
-            <i class="fa-solid fa-circle text-green-400 text-[7px] mr-1"></i>Aktif
-          </span>
-        </div>
-      </div>
-
-      <!-- ═══ 5. English Club ═══ -->
-      <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200/80
-                  shadow-sm hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-950/10
-                  transition-all duration-300">
-        <div class="relative w-full h-36 bg-slate-100 overflow-hidden">
-          <img src="./images/ec.jpeg" alt="English Club"
-               class="w-full h-full object-cover group-hover:scale-105
-                      transition-transform duration-500"
-               onerror="this.style.display='none'"/>
-          <div class="absolute inset-0 bg-linear-to-t from-blue-950/50
-                      via-transparent to-transparent pointer-events-none"></div>
-          <div class="absolute inset-0 flex items-center justify-center -z-10">
-            <i class="fa-regular fa-image text-3xl text-slate-300"></i>
-          </div>
-          <span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5
-                       bg-blue-950/80 backdrop-blur-sm text-white text-[10px]
-                       font-bold tracking-wide uppercase px-2.5 py-1 rounded-full z-10">
-            <i class="fa-solid fa-language text-amber-400 text-[8px]"></i>
-            Akademik
-          </span>
-          <div class="absolute bottom-3 right-3 z-10 w-8 h-8 rounded-lg
-                      bg-white/20 backdrop-blur-sm flex items-center justify-center">
-            <i class="fa-solid fa-earth-americas text-white text-xs"></i>
-          </div>
-        </div>
-        <div class="p-4 border-t-2 border-amber-400 flex flex-col gap-1.5">
-          <h4 class="font-bold text-sm text-blue-950 leading-snug">English Club</h4>
-          <p class="text-xs text-slate-500 leading-relaxed">
-            Tingkatkan kemampuan speaking, listening, dan writing untuk
-            persiapan karir global.
-          </p>
-          <span class="text-[11px] text-slate-400 mt-1">
-            <i class="fa-solid fa-circle text-green-400 text-[7px] mr-1"></i>Aktif
-          </span>
-        </div>
-      </div>
-
-      <!-- ═══ 6. Jepang ═══ -->
-      <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200/80
-                  shadow-sm hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-950/10
-                  transition-all duration-300">
-        <div class="relative w-full h-36 bg-slate-100 overflow-hidden">
-          <img src="./images/jpn.jpeg" alt="Bahasa Jepang"
-               class="w-full h-full object-cover group-hover:scale-105
-                      transition-transform duration-500"
-               onerror="this.style.display='none'"/>
-          <div class="absolute inset-0 bg-linear-to-t from-blue-950/50
-                      via-transparent to-transparent pointer-events-none"></div>
-          <div class="absolute inset-0 flex items-center justify-center -z-10">
-            <i class="fa-regular fa-image text-3xl text-slate-300"></i>
-          </div>
-          <span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5
-                       bg-blue-950/80 backdrop-blur-sm text-white text-[10px]
-                       font-bold tracking-wide uppercase px-2.5 py-1 rounded-full z-10">
-            <i class="fa-solid fa-language text-amber-400 text-[8px]"></i>
-            Akademik
-          </span>
-          <div class="absolute bottom-3 right-3 z-10 w-8 h-8 rounded-lg
-                      bg-white/20 backdrop-blur-sm flex items-center justify-center">
-            <i class="fa-solid fa-torii-gate text-white text-xs"></i>
-          </div>
-        </div>
-        <div class="p-4 border-t-2 border-blue-950 flex flex-col gap-1.5">
-          <h4 class="font-bold text-sm text-blue-950 leading-snug">Bahasa Jepang</h4>
-          <p class="text-xs text-slate-500 leading-relaxed">
-            Pelajari bahasa dan budaya Jepang sebagai bekal karir di
-            perusahaan internasional.
-          </p>
-          <span class="text-[11px] text-slate-400 mt-1">
-            <i class="fa-solid fa-circle text-green-400 text-[7px] mr-1"></i>Aktif
-          </span>
-        </div>
-      </div>
-
-      <!-- ═══ 7. Pramuka ═══ -->
-      <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200/80
-                  shadow-sm hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-950/10
-                  transition-all duration-300">
-        <div class="relative w-full h-36 bg-slate-100 overflow-hidden">
-          <img src="./images/pram.jpeg" alt="Pramuka"
-               class="w-full h-full object-cover group-hover:scale-105
-                      transition-transform duration-500"
-               onerror="this.style.display='none'"/>
-          <div class="absolute inset-0 bg-linear-to-t from-blue-950/50
-                      via-transparent to-transparent pointer-events-none"></div>
-          <div class="absolute inset-0 flex items-center justify-center -z-10">
-            <i class="fa-regular fa-image text-3xl text-slate-300"></i>
-          </div>
-          <span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5
-                       bg-blue-950/80 backdrop-blur-sm text-white text-[10px]
-                       font-bold tracking-wide uppercase px-2.5 py-1 rounded-full z-10">
-            <i class="fa-solid fa-campground text-amber-400 text-[8px]"></i>
-            Wajib
-          </span>
-          <span class="absolute top-2.5 right-2.5 inline-flex items-center gap-1
-                       bg-amber-400 text-blue-950 text-[10px] font-bold
-                       px-2.5 py-1 rounded-full z-10">
-            Wajib
-          </span>
-        </div>
-        <div class="p-4 border-t-2 border-amber-400 flex flex-col gap-1.5">
-          <h4 class="font-bold text-sm text-blue-950 leading-snug">Pramuka</h4>
-          <p class="text-xs text-slate-500 leading-relaxed">
-            Membentuk karakter mandiri, disiplin, dan jiwa kepemimpinan
-            melalui kegiatan kepanduan terstruktur.
-          </p>
-          <span class="text-[11px] text-slate-400 mt-1">
-            <i class="fa-solid fa-circle text-green-400 text-[7px] mr-1"></i>Aktif
-          </span>
-        </div>
-      </div>
-
-      <!-- ═══ 8. Padus ═══ -->
-      <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200/80
-                  shadow-sm hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-950/10
-                  transition-all duration-300">
-        <div class="relative w-full h-36 bg-slate-100 overflow-hidden">
-          <img src="./images/padus.jpeg" alt="Paduan Suara"
-               class="w-full h-full object-cover group-hover:scale-105
-                      transition-transform duration-500"
-               onerror="this.style.display='none'"/>
-          <div class="absolute inset-0 bg-linear-to-t from-blue-950/50
-                      via-transparent to-transparent pointer-events-none"></div>
-          <div class="absolute inset-0 flex items-center justify-center -z-10">
-            <i class="fa-regular fa-image text-3xl text-slate-300"></i>
-          </div>
-          <span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5
-                       bg-blue-950/80 backdrop-blur-sm text-white text-[10px]
-                       font-bold tracking-wide uppercase px-2.5 py-1 rounded-full z-10">
-            <i class="fa-solid fa-microphone text-amber-400 text-[8px]"></i>
-            Seni
-          </span>
-          <div class="absolute bottom-3 right-3 z-10 w-8 h-8 rounded-lg
-                      bg-white/20 backdrop-blur-sm flex items-center justify-center">
-            <i class="fa-solid fa-microphone text-white text-xs"></i>
-          </div>
-        </div>
-        <div class="p-4 border-t-2 border-blue-950 flex flex-col gap-1.5">
-          <h4 class="font-bold text-sm text-blue-950 leading-snug">Paduan Suara</h4>
-          <p class="text-xs text-slate-500 leading-relaxed">
-            Wadah bagi siswa berbakat vokal untuk tampil di berbagai
-            ajang seni dan kompetisi paduan suara.
-          </p>
-          <span class="text-[11px] text-slate-400 mt-1">
-            <i class="fa-solid fa-circle text-green-400 text-[7px] mr-1"></i>Aktif
-          </span>
-        </div>
-      </div>
-
-      <!-- ═══ 9. Serinca — featured, 2 kolom ═══ -->
-      <div class="group sm:col-span-2 bg-white rounded-2xl overflow-hidden
-                  border border-slate-200/80 shadow-sm
-                  hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-950/10
-                  transition-all duration-300">
-        <div class="relative w-full h-48 bg-slate-100 overflow-hidden">
-          <img src="./images/serin.jpeg" alt="Serinca"
-               class="w-full h-full object-cover group-hover:scale-105
-                      transition-transform duration-500"
-               onerror="this.style.display='none'"/>
-          <div class="absolute inset-0 bg-linear-to-t from-blue-950/65
-                      via-blue-950/15 to-transparent pointer-events-none"></div>
-          <div class="absolute inset-0 flex items-center justify-center -z-10">
-            <i class="fa-regular fa-image text-4xl text-slate-300"></i>
-          </div>
-          <span class="absolute top-3 left-3 inline-flex items-center gap-1.5
-                       bg-blue-950/80 backdrop-blur-sm text-white text-[10px]
-                       font-bold tracking-wide uppercase px-2.5 py-1 rounded-full z-10">
-            <i class="fa-solid fa-masks-theater text-amber-400 text-[8px]"></i>
-            Seni Budaya
-          </span>
-          <span class="absolute top-3 right-3 inline-flex items-center gap-1
-                       bg-amber-400 text-blue-950 text-[10px] font-bold
-                       px-2.5 py-1 rounded-full z-10">
-            <i class="fa-solid fa-medal text-[8px]"></i>
-            Prestasi
-          </span>
-          <div class="absolute bottom-0 left-0 right-0 p-4 z-10">
-            <h3 class="text-white font-bold text-base leading-tight">Serinca</h3>
-            <p class="text-blue-200/80 text-xs mt-0.5">
-              Seni Tari Daerah ICB Cinta Niaga
+            <p class="text-slate-400 text-sm max-w-xs text-right hidden sm:block leading-relaxed">
+              Beragam kegiatan untuk membangun kreativitas, kepemimpinan,
+              sportivitas, dan kemampuan sosial siswa.
             </p>
           </div>
-        </div>
-        <div class="p-5 border-t-2 border-amber-400">
-          <p class="text-slate-500 text-xs leading-relaxed">
-            Unit seni tari daerah kebanggaan ICB yang aktif mewakili sekolah
-            dalam berbagai festival budaya dan kompetisi seni tingkat kota
-            hingga provinsi Jawa Barat.
-          </p>
-          <span class="text-[11px] text-slate-400 mt-2 block">
-            <i class="fa-solid fa-circle text-green-400 text-[7px] mr-1"></i>Aktif · Juara Provinsi
-          </span>
-        </div>
-      </div>
 
-      <!-- ═══ 10. SISPALA ═══ -->
-      <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200/80
-                  shadow-sm hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-950/10
-                  transition-all duration-300">
-        <div class="relative w-full h-36 bg-slate-100 overflow-hidden">
-          <img src="./images/sispala.jpeg" alt="SISPALA"
-               class="w-full h-full object-cover group-hover:scale-105
-                      transition-transform duration-500"
-               onerror="this.style.display='none'"/>
-          <div class="absolute inset-0 bg-linear-to-t from-blue-950/50
-                      via-transparent to-transparent pointer-events-none"></div>
-          <div class="absolute inset-0 flex items-center justify-center -z-10">
-            <i class="fa-regular fa-image text-3xl text-slate-300"></i>
-          </div>
-          <span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5
-                       bg-blue-950/80 backdrop-blur-sm text-white text-[10px]
-                       font-bold tracking-wide uppercase px-2.5 py-1 rounded-full z-10">
-            <i class="fa-solid fa-mountain text-amber-400 text-[8px]"></i>
-            Alam
-          </span>
-          <div class="absolute bottom-3 right-3 z-10 w-8 h-8 rounded-lg
-                      bg-white/20 backdrop-blur-sm flex items-center justify-center">
-            <i class="fa-solid fa-mountain-sun text-white text-xs"></i>
-          </div>
-        </div>
-        <div class="p-4 border-t-2 border-blue-950 flex flex-col gap-1.5">
-          <h4 class="font-bold text-sm text-blue-950 leading-snug">SISPALA</h4>
-          <p class="text-xs text-slate-500 leading-relaxed">
-            Siswa Pencinta Alam — melatih ketangguhan, kepedulian lingkungan,
-            dan jiwa petualang yang bertanggung jawab.
-          </p>
-          <span class="text-[11px] text-slate-400 mt-1">
-            <i class="fa-solid fa-circle text-green-400 text-[7px] mr-1"></i>Aktif
-          </span>
-        </div>
-      </div>
+          <!-- ── GRID 11 KARTU ── -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
 
-      <!-- ═══ 11. Basket — full width banner ═══ -->
-      <div class="group sm:col-span-2 lg:col-span-4 bg-blue-950 rounded-2xl
-                  overflow-hidden border border-blue-900 shadow-sm
-                  hover:shadow-xl hover:shadow-blue-950/30
-                  transition-all duration-300">
-        <div class="relative flex flex-col sm:flex-row">
-          <!-- Image kiri -->
-          <div class="relative sm:w-64 lg:w-80 h-40 sm:h-auto bg-blue-900 overflow-hidden
-                      shrink-0">
-            <img src="./images/basket.jpeg" alt="Basket"
-                 class="w-full h-full object-cover group-hover:scale-105
-                        transition-transform duration-500 opacity-80"
-                 onerror="this.style.display='none'"/>
-            <div class="absolute inset-0 flex items-center justify-center -z-10">
-              <i class="fa-regular fa-image text-4xl text-blue-700"></i>
-            </div>
-            <div class="absolute inset-0 bg-linear-to-r from-transparent via-transparent
-                        to-blue-950/80 sm:to-blue-950 pointer-events-none"></div>
-          </div>
-          <!-- Konten kanan -->
-          <div class="flex-1 p-6 flex flex-col justify-center gap-4 relative">
-            <!-- Dekorasi lingkaran -->
-            <span class="absolute -top-10 -right-10 w-40 h-40 rounded-full
-                         bg-blue-800/30 pointer-events-none"></span>
-            <div class="relative z-10 flex flex-col gap-3">
-              <div class="flex items-center gap-2 flex-wrap">
-                <span class="inline-flex items-center gap-1.5 bg-amber-400/20
-                             border border-amber-400/30 text-amber-300
+            <!-- 1. OSIS — featured, 2 kolom -->
+            <div class="group sm:col-span-2 bg-white rounded-2xl overflow-hidden
+                        border border-slate-200/80 shadow-sm
+                        hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-950/10
+                        transition-all duration-300"
+                 data-reveal data-reveal-delay="0">
+              <div class="relative w-full h-52 bg-slate-100 overflow-hidden">
+                <img src="./images/osis.jpeg" alt="OSIS"
+                     class="w-full h-full object-cover group-hover:scale-105
+                            transition-transform duration-500"
+                     onerror="this.style.display='none'"/>
+                <div class="absolute inset-0 bg-linear-to-t from-blue-950/60
+                            via-blue-950/10 to-transparent pointer-events-none"></div>
+                <div class="absolute inset-0 flex items-center justify-center -z-10">
+                  <i class="fa-regular fa-image text-4xl text-slate-300"></i>
+                </div>
+                <span class="absolute top-3 left-3 inline-flex items-center gap-1.5
+                             bg-blue-950/80 backdrop-blur-sm text-white
                              text-[10px] font-bold tracking-wide uppercase
-                             px-2.5 py-1 rounded-full">
-                  <i class="fa-solid fa-basketball text-amber-400 text-[8px]"></i>
-                  Olahraga
+                             px-2.5 py-1 rounded-full z-10">
+                  <i class="fa-solid fa-crown text-amber-400 text-[8px]"></i>
+                  Organisasi
                 </span>
-                <span class="inline-flex items-center gap-1
-                             bg-white/10 text-white/70 text-[10px] font-semibold
-                             px-2.5 py-1 rounded-full">
-                  <i class="fa-solid fa-circle text-green-400 text-[7px]"></i>
-                  Aktif
+                <span class="absolute top-3 right-3 inline-flex items-center gap-1
+                             bg-amber-400 text-blue-950 text-[10px] font-bold
+                             px-2.5 py-1 rounded-full z-10">
+                  <i class="fa-solid fa-fire text-[8px]"></i>
+                  Populer
+                </span>
+                <div class="absolute bottom-0 left-0 right-0 p-4 z-10">
+                  <div class="flex items-end justify-between">
+                    <div>
+                      <h3 class="text-white font-bold text-lg leading-tight">OSIS</h3>
+                      <p class="text-blue-200/80 text-xs mt-0.5">Organisasi Siswa Intra Sekolah</p>
+                    </div>
+                    <div class="w-9 h-9 rounded-xl bg-amber-400 flex items-center justify-center shrink-0">
+                      <i class="fa-solid fa-star text-blue-950 text-sm"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="p-5 border-t-2 border-amber-400">
+                <p class="text-slate-500 text-xs leading-relaxed">
+                  Wadah kepemimpinan dan pengembangan karakter siswa. Berperan aktif
+                  dalam merancang program sekolah dan membina hubungan antar-organisasi.
+                </p>
+                <div class="flex items-center justify-between mt-3">
+                  <span class="text-[11px] text-slate-400 font-medium">
+                    <i class="fa-solid fa-circle text-green-400 text-[7px] mr-1"></i>Aktif
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. Angklung -->
+            <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200/80
+                        shadow-sm hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-950/10
+                        transition-all duration-300"
+                 data-reveal data-reveal-delay="60">
+              <div class="relative w-full h-36 bg-slate-100 overflow-hidden">
+                <img src="./images/ang.jpeg" alt="Angklung"
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                     onerror="this.style.display='none'"/>
+                <div class="absolute inset-0 bg-linear-to-t from-blue-950/50 via-transparent to-transparent pointer-events-none"></div>
+                <div class="absolute inset-0 flex items-center justify-center -z-10">
+                  <i class="fa-regular fa-image text-3xl text-slate-300"></i>
+                </div>
+                <span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5
+                             bg-blue-950/80 backdrop-blur-sm text-white text-[10px]
+                             font-bold tracking-wide uppercase px-2.5 py-1 rounded-full z-10">
+                  <i class="fa-solid fa-music text-amber-400 text-[8px]"></i>Seni
+                </span>
+                <div class="absolute bottom-3 right-3 z-10 w-8 h-8 rounded-lg
+                            bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                  <i class="fa-solid fa-music text-white text-xs"></i>
+                </div>
+              </div>
+              <div class="p-4 border-t-2 border-blue-950 flex flex-col gap-1.5">
+                <h4 class="font-bold text-sm text-blue-950 leading-snug">Angklung</h4>
+                <p class="text-xs text-slate-500 leading-relaxed">
+                  Lestarikan seni musik tradisional Sunda sambil membangun kekompakan dan kepekaan musikal.
+                </p>
+                <span class="text-[11px] text-slate-400 mt-1">
+                  <i class="fa-solid fa-circle text-green-400 text-[7px] mr-1"></i>Aktif
                 </span>
               </div>
-              <h3 class="text-white text-xl font-bold leading-tight">
-                Basket
-              </h3>
-              <p class="text-blue-200/75 text-sm leading-relaxed max-w-lg">
-                Tim basket SMK ICB yang kompetitif dan berprestasi di berbagai
-                turnamen antar sekolah. Latihan rutin, pembinaan taktik, dan
-                semangat juang yang tinggi menjadi fondasi tim ini.
-              </p>
             </div>
+
+            <!-- 3. Boxing -->
+            <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200/80
+                        shadow-sm hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-950/10
+                        transition-all duration-300"
+                 data-reveal data-reveal-delay="120">
+              <div class="relative w-full h-36 bg-slate-100 overflow-hidden">
+                <img src="./images/box.jpeg" alt="Boxing"
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                     onerror="this.style.display='none'"/>
+                <div class="absolute inset-0 bg-linear-to-t from-blue-950/50 via-transparent to-transparent pointer-events-none"></div>
+                <div class="absolute inset-0 flex items-center justify-center -z-10">
+                  <i class="fa-regular fa-image text-3xl text-slate-300"></i>
+                </div>
+                <span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5
+                             bg-blue-950/80 backdrop-blur-sm text-white text-[10px]
+                             font-bold tracking-wide uppercase px-2.5 py-1 rounded-full z-10">
+                  <i class="fa-solid fa-hand-fist text-amber-400 text-[8px]"></i>Olahraga
+                </span>
+                <div class="absolute bottom-3 right-3 z-10 w-8 h-8 rounded-lg
+                            bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                  <i class="fa-solid fa-hand-fist text-white text-xs"></i>
+                </div>
+              </div>
+              <div class="p-4 border-t-2 border-amber-400 flex flex-col gap-1.5">
+                <h4 class="font-bold text-sm text-blue-950 leading-snug">Boxing</h4>
+                <p class="text-xs text-slate-500 leading-relaxed">
+                  Melatih ketahanan fisik, mental baja, dan disiplin diri melalui seni bela diri tinju yang terstruktur.
+                </p>
+                <span class="text-[11px] text-slate-400 mt-1">
+                  <i class="fa-solid fa-circle text-green-400 text-[7px] mr-1"></i>Aktif
+                </span>
+              </div>
+            </div>
+
+            <!-- 4. Dance -->
+            <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200/80
+                        shadow-sm hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-950/10
+                        transition-all duration-300"
+                 data-reveal data-reveal-delay="0">
+              <div class="relative w-full h-36 bg-slate-100 overflow-hidden">
+                <img src="./images/dance.jpeg" alt="Dance"
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                     onerror="this.style.display='none'"/>
+                <div class="absolute inset-0 bg-linear-to-t from-blue-950/50 via-transparent to-transparent pointer-events-none"></div>
+                <div class="absolute inset-0 flex items-center justify-center -z-10">
+                  <i class="fa-regular fa-image text-3xl text-slate-300"></i>
+                </div>
+                <span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5
+                             bg-blue-950/80 backdrop-blur-sm text-white text-[10px]
+                             font-bold tracking-wide uppercase px-2.5 py-1 rounded-full z-10">
+                  <i class="fa-solid fa-person-dancing text-amber-400 text-[8px]"></i>Seni
+                </span>
+                <div class="absolute bottom-3 right-3 z-10 w-8 h-8 rounded-lg
+                            bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                  <i class="fa-solid fa-person-dancing text-white text-xs"></i>
+                </div>
+              </div>
+              <div class="p-4 border-t-2 border-blue-950 flex flex-col gap-1.5">
+                <h4 class="font-bold text-sm text-blue-950 leading-snug">Dance</h4>
+                <p class="text-xs text-slate-500 leading-relaxed">
+                  Ekspresikan diri lewat gerakan modern dance dan K-Pop cover yang kreatif dan penuh semangat.
+                </p>
+                <span class="text-[11px] text-slate-400 mt-1">
+                  <i class="fa-solid fa-circle text-green-400 text-[7px] mr-1"></i>Aktif
+                </span>
+              </div>
+            </div>
+
+            <!-- 5. English Club -->
+            <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200/80
+                        shadow-sm hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-950/10
+                        transition-all duration-300"
+                 data-reveal data-reveal-delay="60">
+              <div class="relative w-full h-36 bg-slate-100 overflow-hidden">
+                <img src="./images/ec.jpeg" alt="English Club"
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                     onerror="this.style.display='none'"/>
+                <div class="absolute inset-0 bg-linear-to-t from-blue-950/50 via-transparent to-transparent pointer-events-none"></div>
+                <div class="absolute inset-0 flex items-center justify-center -z-10">
+                  <i class="fa-regular fa-image text-3xl text-slate-300"></i>
+                </div>
+                <span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5
+                             bg-blue-950/80 backdrop-blur-sm text-white text-[10px]
+                             font-bold tracking-wide uppercase px-2.5 py-1 rounded-full z-10">
+                  <i class="fa-solid fa-language text-amber-400 text-[8px]"></i>Akademik
+                </span>
+                <div class="absolute bottom-3 right-3 z-10 w-8 h-8 rounded-lg
+                            bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                  <i class="fa-solid fa-earth-americas text-white text-xs"></i>
+                </div>
+              </div>
+              <div class="p-4 border-t-2 border-amber-400 flex flex-col gap-1.5">
+                <h4 class="font-bold text-sm text-blue-950 leading-snug">English Club</h4>
+                <p class="text-xs text-slate-500 leading-relaxed">
+                  Tingkatkan kemampuan speaking, listening, dan writing untuk persiapan karir global.
+                </p>
+                <span class="text-[11px] text-slate-400 mt-1">
+                  <i class="fa-solid fa-circle text-green-400 text-[7px] mr-1"></i>Aktif
+                </span>
+              </div>
+            </div>
+
+            <!-- 6. Jepang -->
+            <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200/80
+                        shadow-sm hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-950/10
+                        transition-all duration-300"
+                 data-reveal data-reveal-delay="120">
+              <div class="relative w-full h-36 bg-slate-100 overflow-hidden">
+                <img src="./images/jpn.jpeg" alt="Bahasa Jepang"
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                     onerror="this.style.display='none'"/>
+                <div class="absolute inset-0 bg-linear-to-t from-blue-950/50 via-transparent to-transparent pointer-events-none"></div>
+                <div class="absolute inset-0 flex items-center justify-center -z-10">
+                  <i class="fa-regular fa-image text-3xl text-slate-300"></i>
+                </div>
+                <span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5
+                             bg-blue-950/80 backdrop-blur-sm text-white text-[10px]
+                             font-bold tracking-wide uppercase px-2.5 py-1 rounded-full z-10">
+                  <i class="fa-solid fa-language text-amber-400 text-[8px]"></i>Akademik
+                </span>
+                <div class="absolute bottom-3 right-3 z-10 w-8 h-8 rounded-lg
+                            bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                  <i class="fa-solid fa-torii-gate text-white text-xs"></i>
+                </div>
+              </div>
+              <div class="p-4 border-t-2 border-blue-950 flex flex-col gap-1.5">
+                <h4 class="font-bold text-sm text-blue-950 leading-snug">Bahasa Jepang</h4>
+                <p class="text-xs text-slate-500 leading-relaxed">
+                  Pelajari bahasa dan budaya Jepang sebagai bekal karir di perusahaan internasional.
+                </p>
+                <span class="text-[11px] text-slate-400 mt-1">
+                  <i class="fa-solid fa-circle text-green-400 text-[7px] mr-1"></i>Aktif
+                </span>
+              </div>
+            </div>
+
+            <!-- 7. Pramuka -->
+            <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200/80
+                        shadow-sm hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-950/10
+                        transition-all duration-300"
+                 data-reveal data-reveal-delay="180">
+              <div class="relative w-full h-36 bg-slate-100 overflow-hidden">
+                <img src="./images/pram.jpeg" alt="Pramuka"
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                     onerror="this.style.display='none'"/>
+                <div class="absolute inset-0 bg-linear-to-t from-blue-950/50 via-transparent to-transparent pointer-events-none"></div>
+                <div class="absolute inset-0 flex items-center justify-center -z-10">
+                  <i class="fa-regular fa-image text-3xl text-slate-300"></i>
+                </div>
+                <span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5
+                             bg-blue-950/80 backdrop-blur-sm text-white text-[10px]
+                             font-bold tracking-wide uppercase px-2.5 py-1 rounded-full z-10">
+                  <i class="fa-solid fa-campground text-amber-400 text-[8px]"></i>Wajib
+                </span>
+                <span class="absolute top-2.5 right-2.5 inline-flex items-center gap-1
+                             bg-amber-400 text-blue-950 text-[10px] font-bold
+                             px-2.5 py-1 rounded-full z-10">Wajib</span>
+              </div>
+              <div class="p-4 border-t-2 border-amber-400 flex flex-col gap-1.5">
+                <h4 class="font-bold text-sm text-blue-950 leading-snug">Pramuka</h4>
+                <p class="text-xs text-slate-500 leading-relaxed">
+                  Membentuk karakter mandiri, disiplin, dan jiwa kepemimpinan melalui kegiatan kepanduan terstruktur.
+                </p>
+                <span class="text-[11px] text-slate-400 mt-1">
+                  <i class="fa-solid fa-circle text-green-400 text-[7px] mr-1"></i>Aktif
+                </span>
+              </div>
+            </div>
+
+            <!-- 8. Padus -->
+            <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200/80
+                        shadow-sm hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-950/10
+                        transition-all duration-300"
+                 data-reveal data-reveal-delay="0">
+              <div class="relative w-full h-36 bg-slate-100 overflow-hidden">
+                <img src="./images/padus.jpeg" alt="Paduan Suara"
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                     onerror="this.style.display='none'"/>
+                <div class="absolute inset-0 bg-linear-to-t from-blue-950/50 via-transparent to-transparent pointer-events-none"></div>
+                <div class="absolute inset-0 flex items-center justify-center -z-10">
+                  <i class="fa-regular fa-image text-3xl text-slate-300"></i>
+                </div>
+                <span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5
+                             bg-blue-950/80 backdrop-blur-sm text-white text-[10px]
+                             font-bold tracking-wide uppercase px-2.5 py-1 rounded-full z-10">
+                  <i class="fa-solid fa-microphone text-amber-400 text-[8px]"></i>Seni
+                </span>
+                <div class="absolute bottom-3 right-3 z-10 w-8 h-8 rounded-lg
+                            bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                  <i class="fa-solid fa-microphone text-white text-xs"></i>
+                </div>
+              </div>
+              <div class="p-4 border-t-2 border-blue-950 flex flex-col gap-1.5">
+                <h4 class="font-bold text-sm text-blue-950 leading-snug">Paduan Suara</h4>
+                <p class="text-xs text-slate-500 leading-relaxed">
+                  Wadah bagi siswa berbakat vokal untuk tampil di berbagai ajang seni dan kompetisi paduan suara.
+                </p>
+                <span class="text-[11px] text-slate-400 mt-1">
+                  <i class="fa-solid fa-circle text-green-400 text-[7px] mr-1"></i>Aktif
+                </span>
+              </div>
+            </div>
+
+            <!-- 9. Serinca — featured, 2 kolom -->
+            <div class="group sm:col-span-2 bg-white rounded-2xl overflow-hidden
+                        border border-slate-200/80 shadow-sm
+                        hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-950/10
+                        transition-all duration-300"
+                 data-reveal data-reveal-delay="60">
+              <div class="relative w-full h-48 bg-slate-100 overflow-hidden">
+                <img src="./images/serin.jpeg" alt="Serinca"
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                     onerror="this.style.display='none'"/>
+                <div class="absolute inset-0 bg-linear-to-t from-blue-950/65 via-blue-950/15 to-transparent pointer-events-none"></div>
+                <div class="absolute inset-0 flex items-center justify-center -z-10">
+                  <i class="fa-regular fa-image text-4xl text-slate-300"></i>
+                </div>
+                <span class="absolute top-3 left-3 inline-flex items-center gap-1.5
+                             bg-blue-950/80 backdrop-blur-sm text-white text-[10px]
+                             font-bold tracking-wide uppercase px-2.5 py-1 rounded-full z-10">
+                  <i class="fa-solid fa-masks-theater text-amber-400 text-[8px]"></i>Seni Budaya
+                </span>
+                <span class="absolute top-3 right-3 inline-flex items-center gap-1
+                             bg-amber-400 text-blue-950 text-[10px] font-bold
+                             px-2.5 py-1 rounded-full z-10">
+                  <i class="fa-solid fa-medal text-[8px]"></i>Prestasi
+                </span>
+                <div class="absolute bottom-0 left-0 right-0 p-4 z-10">
+                  <h3 class="text-white font-bold text-base leading-tight">Serinca</h3>
+                  <p class="text-blue-200/80 text-xs mt-0.5">Seni Tari Daerah ICB Cinta Niaga</p>
+                </div>
+              </div>
+              <div class="p-5 border-t-2 border-amber-400">
+                <p class="text-slate-500 text-xs leading-relaxed">
+                  Unit seni tari daerah kebanggaan ICB yang aktif mewakili sekolah
+                  dalam berbagai festival budaya dan kompetisi seni tingkat kota
+                  hingga provinsi Jawa Barat.
+                </p>
+                <span class="text-[11px] text-slate-400 mt-2 block">
+                  <i class="fa-solid fa-circle text-green-400 text-[7px] mr-1"></i>Aktif · Juara Provinsi
+                </span>
+              </div>
+            </div>
+
+            <!-- 10. SISPALA -->
+            <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200/80
+                        shadow-sm hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-950/10
+                        transition-all duration-300"
+                 data-reveal data-reveal-delay="120">
+              <div class="relative w-full h-36 bg-slate-100 overflow-hidden">
+                <img src="./images/sispala.jpeg" alt="SISPALA"
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                     onerror="this.style.display='none'"/>
+                <div class="absolute inset-0 bg-linear-to-t from-blue-950/50 via-transparent to-transparent pointer-events-none"></div>
+                <div class="absolute inset-0 flex items-center justify-center -z-10">
+                  <i class="fa-regular fa-image text-3xl text-slate-300"></i>
+                </div>
+                <span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5
+                             bg-blue-950/80 backdrop-blur-sm text-white text-[10px]
+                             font-bold tracking-wide uppercase px-2.5 py-1 rounded-full z-10">
+                  <i class="fa-solid fa-mountain text-amber-400 text-[8px]"></i>Alam
+                </span>
+                <div class="absolute bottom-3 right-3 z-10 w-8 h-8 rounded-lg
+                            bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                  <i class="fa-solid fa-mountain-sun text-white text-xs"></i>
+                </div>
+              </div>
+              <div class="p-4 border-t-2 border-blue-950 flex flex-col gap-1.5">
+                <h4 class="font-bold text-sm text-blue-950 leading-snug">SISPALA</h4>
+                <p class="text-xs text-slate-500 leading-relaxed">
+                  Siswa Pencinta Alam — melatih ketangguhan, kepedulian lingkungan, dan jiwa petualang yang bertanggung jawab.
+                </p>
+                <span class="text-[11px] text-slate-400 mt-1">
+                  <i class="fa-solid fa-circle text-green-400 text-[7px] mr-1"></i>Aktif
+                </span>
+              </div>
+            </div>
+
+            <!-- 11. Basket — full width banner -->
+            <div class="group sm:col-span-2 lg:col-span-4 bg-blue-950 rounded-2xl
+                        overflow-hidden border border-blue-900 shadow-sm
+                        hover:shadow-xl hover:shadow-blue-950/30 transition-all duration-300"
+                 data-reveal data-reveal-delay="0">
+              <div class="relative flex flex-col sm:flex-row">
+                <div class="relative sm:w-64 lg:w-80 h-40 sm:h-auto bg-blue-900 overflow-hidden shrink-0">
+                  <img src="./images/basket.jpeg" alt="Basket"
+                       class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80"
+                       onerror="this.style.display='none'"/>
+                  <div class="absolute inset-0 flex items-center justify-center -z-10">
+                    <i class="fa-regular fa-image text-4xl text-blue-700"></i>
+                  </div>
+                  <div class="absolute inset-0 bg-linear-to-r from-transparent via-transparent to-blue-950/80 sm:to-blue-950 pointer-events-none"></div>
+                </div>
+                <div class="flex-1 p-6 flex flex-col justify-center gap-4 relative">
+                  <span class="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-blue-800/30 pointer-events-none"></span>
+                  <div class="relative z-10 flex flex-col gap-3">
+                    <div class="flex items-center gap-2 flex-wrap">
+                      <span class="inline-flex items-center gap-1.5 bg-amber-400/20
+                                   border border-amber-400/30 text-amber-300
+                                   text-[10px] font-bold tracking-wide uppercase
+                                   px-2.5 py-1 rounded-full">
+                        <i class="fa-solid fa-basketball text-amber-400 text-[8px]"></i>Olahraga
+                      </span>
+                      <span class="inline-flex items-center gap-1
+                                   bg-white/10 text-white/70 text-[10px] font-semibold
+                                   px-2.5 py-1 rounded-full">
+                        <i class="fa-solid fa-circle text-green-400 text-[7px]"></i>Aktif
+                      </span>
+                    </div>
+                    <h3 class="text-white text-xl font-bold leading-tight">Basket</h3>
+                    <p class="text-blue-200/75 text-sm leading-relaxed max-w-lg">
+                      Tim basket SMK ICB yang kompetitif dan berprestasi di berbagai
+                      turnamen antar sekolah. Latihan rutin, pembinaan taktik, dan
+                      semangat juang yang tinggi menjadi fondasi tim ini.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
+          <!-- END GRID -->
+
+          <!-- ── Footer info ── -->
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2" data-reveal>
+            <p class="text-slate-400 text-sm">
+              <i class="fa-solid fa-circle-info text-amber-500 mr-1.5"></i>
+              11 ekstrakurikuler aktif · Pendaftaran dibuka setiap awal tahun ajaran
+            </p>
+            <a href="nicobot.html"
+               class="inline-flex items-center gap-2 bg-blue-950 hover:bg-blue-900
+                      text-white text-sm font-semibold px-5 py-2.5 rounded-xl
+                      transition-colors duration-200 shrink-0">
+              <i class="fa-solid fa-comment-dots text-amber-400"></i>
+              Info Pendaftaran
+            </a>
+          </div>
+
         </div>
-      </div>
-
-    </div>
-    <!-- END GRID -->
-
-    <!-- ── Footer info ── -->
-    <div class="flex flex-col sm:flex-row items-center justify-between
-                gap-4 pt-2">
-      <p class="text-slate-400 text-sm">
-        <i class="fa-solid fa-circle-info text-amber-500 mr-1.5"></i>
-        11 ekstrakurikuler aktif · Pendaftaran dibuka setiap awal tahun ajaran
-      </p>
-      <a href="nicobot.html"
-         class="inline-flex items-center gap-2 bg-blue-950 hover:bg-blue-900
-                text-white text-sm font-semibold px-5 py-2.5 rounded-xl
-                transition-colors duration-200 shrink-0">
-        <i class="fa-solid fa-comment-dots text-amber-400"></i>
-        Info Pendaftaran
-      </a>
-    </div>
-
-  </div>
-</section>
+      </section>
     </main>
 
     <!-- ===== FOOTER ===== -->
@@ -1246,19 +1155,13 @@
           <h3 class="font-bold text-sm">Tautan Cepat</h3>
           <ul class="flex flex-col gap-2.5 text-blue-200 text-sm">
             <li>
-              <a href="index.html" class="hover:text-white transition-colors"
-                >Home</a
-              >
+              <a href="index.html" class="hover:text-white transition-colors">Home</a>
             </li>
             <li>
-              <a href="profile.html" class="hover:text-white transition-colors"
-                >Profile</a
-              >
+              <a href="profile.html" class="hover:text-white transition-colors">Profile</a>
             </li>
             <li>
-              <a href="major.html" class="hover:text-white transition-colors"
-                >Major</a
-              >
+              <a href="major.html" class="hover:text-white transition-colors">Major</a>
             </li>
             <li><a href="#" class="font-semibold text-white">About</a></li>
           </ul>
@@ -1268,9 +1171,7 @@
           <h3 class="font-bold text-sm">Informasi</h3>
           <ul class="flex flex-col gap-2.5 text-blue-200 text-sm">
             <li>
-              <a href="#" class="hover:text-white transition-colors"
-                >Privacy Policy</a
-              >
+              <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
             </li>
             <li>
               <a href="#" class="hover:text-white transition-colors">Contact</a>
@@ -1282,5 +1183,7 @@
         </div>
       </div>
     </footer>
+
+    <script type="module" src="./src/animations.js"></script>
   </body>
 </html>

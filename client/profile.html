@@ -1,16 +1,17 @@
 <!doctype html>
-<html lang="en">
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="./src/style.css" />
+    <link rel="stylesheet" href="./src/animations.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Fontawesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
-    <title>client</title>
+    <title>Profil — SMK ICB Cinta Niaga</title>
   </head>
   <body>
     <nav
@@ -18,12 +19,12 @@
     >
       <h1 class="font-bold">SMK ICB Cinta Niaga</h1>
       <ul class="flex gap-3">
-        <li><a href="index.html">Beranda</a></li>
-        <li class="underline underline-offset-5 font-bold">
-          <a href="#">Profil</a>
+        <li><a href="index.html" class="nav-underline">Beranda</a></li>
+        <li>
+          <a href="#" class="nav-underline nav-active font-bold">Profil</a>
         </li>
-        <li><a href="major.html">Jurusan</a></li>
-        <li><a href="about.html">Tentang Kami</a></li>
+        <li><a href="major.html" class="nav-underline">Jurusan</a></li>
+        <li><a href="about.html" class="nav-underline">Tentang Kami</a></li>
       </ul>
       <a
         href="nicobot.html"
@@ -44,7 +45,7 @@
       <section class="bg-[#f5f5f7] py-20 px-4 overflow-hidden">
         <div class="max-w-6xl mx-auto">
           <!-- Header -->
-          <div class="mb-12 flex flex-col gap-3">
+          <div class="mb-12 flex flex-col gap-3" data-stagger="1">
             <span
               class="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-amber-600 w-fit"
             >
@@ -65,6 +66,7 @@
           <!-- BENTO GRID -->
           <div
             class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-auto"
+            data-stagger="2"
           >
             <!-- KARTU 1: Deskripsi utama (span 2 kolom di lg) -->
             <div
@@ -277,19 +279,12 @@
 
       <!-- ============================================================
      SECTION: SEJARAH SEKOLAH
-     Layout: Vertical Timeline dengan milestone cards
-     Stack: Tailwind CSS v4 + FontAwesome 6.5.1
-     Keputusan desain:
-       - Gambar TIDAK digunakan sebagai blok besar di samping teks
-       - Visual diganti dengan sistem timeline vertikal berdasarkan tahun
-       - Setiap era/milestone punya kartu ringkas + ikon kontekstual
-       - Konsisten dengan palet: blue-950 + #f5f5f7 + amber
      ============================================================ -->
 
       <section class="bg-white py-20 px-4">
         <div class="max-w-4xl mx-auto">
           <!-- Header -->
-          <div class="mb-16 flex flex-col gap-3">
+          <div class="mb-16 flex flex-col gap-3" data-reveal>
             <span
               class="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-amber-600 w-fit"
             >
@@ -318,8 +313,8 @@
             <!-- ITEM 1: Berdiri -->
             <div
               class="relative flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-0 mb-12"
+              data-reveal
             >
-              <!-- Dot + tahun (kiri di mobile, tengah di sm+) -->
               <div
                 class="flex sm:flex-col items-center sm:absolute sm:left-1/2 sm:-translate-x-1/2 sm:top-0 gap-3 sm:gap-1 z-10"
               >
@@ -334,7 +329,6 @@
                 >
               </div>
 
-              <!-- Kartu — kanan di mobile, sebelah kiri di sm+ -->
               <div
                 class="ml-8 sm:ml-0 sm:w-[calc(50%-48px)] sm:mr-auto sm:pr-6"
               >
@@ -360,6 +354,7 @@
             <!-- ITEM 2: Akreditasi pertama -->
             <div
               class="relative flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-0 mb-12"
+              data-reveal
             >
               <div
                 class="flex sm:flex-col items-center sm:absolute sm:left-1/2 sm:-translate-x-1/2 sm:top-0 gap-3 sm:gap-1 z-10"
@@ -375,7 +370,6 @@
                 >
               </div>
 
-              <!-- Kartu — kanan di sm+ -->
               <div class="ml-8 sm:ml-auto sm:w-[calc(50%-48px)] sm:pl-6">
                 <div
                   class="bg-[#f5f5f7] rounded-2xl p-6 shadow-sm border border-slate-100"
@@ -401,6 +395,7 @@
             <!-- ITEM 3: Ekspansi Jurusan -->
             <div
               class="relative flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-0 mb-12"
+              data-reveal
             >
               <div
                 class="flex sm:flex-col items-center sm:absolute sm:left-1/2 sm:-translate-x-1/2 sm:top-0 gap-3 sm:gap-1 z-10"
@@ -443,6 +438,7 @@
             <!-- ITEM 4: Akreditasi A -->
             <div
               class="relative flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-0 mb-12"
+              data-reveal
             >
               <div
                 class="flex sm:flex-col items-center sm:absolute sm:left-1/2 sm:-translate-x-1/2 sm:top-0 gap-3 sm:gap-1 z-10"
@@ -481,6 +477,7 @@
             <!-- ITEM 5: Era Digital / Sekarang -->
             <div
               class="relative flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-0"
+              data-reveal
             >
               <div
                 class="flex sm:flex-col items-center sm:absolute sm:left-1/2 sm:-translate-x-1/2 sm:top-0 gap-3 sm:gap-1 z-10"
@@ -531,15 +528,12 @@
 
       <!-- ============================================================
      SECTION: VISI & MISI
-     Layout: Asymmetric split — Visi dominan kiri (biru tua, full),
-             Misi vertikal flow kanan (putih, numbered)
-     Pure Tailwind CSS v4 + FontAwesome 6.5.1
      ============================================================ -->
 
 <section class="bg-[#f5f5f7] py-20 px-5 md:px-16">
   <div class="max-w-7xl mx-auto flex flex-col gap-14">
     <!-- Header -->
-    <div class="flex flex-col gap-3 items-center text-center">
+    <div class="flex flex-col gap-3 items-center text-center" data-reveal>
       <span class="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-amber-600 w-fit">
         <span class="w-6 h-px bg-amber-500"></span>
         Identitas Sekolah
@@ -554,14 +548,12 @@
     <!-- ASYMMETRIC GRID: Visi dominan kiri, Misi kanan -->
     <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-5">
 
-      <!-- ── VISI: kartu biru tua dominan ── -->
-      <div class="bg-blue-950 rounded-2xl p-9 flex flex-col justify-between gap-8 relative overflow-hidden min-h-80">
+      <!-- VISI -->
+      <div class="bg-blue-950 rounded-2xl p-9 flex flex-col justify-between gap-8 relative overflow-hidden min-h-80" data-reveal data-reveal-delay="0">
 
-        <!-- Dekorasi lingkaran belakang -->
         <span class="absolute -top-16 -right-16 w-56 h-56 rounded-full bg-blue-800/30 pointer-events-none"></span>
         <span class="absolute bottom-0 left-0 w-36 h-36 rounded-full bg-amber-400/5 pointer-events-none"></span>
 
-        <!-- Top: badge + judul -->
         <div class="relative z-10 flex flex-col gap-5">
           <div class="inline-flex items-center gap-2.5 w-fit">
             <div class="w-11 h-11 rounded-xl bg-amber-400/15 border border-amber-400/25 flex items-center justify-center shrink-0 md:w-13 md:h-13">
@@ -575,7 +567,6 @@
           </h3>
         </div>
 
-        <!-- Bottom: isi visi + garis dekoratif -->
         <div class="relative z-10 flex flex-col gap-4">
           <div class="w-10 h-0.5 bg-amber-400/50 rounded-full"></div>
           <p class="text-blue-100/80 text-sm md:text-base leading-relaxed">
@@ -586,10 +577,9 @@
         </div>
       </div>
 
-      <!-- ── MISI: kartu putih dengan numbered flow ── -->
-      <div class="bg-white rounded-2xl border border-slate-200/80 p-9 flex flex-col gap-7 shadow-sm">
+      <!-- MISI -->
+      <div class="bg-white rounded-2xl border border-slate-200/80 p-9 flex flex-col gap-7 shadow-sm" data-reveal data-reveal-delay="120">
 
-        <!-- Header misi -->
         <div class="flex items-center gap-3">
           
           <div class="w-11 h-11 rounded-xl bg-amber-400/10 border border-amber-400/20 flex items-center justify-center shrink-0 md:w-13 md:h-13">
@@ -600,10 +590,8 @@
           </div>
         </div>
 
-        <!-- Divider -->
         <div class="h-px bg-slate-100"></div>
 
-        <!-- Numbered mission items -->
         <ol class="flex flex-col gap-5">
 
           <li class="flex items-start gap-4 group">
@@ -659,15 +647,13 @@
 
 <!-- ============================================================
      SECTION: NILAI-NILAI UTAMA
-     Layout: Tiga kartu dengan left-accent border + icon inline,
-             bukan centered. Staggered background variation.
      ============================================================ -->
 
 <section class="bg-white py-20 px-5 md:px-16">
   <div class="max-w-7xl mx-auto flex flex-col gap-14">
 
     <!-- Header -->
-    <div class="flex flex-col gap-3">
+    <div class="flex flex-col gap-3" data-reveal>
       <span class="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-amber-600 w-fit">
         <span class="w-6 h-px bg-amber-500"></span>
         Karakter Kami
@@ -680,15 +666,13 @@
       </div>
     </div>
 
-    <!-- Card grid: 3 kolom di desktop, stacked di mobile -->
+    <!-- Card grid -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
 
-      <!-- ── KARTU 1: Integritas ── -->
-      <!-- Kartu pertama: blue-950 (dominan, jadi anchor visual) -->
-      <div class="bg-blue-950 rounded-2xl p-8 flex flex-col gap-6 relative overflow-hidden group hover:scale-[1.01] transition-transform duration-200">
+      <!-- KARTU 1: Insan -->
+      <div class="bg-blue-950 rounded-2xl p-8 flex flex-col gap-6 relative overflow-hidden group hover:scale-[1.01] transition-transform duration-200" data-reveal data-reveal-delay="0">
         <span class="absolute -bottom-10 -right-10 w-40 h-40 rounded-full bg-blue-800/30 pointer-events-none"></span>
 
-        <!-- Icon + label -->
         <div class="relative z-10 flex items-center gap-3">
           <div class="w-12 h-12 rounded-xl bg-amber-400/15 border border-amber-400/20 flex items-center justify-center shrink-0">
             <i class="fa-solid fa-scale-balanced text-amber-400 text-lg"></i>
@@ -696,7 +680,6 @@
           <span class="text-amber-400 text-xs font-bold tracking-widest uppercase">Insan</span>
         </div>
 
-        <!-- Teks -->
         <div class="relative z-10 flex flex-col gap-3">
           <h3 class="text-white text-xl font-bold">Pribadi Berkarakter</h3>
           <p class="text-blue-200/75 text-sm leading-relaxed">
@@ -704,15 +687,12 @@
           </p>
         </div>
 
-        <!-- Bottom accent line -->
         <div class="relative z-10 w-8 h-0.5 bg-amber-400/40 rounded-full"></div>
       </div>
 
-      <!-- ── KARTU 2: Inovasi ── -->
-      <!-- Abu terang dengan border kiri amber -->
-      <div class="bg-[#f5f5f7] rounded-2xl p-8 flex flex-col gap-6 border border-slate-200/80 border-l-4 border-l-amber-400 group hover:shadow-md hover:shadow-blue-950/5 hover:-translate-y-0.5 transition-all duration-200">
+      <!-- KARTU 2: Cinta -->
+      <div class="bg-[#f5f5f7] rounded-2xl p-8 flex flex-col gap-6 border border-slate-200/80 border-l-4 border-l-amber-400 group hover:shadow-md hover:shadow-blue-950/5 hover:-translate-y-0.5 transition-all duration-200" data-reveal data-reveal-delay="100">
 
-        <!-- Icon + label -->
         <div class="flex items-center gap-3">
           <div class="w-12 h-12 rounded-xl bg-blue-950 flex items-center justify-center shrink-0">
             <i class="fa-solid fa-lightbulb text-amber-400 text-lg"></i>
@@ -720,7 +700,6 @@
           <span class="text-amber-600 text-xs font-bold tracking-widest uppercase">Cinta</span>
         </div>
 
-        <!-- Teks -->
         <div class="flex flex-col gap-3">
           <h3 class="text-blue-950 text-xl font-bold">Peduli dan Bertumbuh</h3>
           <p class="text-slate-500 text-sm leading-relaxed">
@@ -728,7 +707,6 @@
           </p>
         </div>
 
-        <!-- Tag bawah -->
         <div class="mt-auto pt-2 border-t border-slate-200">
           <span class="inline-flex items-center gap-1.5 text-blue-950 text-xs font-semibold">
             <i class="fa-solid fa-arrow-trend-up text-amber-500 text-xs"></i>
@@ -737,11 +715,9 @@
         </div>
       </div>
 
-      <!-- ── KARTU 3: Kolaborasi ── -->
-      <!-- Putih dengan shadow halus -->
-      <div class="bg-white rounded-2xl p-8 flex flex-col gap-6 border border-slate-200/80 border-l-4 border-l-blue-950 group hover:shadow-md hover:shadow-blue-950/5 hover:-translate-y-0.5 transition-all duration-200">
+      <!-- KARTU 3: Bakti -->
+      <div class="bg-white rounded-2xl p-8 flex flex-col gap-6 border border-slate-200/80 border-l-4 border-l-blue-950 group hover:shadow-md hover:shadow-blue-950/5 hover:-translate-y-0.5 transition-all duration-200" data-reveal data-reveal-delay="200">
 
-        <!-- Icon + label -->
         <div class="flex items-center gap-3">
           <div class="w-12 h-12 rounded-xl bg-blue-950 flex items-center justify-center shrink-0">
             <i class="fa-solid fa-handshake text-amber-400 text-lg"></i>
@@ -749,7 +725,6 @@
           <span class="text-blue-950 text-xs font-bold tracking-widest uppercase">Bakti</span>
         </div>
 
-        <!-- Teks -->
         <div class="flex flex-col gap-3">
           <h3 class="text-blue-950 text-xl font-bold">Berkarya dan Mengabdi</h3>
           <p class="text-slate-500 text-sm leading-relaxed">
@@ -757,7 +732,6 @@
           </p>
         </div>
 
-        <!-- Tag bawah -->
         <div class="mt-auto pt-2 border-t border-slate-200">
           <span class="inline-flex items-center gap-1.5 text-blue-950 text-xs font-semibold">
             <i class="fa-solid fa-users text-blue-950 text-xs"></i>
@@ -773,7 +747,6 @@
       <!-- FOOTER -->
       <footer class="bg-blue-950 text-white py-14 px-5 md:px-16">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
-          <!-- BRAND -->
           <div class="flex flex-col gap-5">
             <h1 class="text-2xl font-bold">SMK ICB Cinta Niaga</h1>
 
@@ -783,7 +756,6 @@
             </p>
           </div>
 
-          <!-- MENU -->
           <div class="flex flex-col gap-5">
             <h2 class="font-bold text-lg">Tautan Cepat</h2>
 
@@ -795,7 +767,6 @@
             </ul>
           </div>
 
-          <!-- INFO -->
           <div class="flex flex-col gap-5">
             <h2 class="font-bold text-lg">Informasi</h2>
 
@@ -811,5 +782,7 @@
         </div>
       </footer>
     </main>
+
+    <script type="module" src="./src/animations.js"></script>
   </body>
 </html>
