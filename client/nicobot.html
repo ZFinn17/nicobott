@@ -506,7 +506,7 @@
 
       async function loadSidebarTopics() {
         try {
-          const res = await fetch(`${API_BASE}/chat/quick-replies`);
+          const res  = await fetch('/api/chat/quick-replies');
           const json = await res.json();
           const replies = json.data || json || [];
           const container = document.getElementById('sidebar-topics');
