@@ -10,7 +10,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
-    <title>Jurusan — SMK ICB Cinta Niaga</title>
+    <title>Major — SMK ICB Cinta Niaga</title>
 
     <style>
       /*
@@ -152,9 +152,9 @@
                         class="fa-regular fa-image text-4xl text-slate-300"
                       ></i>
                     </div>
-                    <img
+                    <img decoding="async"
                       id="img-rpl-0"
-                      src="./images/rpl-1.jpeg"
+                      src="./images/rpl-1.webp"
                       alt="RPL 1"
                       onload="showImg('rpl', 0, this)"
                       onerror="this.style.display = 'none'"
@@ -169,9 +169,9 @@
                         class="fa-regular fa-image text-4xl text-slate-300"
                       ></i>
                     </div>
-                    <img
+                    <img loading="lazy" decoding="async"
                       id="img-rpl-1"
-                      src="./images/rpl-2.jpeg"
+                      src="./images/rpl-2.webp"
                       alt="RPL 2"
                       onload="showImg('rpl', 1, this)"
                       onerror="this.style.display = 'none'"
@@ -186,9 +186,9 @@
                         class="fa-regular fa-image text-4xl text-slate-300"
                       ></i>
                     </div>
-                    <img
+                    <img loading="lazy" decoding="async"
                       id="img-rpl-2"
-                      src="./images/rpl-3.jpeg"
+                      src="./images/rpl-3.webp"
                       alt="RPL 3"
                       onload="showImg('rpl', 2, this)"
                       onerror="this.style.display = 'none'"
@@ -319,9 +319,9 @@
                         class="fa-regular fa-image text-4xl text-slate-300"
                       ></i>
                     </div>
-                    <img
+                    <img decoding="async"
                       id="img-bisnis-0"
-                      src="./images/bisnis-ritel-1.jpeg"
+                      src="./images/bisnis-ritel-1.webp"
                       alt=""
                       onload="showImg('bisnis', 0, this)"
                       onerror="this.style.display = 'none'"
@@ -336,9 +336,9 @@
                         class="fa-regular fa-image text-4xl text-slate-300"
                       ></i>
                     </div>
-                    <img
+                    <img loading="lazy" decoding="async"
                       id="img-bisnis-1"
-                      src="/images/bisnis-ritel-2.jpeg"
+                      src="/images/bisnis-ritel-2.webp"
                       alt=""
                       onload="showImg('bisnis', 1, this)"
                       onerror="this.style.display = 'none'"
@@ -353,9 +353,9 @@
                         class="fa-regular fa-image text-4xl text-slate-300"
                       ></i>
                     </div>
-                    <img
+                    <img loading="lazy" decoding="async"
                       id="img-bisnis-2"
-                      src="./images/bisnis-ritel-3.jpeg"
+                      src="./images/bisnis-ritel-3.webp"
                       alt=""
                       onload="showImg('bisnis', 2, this)"
                       onerror="this.style.display = 'none'"
@@ -475,9 +475,9 @@
                         class="fa-regular fa-image text-4xl text-slate-300"
                       ></i>
                     </div>
-                    <img
+                    <img decoding="async"
                       id="img-akuntansi-0"
-                      src="./images/akl-1.jpeg"
+                      src="./images/akl-1.webp"
                       alt=""
                       onload="showImg('akuntansi', 0, this)"
                       onerror="this.style.display = 'none'"
@@ -492,9 +492,9 @@
                         class="fa-regular fa-image text-4xl text-slate-300"
                       ></i>
                     </div>
-                    <img
+                    <img loading="lazy" decoding="async"
                       id="img-akuntansi-1"
-                      src="./images/akl-2.jpeg"
+                      src="./images/akl-2.webp"
                       alt=""
                       onload="showImg('akuntansi', 1, this)"
                       onerror="this.style.display = 'none'"
@@ -509,9 +509,9 @@
                         class="fa-regular fa-image text-4xl text-slate-300"
                       ></i>
                     </div>
-                    <img
+                    <img loading="lazy" decoding="async"
                       id="img-akuntansi-2"
-                      src="./images/akl-3.jpeg"
+                      src="./images/akl-3.webp"
                       alt=""
                       onload="showImg('akuntansi', 2, this)"
                       onerror="this.style.display = 'none'"
@@ -626,9 +626,9 @@
                         class="fa-regular fa-image text-4xl text-slate-300"
                       ></i>
                     </div>
-                    <img
+                    <img decoding="async"
                       id="img-mp-0"
-                      src="./images/mp-1.jpeg"
+                      src="./images/mp-1.webp"
                       alt=""
                       onload="showImg('mp', 0, this)"
                       onerror="this.style.display = 'none'"
@@ -643,9 +643,9 @@
                         class="fa-regular fa-image text-4xl text-slate-300"
                       ></i>
                     </div>
-                    <img
+                    <img loading="lazy" decoding="async"
                       id="img-mp-1"
-                      src="./images/mp-2.jpeg"
+                      src="./images/mp-2.webp"
                       alt=""
                       onload="showImg('mp', 1, this)"
                       onerror="this.style.display = 'none'"
@@ -660,9 +660,9 @@
                         class="fa-regular fa-image text-4xl text-slate-300"
                       ></i>
                     </div>
-                    <img
+                    <img loading="lazy" decoding="async"
                       id="img-mp-2"
-                      src="./images/mp-3.jpeg"
+                      src="./images/mp-3.webp"
                       alt=""
                       onload="showImg('mp', 2, this)"
                       onerror="this.style.display = 'none'"
@@ -828,17 +828,54 @@
     </footer>
 
     <script>
-      /* ── Slider logic (tidak diubah dari versi asli) ── */
+      // ── Slider logic + IntersectionObserver untuk pause saat off-viewport ──
       const state = { rpl: 0, bisnis: 0, akuntansi: 0, mp: 0 };
       const timers = {};
       const TOTAL = 3,
         DELAY = 3500;
 
+      // IntersectionObserver: pause autoplay saat slider keluar viewport,
+      // lanjutkan saat kembali terlihat. Mengurangi CPU usage saat user scroll.
+      const sliderObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          const id = entry.target.dataset.id;
+          if (entry.isIntersecting) {
+            startAuto(id);   // kembali terlihat — mulai lagi
+          } else {
+            clearInterval(timers[id]); // keluar viewport — hentikan
+          }
+        });
+      }, { threshold: 0.1 });
+
+      // Pause saat browser tab tidak aktif (user pindah tab)
+      document.addEventListener('visibilitychange', () => {
+        Object.keys(state).forEach((id) => {
+          if (document.hidden) {
+            clearInterval(timers[id]);
+          } else {
+            // Hanya restart slider yang sedang visible
+            const el = document.querySelector(`.slider-wrap[data-id="${id}"]`);
+            if (el) {
+              const rect = el.getBoundingClientRect();
+              const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+              if (isVisible) startAuto(id);
+            }
+          }
+        });
+      });
+
       document.querySelectorAll(".slider-wrap").forEach((w) => {
         const id = w.dataset.id;
-        startAuto(id);
+        // Hover masih berfungsi normal
         w.addEventListener("mouseenter", () => clearInterval(timers[id]));
-        w.addEventListener("mouseleave", () => startAuto(id));
+        w.addEventListener("mouseleave", () => {
+          // Hanya restart jika slider sedang visible
+          const rect = w.getBoundingClientRect();
+          const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+          if (isVisible) startAuto(id);
+        });
+        // Daftarkan ke IntersectionObserver
+        sliderObserver.observe(w);
       });
 
       function startAuto(id) {
