@@ -192,7 +192,7 @@ const chatController = {
     { id: 4,  label: 'Fasilitas',      value: 'fasilitas sekolah'    },
     { id: 5,  label: 'Jam Operasional',        value: 'jam operasional'      },
     { id: 6,  label: 'Prestasi',               value: 'prestasi sekolah'     }, // ← diubah
-    { id: 7,  label: 'Lokasi Sekolah',         value: 'lokasi sekolah'       },
+    { id: 7,  label: 'Lokasi',         value: 'lokasi sekolah'       },
     { id: 8,  label: 'Visi dan Misi',          value: 'visi misi'            },
     { id: 9,  label: 'Kontak Sekolah',         value: 'kontak sekolah'       },
   ];
