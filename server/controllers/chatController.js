@@ -189,7 +189,7 @@ const chatController = {
     { id: 1,  label: 'Jurusan yang Tersedia', value: 'jurusan apa saja'     },
     { id: 2,  label: 'Info Pendaftaran',       value: 'cara daftar'          },
     { id: 3,  label: 'Biaya Sekolah',          value: 'berapa biaya sekolah' },
-    { id: 4,  label: 'Fasilitas Sekolah',      value: 'fasilitas sekolah'    },
+    { id: 4,  label: 'Fasilitas',      value: 'fasilitas sekolah'    },
     { id: 5,  label: 'Jam Operasional',        value: 'jam operasional'      },
     { id: 6,  label: 'Prestasi',               value: 'prestasi sekolah'     }, // ← diubah
     { id: 7,  label: 'Lokasi Sekolah',         value: 'lokasi sekolah'       },
