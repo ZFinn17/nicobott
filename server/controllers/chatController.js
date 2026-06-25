@@ -185,23 +185,23 @@ const chatController = {
   // GET /api/quick-replies
   // Mengembalikan daftar tombol quick reply
   getQuickReplies: (req, res) => {
-  const quickReplies = [
-    { id: 1,  label: 'Jurusan yang Tersedia', value: 'jurusan apa saja'     },
-    { id: 2,  label: 'Info Pendaftaran',       value: 'cara daftar'          },
-    { id: 3,  label: 'Biaya Sekolah',          value: 'berapa biaya sekolah' },
-    { id: 4,  label: 'Fasilitas',      value: 'fasilitas sekolah'    },
-    { id: 5,  label: 'Jam Operasional',        value: 'jam operasional'      },
-    { id: 6,  label: 'Prestasi',               value: 'prestasi sekolah'     }, // ← diubah
-    { id: 7,  label: 'Lokasi',         value: 'lokasi sekolah'       },
-    { id: 8,  label: 'Visi dan Misi',          value: 'visi misi'            },
-    { id: 9,  label: 'Kontak Sekolah',         value: 'kontak sekolah'       },
-  ];
+    const quickReplies = [
+      { id: 1, label: "Jurusan yang Tersedia", value: "jurusan apa saja" },
+      { id: 2, label: "Info Pendaftaran", value: "cara daftar" },
+      { id: 3, label: "Biaya", value: "berapa biaya sekolah" },
+      { id: 4, label: "Fasilitas", value: "fasilitas sekolah" },
+      { id: 5, label: "Jam Operasional", value: "jam operasional" },
+      { id: 6, label: "Prestasi", value: "prestasi sekolah" }, // ← diubah
+      { id: 7, label: "Lokasi", value: "lokasi sekolah" },
+      { id: 8, label: "Visi dan Misi", value: "visi misi" },
+      { id: 9, label: "Kontak", value: "kontak sekolah" },
+    ];
 
-  return res.status(200).json({
-    success: true,
-    data: quickReplies
-  });
-},
+    return res.status(200).json({
+      success: true,
+      data: quickReplies,
+    });
+  },
 };
 
 module.exports = chatController;
